@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>MercadoLands Admin</title>
+
+  <link rel="stylesheet" href="./admin.css" />
+
+</head>
+
+<body>
+
+  <div class="admin-wrap">
+
+    <div class="card">
+
+      <h1>Landing Builder</h1>
+
+      <p class="subtitle">
+        Subir imagen de perfil
+      </p>
+
+      <!-- SLUG -->
+      <label>
+        Slug
+      </label>
+
+      <input
+        type="text"
+        id="slug"
+        placeholder="ejemplo: daniela"
+      />
+
+      <!-- FILE -->
+      <label>
+        Imagen Profile
+      </label>
+
+      <input
+        type="file"
+        id="profile-upload"
+        accept=".png,.jpg,.jpeg,.webp,.heic"
+      />
+
+      <!-- BUTTON -->
+      <button id="upload-btn">
+        Subir imagen
+      </button>
+
+      <!-- STATUS -->
+      <div id="upload-status"></div>
+
+      <!-- PREVIEW -->
+      <img id="preview" />
+
+    </div>
+
+  </div>
+
+  <!-- SUPABASE -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- CONFIG -->
+  <script src="./config.js"></script>
+
+  <!-- UPLOAD -->
+  <script src="./upload.js"></script>
+
+</body>
+
+</html>

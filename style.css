@@ -1,0 +1,411 @@
+/* =========================
+   BASE
+========================= */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top left, #f7f3ee, #e8e2da);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.mockup-bg {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* =========================
+   TELEFONO
+========================= */
+.phone {
+  width: 360px;
+  border-radius: 40px;
+  background: #111;
+  padding: 12px;
+  position: relative;
+
+  box-shadow: 
+    0 50px 120px rgba(0,0,0,0.35),
+    inset 0 0 0 2px rgba(255,255,255,0.05);
+}
+
+/* NOTCH */
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 25px;
+  background: black;
+  border-radius: 20px;
+  z-index: 5;
+}
+
+/* =========================
+   PANTALLA
+========================= */
+.screen {
+  background: linear-gradient(180deg, #f9f7f3, #f2eee8);
+  border-radius: 30px;
+
+  /* 🔥 ajuste real de layout */
+  padding: 6px 24px 24px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  overflow: hidden;
+}
+
+/* =========================
+   HERO PRO (FIX FINAL)
+========================= */
+.hero-pro {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  position: relative; /* 🔥 CLAVE para la imagen flotante */
+}
+
+/* TEXTO */
+.hero-text {
+  flex: 1;
+  max-width: 150px;
+  z-index: 2; /* para que no quede debajo */
+}
+
+/* NOMBRE */
+.name {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+/* DIVIDER */
+.divider {
+  width: 40px;
+  height: 2px;
+  background: #b89b7a;
+  margin: 10px 0;
+}
+
+/* ROL */
+.role {
+  font-size: 12px;
+  color: #777;
+  letter-spacing: 0.5px;
+}
+
+/* FRASE SCRIPT */
+.script {
+  font-family: 'Great Vibes', cursive;
+  font-size: 16px;
+  color: #b89b7a;
+  margin-top: 6px;
+}
+
+/* =========================
+   HERO IMAGE FINAL (PRO)
+========================= */
+
+.hero-image {
+  position: absolute;
+
+  top: 8px;     /* 👈 aquí bajas la imagen */
+  right: -32px;  /* 👈 la sacas del layout */
+
+  width: 220px;
+
+  z-index: 1; /* 👈 BAJO */
+}
+
+/* Glow suave (correcto) */
+.hero-image::before {
+  content: "";
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  background: radial-gradient(
+    circle,
+    rgba(232,226,218,0.5) 0%,
+    transparent 70%
+  );
+
+  top: 40px;
+  right: 0;
+
+  filter: blur(20px);
+
+  z-index: 0;
+}
+
+/* Imagen PNG (FINAL PRO) */
+.hero-image img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+  object-fit: contain;
+
+  border-radius: 0;
+
+  /* 🔥 sombra inferior realista */
+  filter:
+    drop-shadow(0 50px 40px rgba(0,0,0,0.25))
+    drop-shadow(0 10px 10px rgba(0,0,0,0.15));
+
+    transform: translate(20px, -70px);
+}
+
+
+/* =========================
+   CTA BOX (CORE)
+========================= */
+.cta-box {
+  position: relative; /* 🔥 necesario para que z-index funcione */
+  z-index: 10;        /* 👈 esto hace que quede encima de la imagen */
+
+  margin-top: -10px;
+  padding: 22px;
+  border-radius: 32px;
+
+  background: linear-gradient(160deg, #0d2b2a, #061a19);
+
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.45),
+    inset 0 2px 4px rgba(255,255,255,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* =========================
+   BOTONES
+========================= */
+.btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px;
+  border-radius: 32px;
+
+  text-decoration: none;
+  color: white;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  backdrop-filter: blur(12px);
+
+  transition: all 0.3s ease;
+}
+
+
+
+/* HOVER */
+.btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  
+}
+
+/* 👇 AQUI EXACTAMENTE PEGAS ESTO 👇 */
+
+/* ==========================
+   ICONOS PRO
+========================== */
+.icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.icon-svg {
+  width: 22px;
+  height: 22px;
+  color: white;
+}
+
+
+
+/* CONTENIDO IZQUIERDA */
+.btn-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 🔥 CORRECCIÓN PRO */
+.btn-left div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+
+/* TEXTO SECUNDARIO */
+.btn small {
+  font-size: 11px;
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.btn-left div > div {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* FLECHA */
+.arrow {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+/* COLORES */
+.whatsapp {
+  background: linear-gradient(135deg, #0f3f35, #1e6b58);
+}
+
+.instagram {
+  background: linear-gradient(135deg, #b8956f, #d8b893);
+}
+
+.email {
+  background: linear-gradient(135deg, #eaeaea, #ffffff);
+  color: #333;
+}
+.email .icon {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.email small {
+  opacity: 0.7;
+  color: #666;
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.about h3 {
+  color: #b89b7a;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.about p {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5;
+}
+
+/* FRASE FINAL */
+.cta-final {
+  font-family: 'Great Vibes', cursive;
+  color: #b89b7a;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* =========================
+   FOOTER PREMIUM
+========================= */
+
+.footer {
+
+  background:
+    linear-gradient(
+      145deg,
+      #071818,
+      #0d2a29
+    );
+
+  color: #d5b28c;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 10px;
+
+  padding:
+    14px
+    10px
+    16px;
+
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  border-top:
+    1px solid rgba(255,255,255,0.05);
+}
+
+
+/* ITEMS */
+.footer div {
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 4px;
+
+  text-align: center;
+
+  font-size: 10px;
+  line-height: 1.2;
+
+  opacity: 0.92;
+}
+
+
+/* ICONOS */
+.footer span {
+  font-size: 14px;
+  display: block;
+}
+
+.footer small {
+  font-size: 10px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 400px) {
+  .phone {
+    width: 100%;
+  }
+}
