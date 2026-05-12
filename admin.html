@@ -1,79 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
-  <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>MercadoLands Admin</title>
 
-  <link rel="stylesheet" href="./admin.css" />
-
+  <link rel="stylesheet" href="./admin.css">
 </head>
-
 <body>
+  <main class="admin-shell">
+    <section class="admin-panel">
+      <header class="admin-header">
+        <div>
+          <span>MercadoLands Engine</span>
+          <h1>Landing Builder</h1>
+        </div>
+        <a id="view-link" class="ghost-link" href="./u/index.html?slug=daniela" target="_blank" rel="noopener noreferrer">
+          Ver landing
+        </a>
+      </header>
 
-  <div class="admin-wrap">
+      <section class="builder-grid">
+        <form id="builder-form" class="builder-form">
+          <div class="field-row">
+            <label for="slug">Slug</label>
+            <input id="slug" name="slug" type="text" placeholder="ejemplo: casanorte" value="casanorte">
+          </div>
 
-    <div class="card">
+          <div class="split-fields">
+            <div class="field-row">
+              <label for="template">Template</label>
+              <select id="template" name="template"></select>
+            </div>
 
-      <h1>Landing Builder</h1>
+            <div class="field-row">
+              <label for="theme">Theme</label>
+              <select id="theme" name="theme"></select>
+            </div>
+          </div>
 
-      <p class="subtitle">
-        Subir imagen de perfil
-      </p>
+          <div id="dynamic-fields" class="dynamic-fields"></div>
 
-      <!-- SLUG -->
-      <label>
-        Slug
-      </label>
+          <div class="actions-row">
+            <button type="button" id="load-btn" class="secondary-btn">Cargar slug</button>
+            <button type="submit" id="save-btn">Guardar landing</button>
+          </div>
 
-      <input
-        type="text"
-        id="slug"
-        placeholder="ejemplo: daniela"
-      />
+          <div id="admin-status" class="admin-status" role="status"></div>
+        </form>
 
-      <!-- FILE -->
-      <label>
-        Imagen Profile
-      </label>
+        <aside class="preview-panel">
+          <div class="preview-header">
+            <span>JSON generado</span>
+            <button type="button" id="copy-json" class="icon-btn">Copiar</button>
+          </div>
+          <pre id="json-preview"></pre>
+        </aside>
+      </section>
+    </section>
+  </main>
 
-      <input
-        type="file"
-        id="profile-upload"
-        accept=".png,.jpg,.jpeg,.webp,.heic"
-      />
-
-      <!-- BUTTON -->
-      <button id="upload-btn">
-        Subir imagen
-      </button>
-
-      <!-- STATUS -->
-      <div id="upload-status"></div>
-
-      <!-- PREVIEW -->
-      <img id="preview" />
-
-    </div>
-
-  </div>
-
-  <!-- SUPABASE -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  <!-- CONFIG -->
   <script src="./config.js"></script>
-
-  <!-- UPLOAD -->
-  <script src="./upload.js"></script>
-
+  <script type="module" src="./admin/panel.js"></script>
 </body>
-
 </html>

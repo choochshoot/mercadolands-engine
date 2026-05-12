@@ -1,0 +1,17 @@
+:root {
+  --page-bg: radial-gradient(circle at top left, #27221f, #090909);
+  --screen-bg: linear-gradient(180deg, #171717, #0e0e0e);
+  --panel-bg: linear-gradient(160deg, #211a12, #070605);
+  --footer-bg: linear-gradient(145deg, #070605, #211a12);
+  --accent: #d8b46a;
+  --text: #f4efe7;
+  --muted: #a79d90;
+  --whatsapp-bg: linear-gradient(135deg, #12382f, #1f5d4e);
+  --instagram-bg: linear-gradient(135deg, #8b6831, #d2a95a);
+  --email-bg: linear-gradient(135deg, #262626, #3a3a3a);
+  --email-text: #f4efe7;
+}
+
+.theme-dark-luxury .about p {
+  color: #d7d0c7;
+}

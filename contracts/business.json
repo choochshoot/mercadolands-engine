@@ -1,0 +1,90 @@
+{
+  "template": "business",
+  "theme": "green-gold",
+  "business": {
+    "name": "Casa Norte Studio",
+    "category": "Salon & Barberia",
+    "logo": "",
+    "coverPhoto": "",
+    "description": "Cortes, color y grooming premium con agenda por WhatsApp."
+  },
+  "hero": {
+    "message": "Agenda tu visita y recibe atencion personalizada."
+  },
+  "highlights": [
+    {
+      "value": "4.9",
+      "label": "Rating"
+    },
+    {
+      "value": "10+",
+      "label": "Anos"
+    },
+    {
+      "value": "Hoy",
+      "label": "Agenda"
+    }
+  ],
+  "services": [
+    {
+      "title": "Corte premium",
+      "description": "Asesoria, lavado y styling.",
+      "price": "$350"
+    },
+    {
+      "title": "Barba express",
+      "description": "Perfilado con toalla caliente.",
+      "price": "$220"
+    },
+    {
+      "title": "Color gloss",
+      "description": "Brillo y tono personalizado.",
+      "price": "$690"
+    }
+  ],
+  "buttons": [
+    {
+      "label": "Reservar por WhatsApp",
+      "link": "https://wa.me/5210000000000",
+      "type": "whatsapp",
+      "subtitle": "AGENDA AHORA"
+    },
+    {
+      "label": "Como llegar",
+      "link": "https://maps.google.com",
+      "type": "map",
+      "subtitle": "UBICACION"
+    },
+    {
+      "label": "Llamar al negocio",
+      "link": "tel:+5210000000000",
+      "type": "phone",
+      "subtitle": "CONTACTO DIRECTO"
+    }
+  ],
+  "contact": {
+    "phone": "+52 1 000 000 0000",
+    "email": "hola@casanorte.mx",
+    "address": "Av. Principal 123, Ciudad de Mexico",
+    "mapUrl": "https://maps.google.com"
+  },
+  "hours": [
+    {
+      "label": "Lun - Vie",
+      "value": "10:00 - 20:00"
+    },
+    {
+      "label": "Sabado",
+      "value": "10:00 - 16:00"
+    },
+    {
+      "label": "Domingo",
+      "value": "Cerrado"
+    }
+  ],
+  "trust": [
+    "Reserva segura",
+    "Respuesta rapida",
+    "Clientes felices"
+  ]
+}

@@ -1,0 +1,13 @@
+:root {
+  --page-bg: radial-gradient(circle at top left, #f7f3ee, #e8e2da);
+  --screen-bg: linear-gradient(180deg, #f9f7f3, #f2eee8);
+  --panel-bg: linear-gradient(160deg, #0d2b2a, #061a19);
+  --footer-bg: linear-gradient(145deg, #071818, #0d2a29);
+  --accent: #b89b7a;
+  --text: #282420;
+  --muted: #777;
+  --whatsapp-bg: linear-gradient(135deg, #0f3f35, #1e6b58);
+  --instagram-bg: linear-gradient(135deg, #b8956f, #d8b893);
+  --email-bg: linear-gradient(135deg, #eaeaea, #ffffff);
+  --email-text: #333;
+}

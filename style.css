@@ -1,38 +1,74 @@
-/* =========================
-   BASE
-========================= */
+:root {
+  --page-bg: radial-gradient(circle at top left, #f7f3ee, #e8e2da);
+  --screen-bg: linear-gradient(180deg, #f9f7f3, #f2eee8);
+  --panel-bg: linear-gradient(160deg, #0d2b2a, #061a19);
+  --footer-bg: linear-gradient(145deg, #071818, #0d2a29);
+  --accent: #b89b7a;
+  --text: #282420;
+  --muted: #777;
+  --surface: #fff;
+  --button-text: #fff;
+  --whatsapp-bg: linear-gradient(135deg, #0f3f35, #1e6b58);
+  --instagram-bg: linear-gradient(135deg, #b8956f, #d8b893);
+  --email-bg: linear-gradient(135deg, #eaeaea, #ffffff);
+  --email-text: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top left, #f7f3ee, #e8e2da);
+  min-height: 100vh;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--page-bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========================
-   CONTENEDOR GENERAL
-========================= */
+img {
+  max-width: 100%;
+}
+
+.state-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.state-card {
+  width: min(100%, 420px);
+  padding: 28px;
+  border-radius: 18px;
+  background: var(--surface);
+  text-align: center;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.12);
+}
+
+.state-card h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
 .mockup-bg {
   display: flex;
   justify-content: center;
   padding: 60px 20px;
 }
 
-/* =========================
-   TELEFONO
-========================= */
 .phone {
-  width: 360px;
+  width: min(360px, 100%);
   border-radius: 40px;
   background: #111;
   padding: 12px;
   position: relative;
-
-  box-shadow: 
-    0 50px 120px rgba(0,0,0,0.35),
-    inset 0 0 0 2px rgba(255,255,255,0.05);
+  box-shadow:
+    0 50px 120px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.05);
 }
 
-/* NOTCH */
 .phone::before {
   content: "";
   position: absolute;
@@ -41,355 +77,268 @@ body {
   transform: translateX(-50%);
   width: 120px;
   height: 25px;
-  background: black;
+  background: #000;
   border-radius: 20px;
   z-index: 5;
 }
 
-/* =========================
-   PANTALLA
-========================= */
 .screen {
-  background: linear-gradient(180deg, #f9f7f3, #f2eee8);
+  background: var(--screen-bg);
   border-radius: 30px;
-
-  /* 🔥 ajuste real de layout */
   padding: 6px 24px 24px;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.4);
-
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
   overflow: hidden;
 }
 
-/* =========================
-   HERO PRO (FIX FINAL)
-========================= */
 .hero-pro {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-
-  position: relative; /* 🔥 CLAVE para la imagen flotante */
+  position: relative;
 }
 
-/* TEXTO */
 .hero-text {
   flex: 1;
   max-width: 150px;
-  z-index: 2; /* para que no quede debajo */
+  z-index: 2;
 }
 
-/* NOMBRE */
+.intro {
+  margin: 24px 0 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .name {
-  font-family: 'Playfair Display', serif;
+  margin: 0;
+  font-family: "Playfair Display", serif;
   font-size: 30px;
   font-weight: 600;
   line-height: 1.1;
 }
 
-/* DIVIDER */
 .divider {
   width: 40px;
   height: 2px;
-  background: #b89b7a;
+  background: var(--accent);
   margin: 10px 0;
 }
 
-/* ROL */
 .role {
+  margin: 0;
   font-size: 12px;
-  color: #777;
+  color: var(--muted);
   letter-spacing: 0.5px;
 }
 
-/* FRASE SCRIPT */
 .script {
-  font-family: 'Great Vibes', cursive;
+  margin: 6px 0 0;
+  font-family: "Great Vibes", cursive;
   font-size: 16px;
-  color: #b89b7a;
-  margin-top: 6px;
+  color: var(--accent);
+  position: relative;
+  z-index: 4;
+  max-width: 150px;
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.86);
 }
-
-/* =========================
-   HERO IMAGE FINAL (PRO)
-========================= */
 
 .hero-image {
   position: absolute;
-
-  top: 8px;     /* 👈 aquí bajas la imagen */
-  right: -32px;  /* 👈 la sacas del layout */
-
+  top: 8px;
+  right: -32px;
   width: 220px;
-
-  z-index: 1; /* 👈 BAJO */
+  z-index: 1;
 }
 
-/* Glow suave (correcto) */
 .hero-image::before {
   content: "";
   position: absolute;
-
   width: 160px;
   height: 160px;
-
-  background: radial-gradient(
-    circle,
-    rgba(232,226,218,0.5) 0%,
-    transparent 70%
-  );
-
+  background: radial-gradient(circle, rgba(232, 226, 218, 0.5) 0%, transparent 70%);
   top: 40px;
   right: 0;
-
   filter: blur(20px);
-
   z-index: 0;
 }
 
-/* Imagen PNG (FINAL PRO) */
 .hero-image img {
   width: 100%;
   height: auto;
-
   display: block;
   object-fit: contain;
-
   border-radius: 0;
-
-  /* 🔥 sombra inferior realista */
   filter:
-    drop-shadow(0 50px 40px rgba(0,0,0,0.25))
-    drop-shadow(0 10px 10px rgba(0,0,0,0.15));
-
-    transform: translate(20px, -70px);
+    drop-shadow(0 50px 40px rgba(0, 0, 0, 0.25))
+    drop-shadow(0 10px 10px rgba(0, 0, 0, 0.15));
+  transform: translate(20px, -70px);
 }
 
-
-/* =========================
-   CTA BOX (CORE)
-========================= */
 .cta-box {
-  position: relative; /* 🔥 necesario para que z-index funcione */
-  z-index: 10;        /* 👈 esto hace que quede encima de la imagen */
-
-  margin-top: -10px;
+  position: relative;
+  z-index: 10;
+  margin-top: 18px;
   padding: 22px;
   border-radius: 32px;
-
-  background: linear-gradient(160deg, #0d2b2a, #061a19);
-
+  background: var(--panel-bg);
   box-shadow:
-    0 40px 90px rgba(0,0,0,0.45),
-    inset 0 2px 4px rgba(255,255,255,0.08);
-
+    0 40px 90px rgba(0, 0, 0, 0.45),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* =========================
-   BOTONES
-========================= */
 .btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  min-height: 80px;
   padding: 18px;
   border-radius: 32px;
-
   text-decoration: none;
-  color: white;
-
+  color: var(--button-text);
   font-weight: 600;
-
   box-shadow:
-    0 12px 30px rgba(0,0,0,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.25);
-
+    0 12px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(12px);
-
-  transition: all 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
-
-
-/* HOVER */
 .btn:hover {
   transform: translateY(-2px) scale(1.02);
-  
 }
 
-/* 👇 AQUI EXACTAMENTE PEGAS ESTO 👇 */
-
-/* ==========================
-   ICONOS PRO
-========================== */
 .icon {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin-right: 10px;
-  font-size: 20px;
+  flex: 0 0 auto;
 }
 
 .icon-svg {
   width: 22px;
   height: 22px;
-  color: white;
+  color: currentColor;
 }
 
-
-
-/* CONTENIDO IZQUIERDA */
 .btn-left {
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* 🔥 CORRECCIÓN PRO */
-.btn-left div {
+.btn-left > div {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-
-
-/* TEXTO SECUNDARIO */
 .btn small {
   font-size: 11px;
-  opacity: 0.6;
+  opacity: 0.68;
   letter-spacing: 0.5px;
   display: block;
 }
 
 .btn-left div > div {
+  max-width: 170px;
+  overflow-wrap: anywhere;
   font-size: 15px;
   font-weight: 600;
 }
 
-/* FLECHA */
 .arrow {
+  flex: 0 0 auto;
   font-size: 18px;
   opacity: 0.7;
 }
 
-/* COLORES */
-.whatsapp {
-  background: linear-gradient(135deg, #0f3f35, #1e6b58);
+.btn-whatsapp {
+  background: var(--whatsapp-bg);
 }
 
-.instagram {
-  background: linear-gradient(135deg, #b8956f, #d8b893);
+.btn-instagram {
+  background: var(--instagram-bg);
 }
 
-.email {
-  background: linear-gradient(135deg, #eaeaea, #ffffff);
-  color: #333;
-}
-.email .icon {
-  background: #e0e0e0;
-  color: #333;
+.btn-email {
+  background: var(--email-bg);
+  color: var(--email-text);
 }
 
-.email small {
+.btn-email .icon {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.btn-email small {
+  color: currentColor;
   opacity: 0.7;
-  color: #666;
 }
 
-/* =========================
-   ABOUT
-========================= */
+.btn-link {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+}
+
 .about {
   margin-top: 25px;
   text-align: center;
 }
 
-.about h3 {
-  color: #b89b7a;
+.about h2 {
+  margin: 0 0 10px;
+  color: var(--accent);
   font-size: 14px;
   letter-spacing: 1px;
 }
 
 .about p {
+  margin: 0;
   font-size: 13px;
   color: #444;
   line-height: 1.5;
 }
 
-/* FRASE FINAL */
 .cta-final {
-  font-family: 'Great Vibes', cursive;
-  color: #b89b7a;
+  font-family: "Great Vibes", cursive;
+  color: var(--accent);
   margin-top: 10px;
   font-size: 18px;
 }
 
-/* =========================
-   FOOTER PREMIUM
-========================= */
-
 .footer {
-
-  background:
-    linear-gradient(
-      145deg,
-      #071818,
-      #0d2a29
-    );
-
-  color: #d5b28c;
-
+  background: var(--footer-bg);
+  color: var(--accent);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-
-  padding:
-    14px
-    10px
-    16px;
-
+  padding: 14px 10px 16px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-
-  border-top:
-    1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-
-/* ITEMS */
 .footer div {
-
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   gap: 4px;
-
   text-align: center;
-
-  font-size: 10px;
   line-height: 1.2;
-
   opacity: 0.92;
 }
 
-
-/* ICONOS */
 .footer span {
   font-size: 14px;
   display: block;
@@ -402,10 +351,250 @@ body {
 }
 
 /* =========================
-   RESPONSIVE
+   BUSINESS TEMPLATE
 ========================= */
+.template-business .business-screen {
+  padding: 0 16px 18px;
+}
+
+.business-hero {
+  position: relative;
+  margin: 0 -16px;
+  padding: 168px 16px 18px;
+  overflow: hidden;
+  border-radius: 30px 30px 22px 22px;
+}
+
+.business-cover {
+  position: absolute;
+  inset: 0;
+  height: 210px;
+  background:
+    radial-gradient(circle at 72% 18%, rgba(184, 155, 122, 0.42), transparent 34%),
+    linear-gradient(145deg, #172b28, #070b0b);
+}
+
+.business-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.68)),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.45), transparent 58%);
+}
+
+.business-cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.business-identity {
+  position: relative;
+  z-index: 2;
+  padding: 16px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.2);
+}
+
+.business-logo {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 12px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--panel-bg);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.business-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.business-kicker {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.business-identity h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 27px;
+  line-height: 1.05;
+}
+
+.business-identity p:last-child {
+  margin: 8px 0 0;
+  color: #4b4742;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.business-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.business-highlights div {
+  min-height: 70px;
+  padding: 12px 8px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  text-align: center;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.business-highlights strong {
+  display: block;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.business-highlights span {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.business-section {
+  margin-top: 18px;
+}
+
+.business-section-head {
+  margin-bottom: 10px;
+}
+
+.business-section-head span,
+.business-contact > div > span {
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.business-section-head h2 {
+  margin: 2px 0 0;
+  font-size: 18px;
+}
+
+.business-services {
+  display: grid;
+  gap: 8px;
+}
+
+.business-services article {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.business-services h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.business-services p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.business-services strong {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.business-actions {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 26px;
+  background: var(--panel-bg);
+  display: grid;
+  gap: 12px;
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.28),
+    inset 0 2px 4px rgba(255, 255, 255, 0.08);
+}
+
+.business-actions .btn {
+  min-height: 64px;
+  border-radius: 24px;
+}
+
+.business-contact {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.business-contact p {
+  margin: 4px 0 0;
+  color: #47433e;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.business-hours {
+  display: grid;
+  gap: 6px;
+}
+
+.business-hours p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0;
+}
+
+.business-hours span {
+  color: var(--muted);
+}
+
+.business-footer small {
+  overflow-wrap: anywhere;
+}
+
 @media (max-width: 400px) {
-  .phone {
-    width: 100%;
+  .mockup-bg {
+    padding: 28px 12px;
+  }
+
+  .screen {
+    padding-inline: 20px;
+  }
+
+  .hero-image {
+    right: -42px;
+  }
+
+  .business-identity h1 {
+    font-size: 25px;
   }
 }
