@@ -1,0 +1,62 @@
+{
+  "template": "wedding",
+  "theme": "rose-gold",
+  "couple": {
+    "names": "Sofia y Eduardo"
+  },
+  "hero": {
+    "eyebrow": "Nuestra boda",
+    "date": "Sabado 18 de octubre, 2026",
+    "photo": ""
+  },
+  "location": {
+    "title": "Hacienda Santa Lucia",
+    "address": "Camino Real 120, Valle de Bravo, Estado de Mexico",
+    "mapUrl": "https://maps.google.com"
+  },
+  "itineraryTitle": "Momentos del dia",
+  "itinerary": [
+    {
+      "type": "cocktail",
+      "title": "Coctail",
+      "time": "16:30 hrs",
+      "place": "Jardin principal",
+      "text": "Bienvenida, bebidas y fotos con los novios.",
+      "mapUrl": "https://maps.google.com"
+    },
+    {
+      "type": "civil",
+      "title": "Boda Civil",
+      "time": "17:30 hrs",
+      "place": "Terraza del lago",
+      "text": "Ceremonia civil en familia.",
+      "mapUrl": "https://maps.google.com"
+    },
+    {
+      "type": "religious",
+      "title": "Boda Religiosa",
+      "time": "18:30 hrs",
+      "place": "Capilla de la hacienda",
+      "text": "Ceremonia religiosa y bendicion.",
+      "mapUrl": "https://maps.google.com"
+    }
+  ],
+  "gallery": {
+    "secondPhoto": "",
+    "alt": "Sofia y Eduardo",
+    "eyebrow": "Una nueva historia",
+    "title": "Gracias por celebrar este dia con nosotros"
+  },
+  "rsvp": {
+    "title": "Confirma tu asistencia",
+    "text": "Ayudanos a confirmar tu asistencia segun de quien seas invitado.",
+    "brideLabel": "Soy invitado de Sofia",
+    "brideWhatsapp": "https://wa.me/5210000000000",
+    "groomLabel": "Soy invitado de Eduardo",
+    "groomWhatsapp": "https://wa.me/5210000000000"
+  },
+  "social": {
+    "label": "Instagram de la boda",
+    "instagram": "https://instagram.com"
+  }
+}

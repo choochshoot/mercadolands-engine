@@ -12,6 +12,11 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -20,9 +25,56 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.lock-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.lock-card {
+  width: min(100%, 390px);
+  padding: 30px;
+  border-radius: 24px;
+  background: var(--admin-surface);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.12);
+}
+
+.lock-card span {
+  color: var(--admin-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.lock-card h1 {
+  margin-bottom: 24px;
+}
+
+.lock-card button {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 10px;
+  color: #fff;
+  background: var(--admin-accent);
+}
+
+#lock-error {
+  min-height: 20px;
+  margin: 14px 0 0;
+  color: #b42318;
+  font-weight: 700;
+}
+
 .admin-shell {
   width: 100%;
   padding: 24px;
+  display: none;
+}
+
+body.admin-unlocked .admin-shell {
+  display: block;
 }
 
 .admin-panel {

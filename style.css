@@ -598,3 +598,237 @@ img {
     font-size: 25px;
   }
 }
+
+/* =========================
+   WEDDING TEMPLATE
+========================= */
+.template-wedding {
+  background: #efe9e4;
+}
+
+.wedding-page {
+  width: min(430px, 100%);
+  margin: 0 auto;
+  background: #f8f3ef;
+  color: #241d1c;
+  box-shadow: 0 24px 80px rgba(63, 43, 37, 0.16);
+}
+
+.wedding-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 25%, rgba(201, 148, 129, 0.35), transparent 38%),
+    linear-gradient(145deg, #4b2028, #180b0f);
+}
+
+.wedding-hero > img,
+.wedding-full-photo > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wedding-hero > img[src=""],
+.wedding-full-photo > img[src=""] {
+  display: none;
+}
+
+.wedding-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.72)),
+    linear-gradient(0deg, rgba(75, 32, 40, 0.5), transparent 55%);
+}
+
+.wedding-hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 28px 54px;
+  color: #fff;
+  text-align: center;
+}
+
+.wedding-hero-content p,
+.wedding-section-title span,
+.wedding-full-photo span {
+  margin: 0 0 10px;
+  color: #d8b29f;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.wedding-hero-content h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 52px;
+  line-height: 0.95;
+  text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.wedding-hero-content span {
+  display: block;
+  margin-top: 16px;
+  font-size: 14px;
+  letter-spacing: 0.8px;
+}
+
+.wedding-card {
+  margin: 18px 16px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 18px 50px rgba(63, 43, 37, 0.1),
+    inset 0 0 0 1px rgba(75, 32, 40, 0.05);
+}
+
+.wedding-section-title h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 27px;
+  line-height: 1.05;
+}
+
+.wedding-location p,
+.wedding-rsvp p {
+  margin: 12px 0 0;
+  color: #5c504e;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.wedding-map-link {
+  display: inline-flex;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: #f2e3dc;
+  color: #6b2f3a;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.wedding-timeline {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.wedding-timeline-item {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 14px;
+  padding: 14px;
+  border-radius: 20px;
+  background: #fbf7f4;
+  border: 1px solid rgba(75, 32, 40, 0.08);
+}
+
+.wedding-timeline-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #4b2028, #210d12);
+  color: #e5b8aa;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 24px rgba(75, 32, 40, 0.2);
+}
+
+.wedding-timeline-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.wedding-timeline-item span {
+  color: #c89481;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.wedding-timeline-item h3 {
+  margin: 4px 0 3px;
+  font-size: 17px;
+}
+
+.wedding-timeline-item p,
+.wedding-timeline-item small {
+  display: block;
+  margin: 0;
+  color: #5c504e;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.wedding-full-photo {
+  min-height: 100vh;
+  margin-top: 18px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(201, 148, 129, 0.35), transparent 36%),
+    linear-gradient(145deg, #32161b, #100709);
+}
+
+.wedding-full-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.72));
+}
+
+.wedding-full-photo div {
+  position: relative;
+  z-index: 1;
+  padding: 0 28px 54px;
+  color: #fff;
+}
+
+.wedding-full-photo h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  line-height: 1.05;
+}
+
+.wedding-actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 26px;
+  background: linear-gradient(160deg, #4b2028, #210d12);
+}
+
+.wedding-actions .btn {
+  min-height: 66px;
+  border-radius: 24px;
+}
+
+.wedding-footer {
+  padding: 24px 18px 34px;
+  color: #8a6d64;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (min-width: 700px) {
+  .template-wedding .wedding-page {
+    margin-block: 36px;
+    border-radius: 34px;
+    overflow: hidden;
+  }
+}

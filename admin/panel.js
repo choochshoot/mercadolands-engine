@@ -1,4 +1,4 @@
-import { getAvailableTemplates } from "../core/template-registry.js";
+﻿import { getAvailableTemplates } from "../core/template-registry.js";
 import { getAvailableThemes } from "../core/theme-registry.js";
 
 const STORAGE_BUCKET = "landing-assets";
@@ -96,6 +96,11 @@ async function loadTemplateContract(template) {
 async function getContract(template) {
   if (template === "business") {
     const response = await fetch("./contracts/business.json");
+    return response.json();
+  }
+
+  if (template === "wedding") {
+    const response = await fetch("./contracts/wedding.json");
     return response.json();
   }
 

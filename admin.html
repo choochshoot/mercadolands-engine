@@ -9,6 +9,19 @@
   <link rel="stylesheet" href="./admin.css">
 </head>
 <body>
+  <main id="admin-lock" class="lock-shell">
+    <section class="lock-card">
+      <span>MercadoLands Engine</span>
+      <h1>Acceso admin</h1>
+      <form id="lock-form">
+        <label for="admin-key">Clave temporal</label>
+        <input id="admin-key" type="password" autocomplete="current-password" placeholder="Ingresa la clave">
+        <button type="submit">Entrar</button>
+        <p id="lock-error" role="status"></p>
+      </form>
+    </section>
+  </main>
+
   <main class="admin-shell">
     <section class="admin-panel">
       <header class="admin-header">
@@ -61,8 +74,6 @@
     </section>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="./config.js"></script>
-  <script type="module" src="./admin/panel.js"></script>
+  <script type="module" src="./admin/lock.js"></script>
 </body>
 </html>
