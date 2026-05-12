@@ -1,8 +1,9 @@
-const themes = {
+﻿const themes = {
   "green-gold": "green-gold.css",
   "rose-gold": "rose-gold.css",
   "dark-luxury": "dark-luxury.css",
-  minimal: "minimal.css"
+  minimal: "minimal.css",
+  glassmorphism: "glassmorphism.css"
 };
 
 export function resolveTheme(themeName) {
@@ -31,4 +32,3 @@ export function loadTheme(themeName) {
 export function getAvailableThemes() {
   return Object.keys(themes);
 }
-

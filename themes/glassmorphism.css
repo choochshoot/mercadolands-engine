@@ -1,0 +1,85 @@
+﻿:root {
+  --page-bg:
+    radial-gradient(circle at 18% 12%, rgba(255, 255, 255, 0.78), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(201, 148, 129, 0.34), transparent 34%),
+    linear-gradient(145deg, #efe9e4, #d8e0df 48%, #f7efea);
+  --screen-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.28));
+  --panel-bg: linear-gradient(160deg, rgba(18, 52, 47, 0.62), rgba(7, 18, 17, 0.48));
+  --footer-bg: linear-gradient(145deg, rgba(7, 24, 24, 0.74), rgba(13, 42, 41, 0.54));
+  --accent: #b98f7f;
+  --text: #211f20;
+  --muted: #6f7774;
+  --surface: rgba(255, 255, 255, 0.58);
+  --button-text: #ffffff;
+  --whatsapp-bg: linear-gradient(135deg, rgba(20, 88, 74, 0.72), rgba(45, 132, 107, 0.56));
+  --instagram-bg: linear-gradient(135deg, rgba(190, 140, 122, 0.72), rgba(232, 184, 169, 0.55));
+  --email-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.42));
+  --email-text: #292526;
+}
+
+.theme-glassmorphism .screen,
+.theme-glassmorphism .cta-box,
+.theme-glassmorphism .footer,
+.theme-glassmorphism .business-identity,
+.theme-glassmorphism .business-highlights div,
+.theme-glassmorphism .business-services article,
+.theme-glassmorphism .business-contact,
+.theme-glassmorphism .wedding-card,
+.theme-glassmorphism .wedding-timeline-item,
+.theme-glassmorphism .wedding-actions {
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(22px) saturate(135%);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+}
+
+.theme-glassmorphism .screen,
+.theme-glassmorphism .business-identity,
+.theme-glassmorphism .business-highlights div,
+.theme-glassmorphism .business-services article,
+.theme-glassmorphism .business-contact,
+.theme-glassmorphism .wedding-card,
+.theme-glassmorphism .wedding-timeline-item {
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow:
+    0 24px 70px rgba(31, 25, 24, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+
+.theme-glassmorphism .cta-box,
+.theme-glassmorphism .business-actions,
+.theme-glassmorphism .wedding-actions {
+  background: linear-gradient(160deg, rgba(9, 34, 32, 0.72), rgba(8, 18, 18, 0.5));
+  box-shadow:
+    0 34px 80px rgba(10, 24, 23, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+.theme-glassmorphism .btn {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.theme-glassmorphism .wedding-page {
+  background:
+    radial-gradient(circle at 50% 8%, rgba(255, 255, 255, 0.52), transparent 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(245, 238, 234, 0.76));
+}
+
+.theme-glassmorphism .wedding-hero,
+.theme-glassmorphism .wedding-full-photo {
+  background:
+    radial-gradient(circle at 22% 12%, rgba(255, 255, 255, 0.34), transparent 28%),
+    radial-gradient(circle at 76% 24%, rgba(185, 143, 127, 0.42), transparent 32%),
+    linear-gradient(145deg, #2f171b, #0c1111);
+}
+
+.theme-glassmorphism .wedding-map-link,
+.theme-glassmorphism .ghost-link,
+.theme-glassmorphism .mini-btn,
+.theme-glassmorphism .icon-btn {
+  background: rgba(255, 255, 255, 0.54);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
