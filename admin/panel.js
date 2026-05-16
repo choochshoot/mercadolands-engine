@@ -178,6 +178,10 @@ function renderField(key, value, path) {
 }
 
 function renderInput(key, value, path) {
+  if (typeof value === "boolean") {
+    return renderBooleanInput(key, value, path);
+  }
+
   if (isAssetField(key, path)) {
     return renderAssetInput(key, value, path);
   }
@@ -202,6 +206,14 @@ function renderInput(key, value, path) {
   `;
 }
 
+function renderBooleanInput(key, value, path) {
+  return `
+    <label class="toggle-row">
+      <span>${toTitle(key)}</span>
+      <input type="checkbox" data-path="${path}" ${value ? "checked" : ""}>
+    </label>
+  `;
+}
 function renderAssetInput(key, value, path) {
   const inputValue = escapeHtml(value);
 
@@ -245,7 +257,10 @@ function handleDynamicClick(event) {
 async function handleFieldChange(event) {
   const input = event.target;
 
-  if (!input.matches("input[type='file'][data-upload-path]")) return;
+  if (!input.matches("input[type='file'][data-upload-path]")) {
+    updatePreview();
+    return;
+  }
 
   await uploadAssetForField(input);
 }
@@ -283,6 +298,11 @@ function syncStateFromFields() {
   state.data.theme = els.theme.value;
 
   els.fields.querySelectorAll("[data-path]").forEach((field) => {
+    if (field.matches("input[type='checkbox']")) {
+      setByPath(state.data, field.dataset.path, field.checked);
+      return;
+    }
+
     if (field.matches("input, textarea")) {
       setByPath(state.data, field.dataset.path, field.value);
     }
@@ -541,6 +561,7 @@ function getByPath(target, path) {
 
 function cloneEmpty(value) {
   if (Array.isArray(value)) return [];
+  if (typeof value === "boolean") return false;
   if (isObject(value)) {
     return Object.fromEntries(
       Object.entries(value).map(([key, child]) => [key, cloneEmpty(child)])
@@ -611,3 +632,4 @@ function cssEscape(value) {
 
   return String(value).replace(/"/g, '\\"');
 }
+

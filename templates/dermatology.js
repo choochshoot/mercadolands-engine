@@ -17,6 +17,8 @@ export function render(data = {}) {
         ${renderImage(hero.photo, brand.name || "Clinica dermatologica", "derma-hero-media")}
         <div class="derma-hero-shade"></div>
         <div class="derma-hero-content">
+          ${renderBrandLogo(brand, "derma-hero-logo", { fallback: false })}
+          ${renderHeroAvatar(doctor)}
           <p class="derma-eyebrow">${escapeHtml(hero.eyebrow || brand.specialty)}</p>
           <h1>${escapeHtml(hero.title)}</h1>
           <p>${escapeHtml(hero.subtitle)}</p>
@@ -28,7 +30,7 @@ export function render(data = {}) {
       </section>
 
       <section class="derma-card derma-brand-card">
-        <div class="derma-logo">${getInitials(brand.name)}</div>
+        ${renderBrandLogo(brand, "derma-logo")}
         <div>
           <p class="derma-eyebrow">${escapeHtml(brand.tagline)}</p>
           <h2>${escapeHtml(brand.name)}</h2>
@@ -96,12 +98,42 @@ export function render(data = {}) {
       </section>
 
       <footer class="derma-footer">
-        ${escapeHtml(brand.name)} · Dermatologia estetica de precision
+        ${escapeHtml(brand.name)} - Dermatologia estetica de precision
       </footer>
     </main>
   `;
 }
 
+function renderHeroAvatar(doctor = {}) {
+  if (doctor.showHeroAvatar === false) return "";
+
+  const photo = safeUrl(doctor.photo);
+
+  if (photo) {
+    return `
+      <div class="derma-hero-avatar">
+        <img src="${photo}" alt="${escapeHtml(doctor.name || "Doctora")}">
+      </div>
+    `;
+  }
+
+  return `<div class="derma-hero-avatar derma-avatar-fallback"></div>`;
+}
+function renderBrandLogo(brand = {}, className = "derma-logo", options = {}) {
+  const logo = safeUrl(brand.logo);
+
+  if (logo) {
+    return `
+      <div class="${className}">
+        <img src="${logo}" alt="${escapeHtml(brand.name || "Logo")}">
+      </div>
+    `;
+  }
+
+  if (options.fallback === false) return "";
+
+  return `<div class="${className}">${getInitials(brand.name)}</div>`;
+}
 function renderImage(src, alt, className) {
   const url = safeUrl(src);
 
@@ -168,3 +200,4 @@ function getInitials(name = "ML") {
     .join("")
     .toUpperCase();
 }
+

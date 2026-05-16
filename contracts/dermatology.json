@@ -24,17 +24,31 @@
     "description": "Medica dermatologa con entrenamiento en clinicas de Europa y America. Enfoque en ciencia regenerativa, arte facial y confort emocional.",
     "quote": "La belleza sofisticada nace de una piel saludable y la elegancia del gesto.",
     "stats": [
-      { "value": "+12 anos", "label": "experiencia premium" },
-      { "value": "360", "label": "diagnostico integral" },
-      { "value": "Boutique", "label": "entorno privado" }
-    ]
+      {
+        "value": "+12 anos",
+        "label": "experiencia premium"
+      },
+      {
+        "value": "360",
+        "label": "diagnostico integral"
+      },
+      {
+        "value": "Boutique",
+        "label": "entorno privado"
+      }
+    ],
+    "showHeroAvatar": true
   },
   "experience": {
     "eyebrow": "Espacio y atmosfera",
     "title": "Un espacio disenado para sentir calma, privacidad y sofisticacion.",
     "description": "Maderas oscuras, acentos rosados sutiles e iluminacion calida. Cada detalle convierte la ciencia en una experiencia intima de bienestar.",
     "photo": "",
-    "materials": ["blackwood", "rosado sutil", "luz calida"]
+    "materials": [
+      "blackwood",
+      "rosado sutil",
+      "luz calida"
+    ]
   },
   "services": [
     {

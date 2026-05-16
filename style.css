@@ -895,6 +895,65 @@ img {
   padding: 0 22px 36px;
 }
 
+
+.derma-hero-logo {
+  width: min(100%, 300px);
+  min-height: 94px;
+  margin: 0 auto 18px;
+  padding: 10px 12px;
+  border-radius: 24px;
+  overflow: hidden;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+.derma-hero-logo img {
+  width: 100%;
+  height: 100%;
+  max-height: 112px;
+  display: block;
+  object-fit: contain;
+}
+
+.derma-logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  padding: 6px;
+}
+
+.derma-hero-avatar {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.66);
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.34),
+    0 0 0 8px rgba(255, 255, 255, 0.08);
+}
+
+.derma-hero-avatar img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.derma-avatar-fallback {
+  background:
+    radial-gradient(circle at 45% 30%, #fff, #f3eee9 58%, #d7d1cc);
+}
 .derma-eyebrow,
 .derma-section-head span,
 .derma-service span {

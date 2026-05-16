@@ -360,3 +360,31 @@ textarea {
     min-height: 360px;
   }
 }
+
+.toggle-row {
+  min-height: 54px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--admin-line);
+  border-radius: 14px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.toggle-row span {
+  color: var(--admin-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.toggle-row input {
+  width: 22px;
+  min-height: 22px;
+  flex: 0 0 auto;
+  padding: 0;
+  accent-color: var(--admin-accent);
+}
