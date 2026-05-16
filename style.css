@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --page-bg: radial-gradient(circle at top left, #f7f3ee, #e8e2da);
   --screen-bg: linear-gradient(180deg, #f9f7f3, #f2eee8);
   --panel-bg: linear-gradient(160deg, #0d2b2a, #061a19);
@@ -827,6 +827,297 @@ img {
 
 @media (min-width: 700px) {
   .template-wedding .wedding-page {
+    margin-block: 36px;
+    border-radius: 34px;
+    overflow: hidden;
+  }
+}
+
+/* =========================
+   DERMATOLOGY TEMPLATE
+========================= */
+.template-dermatology {
+  background:
+    radial-gradient(circle at 18% 8%, rgba(95, 147, 154, 0.16), transparent 32%),
+    radial-gradient(circle at 86% 28%, rgba(216, 172, 156, 0.18), transparent 34%),
+    #1b2021;
+}
+
+.derma-page {
+  width: min(430px, 100%);
+  margin: 0 auto;
+  color: #fff;
+  background:
+    radial-gradient(circle at 22% 8%, rgba(95, 147, 154, 0.14), transparent 30%),
+    linear-gradient(180deg, #1b2021, #101314 58%, #1b2021);
+  font-family: Inter, Arial, sans-serif;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
+}
+
+.derma-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 72% 20%, rgba(216, 172, 156, 0.22), transparent 30%),
+    linear-gradient(145deg, #222a2b, #0f1213);
+}
+
+.derma-hero-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.05) brightness(0.72);
+}
+
+.derma-image-fallback {
+  background:
+    radial-gradient(circle at 65% 18%, rgba(234, 200, 175, 0.26), transparent 28%),
+    radial-gradient(circle at 25% 45%, rgba(95, 147, 154, 0.18), transparent 34%),
+    linear-gradient(145deg, rgba(42, 47, 48, 0.94), rgba(16, 19, 20, 0.94));
+}
+
+.derma-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.74)),
+    linear-gradient(105deg, rgba(27, 32, 33, 0.78), transparent 62%);
+}
+
+.derma-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 22px 36px;
+}
+
+.derma-eyebrow,
+.derma-section-head span,
+.derma-service span {
+  margin: 0 0 10px;
+  color: #eac8af;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.derma-hero h1,
+.derma-card h2,
+.derma-service h3,
+.derma-case h3 {
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+}
+
+.derma-hero h1 {
+  margin: 0;
+  max-width: 360px;
+  font-size: 48px;
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+
+.derma-hero-content > p:not(.derma-eyebrow) {
+  margin: 16px 0 0;
+  max-width: 340px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.derma-actions {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.derma-actions .btn {
+  min-height: 64px;
+  border-radius: 24px;
+}
+
+.derma-card {
+  margin: 16px;
+  padding: 20px;
+  border: 1px solid rgba(216, 172, 156, 0.16);
+  border-radius: 28px;
+  background: rgba(24, 28, 29, 0.68);
+  backdrop-filter: blur(18px) saturate(130%);
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.derma-brand-card {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  margin-top: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.derma-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5f939a, #d8ac9c);
+  color: #1b2021;
+  display: grid;
+  place-items: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 800;
+  box-shadow: 0 0 0 8px rgba(216, 172, 156, 0.12);
+}
+
+.derma-brand-card h2,
+.derma-section-head h2 {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.02;
+}
+
+.derma-brand-card p:last-child,
+.derma-section-head p,
+.derma-copy,
+.derma-experience p,
+.derma-contact-info p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.derma-doctor-photo,
+.derma-experience-photo {
+  width: 100%;
+  height: 270px;
+  border-radius: 24px;
+  object-fit: cover;
+  margin-bottom: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.derma-doctor blockquote {
+  margin: 18px 0 0;
+  padding-left: 16px;
+  border-left: 2px solid #d8ac9c;
+  color: #eac8af;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.derma-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.derma-stats div {
+  min-height: 76px;
+  padding: 12px 8px;
+  border: 1px solid rgba(216, 172, 156, 0.14);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.derma-stats strong {
+  display: block;
+  color: #eac8af;
+  font-size: 14px;
+}
+
+.derma-stats span {
+  display: block;
+  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.derma-materials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.derma-materials span {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(216, 172, 156, 0.12);
+  color: #eac8af;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.derma-experience-photo {
+  margin: 18px 0 0;
+}
+
+.derma-services,
+.derma-cases {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.derma-service,
+.derma-case {
+  padding: 16px;
+  border: 1px solid rgba(216, 172, 156, 0.13);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.derma-service h3,
+.derma-case h3 {
+  margin: 8px 0 8px;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.derma-service p,
+.derma-case p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.derma-case-image {
+  width: 100%;
+  height: 180px;
+  border-radius: 18px;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.derma-contact .derma-actions {
+  padding: 14px;
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(18, 52, 47, 0.7), rgba(6, 16, 15, 0.52));
+}
+
+.derma-footer {
+  padding: 28px 18px 38px;
+  color: rgba(255, 255, 255, 0.52);
+  text-align: center;
+  font-size: 12px;
+}
+
+@media (min-width: 700px) {
+  .template-dermatology .derma-page {
     margin-block: 36px;
     border-radius: 34px;
     overflow: hidden;

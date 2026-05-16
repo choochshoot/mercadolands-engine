@@ -2,7 +2,8 @@ const templateLoaders = {
   creator: () => import("../templates/creator.js"),
   wedding: () => import("../templates/wedding.js"),
   pizza: () => import("../templates/pizza.js"),
-  business: () => import("../templates/business.js")
+  business: () => import("../templates/business.js"),
+  dermatology: () => import("../templates/dermatology.js")
 };
 
 export async function getTemplate(templateName) {

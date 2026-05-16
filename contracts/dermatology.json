@@ -1,0 +1,90 @@
+{
+  "template": "dermatology",
+  "theme": "glassmorphism",
+  "brand": {
+    "name": "Dra. Adriana Epstein",
+    "tagline": "Dermatologia estetica de lujo silencioso",
+    "specialty": "Dermatologia clinica y estetica de alta gama",
+    "logo": ""
+  },
+  "hero": {
+    "eyebrow": "Luxury dermatology boutique",
+    "title": "La ciencia de la piel, llevada al arte de la elegancia.",
+    "subtitle": "Protocolos dermatologicos avanzados en un entorno disenado para el bienestar, la armonia facial y la belleza natural sofisticada.",
+    "photo": "",
+    "ctaPrimaryLabel": "Valoracion privada",
+    "ctaPrimaryLink": "https://wa.me/5210000000000",
+    "ctaSecondaryLabel": "Ver tratamientos",
+    "ctaSecondaryLink": "#derma-services"
+  },
+  "doctor": {
+    "name": "Dra. Adriana Epstein",
+    "title": "Especialista internacional en dermatologia estetica",
+    "photo": "",
+    "description": "Medica dermatologa con entrenamiento en clinicas de Europa y America. Enfoque en ciencia regenerativa, arte facial y confort emocional.",
+    "quote": "La belleza sofisticada nace de una piel saludable y la elegancia del gesto.",
+    "stats": [
+      { "value": "+12 anos", "label": "experiencia premium" },
+      { "value": "360", "label": "diagnostico integral" },
+      { "value": "Boutique", "label": "entorno privado" }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Espacio y atmosfera",
+    "title": "Un espacio disenado para sentir calma, privacidad y sofisticacion.",
+    "description": "Maderas oscuras, acentos rosados sutiles e iluminacion calida. Cada detalle convierte la ciencia en una experiencia intima de bienestar.",
+    "photo": "",
+    "materials": ["blackwood", "rosado sutil", "luz calida"]
+  },
+  "services": [
+    {
+      "name": "Baby Botox",
+      "category": "precision sutil",
+      "description": "Microdosis que preservan la expresion natural. Piel luminosa, movimiento elegante y efecto descansado."
+    },
+    {
+      "name": "Salmon Face",
+      "category": "regeneracion premium",
+      "description": "Glow humedo, hidratacion profunda y luminosidad regenerativa con enfoque antiaging."
+    },
+    {
+      "name": "Sculptra",
+      "category": "bioestimulacion",
+      "description": "Restaura firmeza y estructura facial con resultados progresivos y colageno propio."
+    },
+    {
+      "name": "Skin Quality & Glow",
+      "category": "skin wellness",
+      "description": "Protocolos de vitalidad cutanea, vitaminas e hidratacion intensiva para piel saludable."
+    }
+  ],
+  "cases": [
+    {
+      "title": "Luminosidad facial",
+      "description": "Mejora de textura, hidratacion y frescura.",
+      "image": ""
+    },
+    {
+      "title": "Armonia estructural",
+      "description": "Definicion de contorno con resultado natural.",
+      "image": ""
+    },
+    {
+      "title": "Efecto glow",
+      "description": "Luminosidad premium y piel revitalizada.",
+      "image": ""
+    }
+  ],
+  "contact": {
+    "title": "Reserva tu valoracion",
+    "text": "Agenda una consulta privada para disenar un protocolo a tu medida.",
+    "whatsapp": "https://wa.me/5210000000000",
+    "phone": "tel:+5210000000000",
+    "address": "Av. Palma de Mallorca 28, Palma",
+    "mapUrl": "https://maps.google.com"
+  },
+  "social": {
+    "instagram": "https://instagram.com",
+    "label": "Instagram"
+  }
+}
