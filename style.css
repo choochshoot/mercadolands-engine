@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --page-bg: radial-gradient(circle at top left, #f7f3ee, #e8e2da);
   --screen-bg: linear-gradient(180deg, #f9f7f3, #f2eee8);
   --panel-bg: linear-gradient(160deg, #0d2b2a, #061a19);
@@ -899,8 +899,9 @@ img {
 .derma-hero-logo {
   width: min(100%, 300px);
   min-height: 94px;
-  margin: 0 auto 18px;
+  margin: 0 auto -42px;
   padding: 10px 12px;
+  transform: translateY(-76px);
   border-radius: 24px;
   overflow: hidden;
   color: #fff;
