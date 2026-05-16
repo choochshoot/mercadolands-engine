@@ -44,6 +44,7 @@ const els = {
   status: document.querySelector("#admin-status"),
   preview: document.querySelector("#json-preview"),
   viewLink: document.querySelector("#view-link"),
+  shareLink: document.querySelector("#share-link"),
   loadBtn: document.querySelector("#load-btn"),
   copyJson: document.querySelector("#copy-json")
 };
@@ -537,6 +538,7 @@ function fieldPathToAssetType(fieldPath) {
 function updateViewLink() {
   const slug = cleanSlug(els.slug.value) || "daniela";
   els.viewLink.href = `./u/index.html?slug=${encodeURIComponent(slug)}`;
+  els.shareLink.href = `./share/${encodeURIComponent(slug)}.html`;
 }
 
 function setStatus(message, tone = "default") {

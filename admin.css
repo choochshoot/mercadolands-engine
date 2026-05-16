@@ -119,6 +119,14 @@ button {
   text-decoration: none;
 }
 
+
+.admin-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
 .ghost-link {
   flex: 0 0 auto;
   padding: 12px 14px;
