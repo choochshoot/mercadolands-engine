@@ -5,7 +5,9 @@
     "name": "Dra. Adriana Epstein",
     "tagline": "Dermatologia estetica de lujo silencioso",
     "specialty": "Dermatologia clinica y estetica de alta gama",
-    "logo": ""
+    "logo": "",
+    "showHeroLogo": false,
+    "showBrandCardLogo": true
   },
   "hero": {
     "eyebrow": "Luxury dermatology boutique",

@@ -17,8 +17,8 @@ export function render(data = {}) {
         ${renderHeroMedia(hero, brand.name || "Clinica dermatologica")}
         <div class="derma-hero-shade"></div>
         <div class="derma-hero-content">
-          ${renderBrandLogo(brand, "derma-hero-logo", { fallback: false })}
-          ${renderHeroAvatar(doctor, brand)}
+          ${brand.showHeroLogo ? renderBrandLogo(brand, "derma-hero-logo", { fallback: false }) : ""}
+          ${renderHeroAvatar(doctor)}
           <p class="derma-eyebrow">${escapeHtml(hero.eyebrow || brand.specialty)}</p>
           <h1>${escapeHtml(hero.title)}</h1>
           <p>${escapeHtml(hero.subtitle)}</p>
@@ -30,7 +30,7 @@ export function render(data = {}) {
       </section>
 
       <section class="derma-card derma-brand-card">
-        ${renderBrandLogo(brand, "derma-logo")}
+        ${renderBrandLogo(brand, "derma-logo", { enabled: brand.showBrandCardLogo !== false })}
         <div>
           <p class="derma-eyebrow">${escapeHtml(brand.tagline)}</p>
           <h2>${escapeHtml(brand.name)}</h2>
@@ -104,25 +104,23 @@ export function render(data = {}) {
   `;
 }
 
-function renderHeroAvatar(doctor = {}, brand = {}) {
+function renderHeroAvatar(doctor = {}) {
   if (doctor.showHeroAvatar === false) return "";
 
   const photo = safeUrl(doctor.photo);
-  const logo = safeUrl(brand.logo);
-  const avatar = photo || logo;
 
-  if (!avatar) return "";
+  if (!photo) return "";
 
   return `
     <div class="derma-hero-avatar">
-      <img src="${avatar}" alt="${escapeHtml(photo ? doctor.name || "Doctora" : brand.name || "Logo")}">
+      <img src="${photo}" alt="${escapeHtml(doctor.name || "Doctora")}">
     </div>
   `;
 }
 function renderBrandLogo(brand = {}, className = "derma-logo", options = {}) {
   const logo = safeUrl(brand.logo);
 
-  if (logo) {
+  if (options.enabled !== false && logo) {
     return `
       <div class="${className}">
         <img src="${logo}" alt="${escapeHtml(brand.name || "Logo")}">
