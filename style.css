@@ -878,6 +878,15 @@ img {
   object-fit: contain;
   object-position: center top;
   background: #0f1213;
+  transform: translate3d(0, var(--derma-hero-parallax, 0px), 0);
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .derma-hero-video {
+    transform: none;
+    will-change: auto;
+  }
 }
 
 .derma-image-fallback {
