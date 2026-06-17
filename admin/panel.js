@@ -426,7 +426,7 @@ async function uploadAssetForField(input) {
 
   if (!slug) {
     input.value = "";
-    setStatus("Escribe un slug antes de subir imagenes.", "error");
+    setStatus("Escribe un slug antes de subir imágenes.", "error");
     return;
   }
 

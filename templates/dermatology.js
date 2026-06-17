@@ -14,7 +14,7 @@ export function render(data = {}) {
   return `
     <main class="derma-page">
       <section class="derma-hero">
-        ${renderHeroMedia(hero, brand.name || "Clinica dermatologica")}
+        ${renderHeroMedia(hero, brand.name || "Clínica dermatológica")}
         <div class="derma-hero-shade"></div>
         <div class="derma-hero-content">
           ${brand.showHeroLogo ? renderBrandLogo(brand, "derma-hero-logo", { fallback: false }) : ""}
@@ -73,7 +73,7 @@ export function render(data = {}) {
       <section class="derma-card">
         <div class="derma-section-head">
           <span>Resultados sutiles</span>
-          <h2>Evolucion natural sin estridencias</h2>
+          <h2>Evolución natural sin estridencias</h2>
         </div>
         <div class="derma-cases">
           ${cases.map(renderCase).join("")}
@@ -83,7 +83,7 @@ export function render(data = {}) {
       <section class="derma-card derma-contact">
         <div class="derma-section-head">
           <span>Cita privada</span>
-          <h2>${escapeHtml(contact.title || "Reserva tu valoracion")}</h2>
+          <h2>${escapeHtml(contact.title || "Reserva tu valoración")}</h2>
           <p>${escapeHtml(contact.text)}</p>
         </div>
         <div class="derma-contact-info">
@@ -91,14 +91,14 @@ export function render(data = {}) {
           <div class="derma-actions">
             ${renderActionButton({ label: "WhatsApp", link: contact.whatsapp, type: "whatsapp", subtitle: "AGENDAR" })}
             ${renderActionButton({ label: "Llamar", link: contact.phone, type: "phone", subtitle: "CONTACTO" })}
-            ${renderActionButton({ label: "Como llegar", link: contact.mapUrl, type: "map", subtitle: "MAPS" })}
+            ${renderActionButton({ label: "Cómo llegar", link: contact.mapUrl, type: "map", subtitle: "MAPS" })}
             ${social.instagram ? renderActionButton({ label: social.label || "Instagram", link: social.instagram, type: "instagram", subtitle: "REDES" }) : ""}
           </div>
         </div>
       </section>
 
       <footer class="derma-footer">
-        ${escapeHtml(brand.name)} - Dermatologia estetica de precision
+        ${escapeHtml(brand.name)} - Dermatología estética de precisión
       </footer>
     </main>
   `;
