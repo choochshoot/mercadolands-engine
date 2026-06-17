@@ -218,7 +218,8 @@ textarea {
   border: 1px solid var(--admin-line);
 }
 
-.asset-preview img {
+.asset-preview img,
+.asset-preview video {
   width: 100%;
   height: 100%;
   display: block;

@@ -222,15 +222,19 @@ function renderAssetInput(key, value, path) {
     <div class="field-row asset-row">
       <label>${toTitle(key)}</label>
       <div class="asset-control">
-        <input data-path="${path}" value="${inputValue}" placeholder="URL de imagen">
+        <input data-path="${path}" value="${inputValue}" placeholder="URL de imagen o video">
         <label class="asset-upload-btn">
-          Subir imagen
-          <input type="file" accept="image/png,image/jpeg,image/webp,image/heic,image/gif" data-upload-path="${path}">
+          Subir archivo
+          <input type="file" accept="image/png,image/jpeg,image/webp,image/heic,image/gif,video/webm,video/mp4" data-upload-path="${path}">
         </label>
       </div>
       ${value ? `
         <div class="asset-preview">
-          <img src="${inputValue}" alt="${escapeHtml(toTitle(key))}">
+          ${isVideoUrl(value) ? `
+            <video src="${inputValue}" muted loop playsinline controls></video>
+          ` : `
+            <img src="${inputValue}" alt="${escapeHtml(toTitle(key))}">
+          `}
         </div>
       ` : ""}
     </div>
@@ -427,7 +431,7 @@ async function uploadAssetForField(input) {
   }
 
   try {
-    validateImageFile(file);
+    validateAssetFile(file);
     setStatus(`Subiendo ${toTitle(fieldPath.split(".").pop())}...`);
 
     const filePath = createAssetPath({ slug, template, fieldPath, file });
@@ -464,7 +468,7 @@ async function uploadAssetForField(input) {
     setByPath(state.data, fieldPath, publicUrl);
     renderDynamicFields();
     updatePreview();
-    setStatus("Imagen subida y conectada al campo.");
+    setStatus("Archivo subido y conectado al campo.");
   } catch (error) {
     console.error(error);
     setStatus(error.message || "No se pudo subir la imagen.", "error");
@@ -489,23 +493,29 @@ async function saveAssetHistory({ slug, fieldPath, publicUrl }) {
   }
 }
 
-function validateImageFile(file) {
-  const allowed = [
+function validateAssetFile(file) {
+  const allowedImages = [
     "image/png",
     "image/jpeg",
     "image/webp",
     "image/heic",
     "image/gif"
   ];
+  const allowedVideos = [
+    "video/webm",
+    "video/mp4"
+  ];
+  const isImage = allowedImages.includes(file.type);
+  const isVideo = allowedVideos.includes(file.type);
 
-  if (!allowed.includes(file.type)) {
-    throw new Error("Formato no permitido. Usa PNG, JPG, WEBP, HEIC o GIF.");
+  if (!isImage && !isVideo) {
+    throw new Error("Formato no permitido. Usa PNG, JPG, WEBP, HEIC, GIF, WEBM o MP4.");
   }
 
-  const maxMB = 5;
+  const maxMB = isVideo ? 20 : 5;
 
   if (file.size > maxMB * 1024 * 1024) {
-    throw new Error("La imagen supera 5MB.");
+    throw new Error(`El archivo supera ${maxMB}MB.`);
   }
 }
 
@@ -585,6 +595,7 @@ function isAssetField(key, path) {
 
   return [
     "photo",
+    "video",
     "image",
     "logo",
     "cover",
@@ -593,6 +604,10 @@ function isAssetField(key, path) {
     "background",
     "gallery"
   ].some((token) => fieldName.includes(token) || fullPath.includes(`.${token}`));
+}
+
+function isVideoUrl(value) {
+  return /\.(webm|mp4)(\?|#|$)/i.test(String(value || ""));
 }
 
 function cleanSlug(value) {

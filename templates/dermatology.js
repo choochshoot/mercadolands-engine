@@ -14,7 +14,7 @@ export function render(data = {}) {
   return `
     <main class="derma-page">
       <section class="derma-hero">
-        ${renderImage(hero.photo, brand.name || "Clinica dermatologica", "derma-hero-media")}
+        ${renderHeroMedia(hero, brand.name || "Clinica dermatologica")}
         <div class="derma-hero-shade"></div>
         <div class="derma-hero-content">
           ${renderBrandLogo(brand, "derma-hero-logo", { fallback: false })}
@@ -142,6 +142,31 @@ function renderImage(src, alt, className) {
   }
 
   return `<img class="${className}" src="${url}" alt="${escapeHtml(alt)}">`;
+}
+
+function renderHeroMedia(hero = {}, alt) {
+  const video = safeUrl(hero.video);
+  const photo = safeUrl(hero.photo);
+
+  if (video) {
+    const poster = photo ? ` poster="${photo}"` : "";
+    return `
+      <video class="derma-hero-media" autoplay muted loop playsinline${poster}>
+        <source src="${video}" type="${getVideoType(video)}">
+      </video>
+    `;
+  }
+
+  return renderImage(hero.photo, alt, "derma-hero-media");
+}
+
+function getVideoType(url = "") {
+  const cleanUrl = String(url).split("?")[0].toLowerCase();
+
+  if (cleanUrl.endsWith(".mp4")) return "video/mp4";
+  if (cleanUrl.endsWith(".webm")) return "video/webm";
+
+  return "video/webm";
 }
 
 function renderStats(stats = []) {
