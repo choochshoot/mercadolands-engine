@@ -80,13 +80,15 @@ async function renderLanding(mount, landing) {
 }
 
 function initLandingEffects(mount, templateKey) {
-  if (templateKey !== "dermatology") return () => {};
+  const cleanupHashNavigation = initHashNavigation(mount);
+
+  if (templateKey !== "dermatology") return cleanupHashNavigation;
 
   const hero = mount.querySelector(".derma-hero");
   const video = mount.querySelector(".derma-hero-video");
   const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  if (!hero || !video || motionQuery.matches) return () => {};
+  if (!hero || !video || motionQuery.matches) return cleanupHashNavigation;
 
   let ticking = false;
 
@@ -127,10 +129,62 @@ function initLandingEffects(mount, templateKey) {
   updateParallax();
 
   return () => {
+    cleanupHashNavigation();
     window.removeEventListener("scroll", requestUpdate);
     window.removeEventListener("resize", requestUpdate);
     motionQuery.removeEventListener("change", handleMotionChange);
     video.style.removeProperty("--derma-hero-parallax");
+  };
+}
+
+function initHashNavigation(mount) {
+  const scrollToHash = (hash, behavior = "smooth") => {
+    if (!hash || hash === "#") return false;
+
+    const target = mount.querySelector(hash);
+
+    if (!target) return false;
+
+    target.scrollIntoView({
+      behavior,
+      block: "start"
+    });
+
+    return true;
+  };
+
+  const handleClick = (event) => {
+    const link = event.target.closest("a[href]");
+
+    if (!link || !mount.contains(link)) return;
+
+    const url = new URL(link.href, window.location.href);
+
+    if (
+      url.origin !== window.location.origin ||
+      url.pathname !== window.location.pathname ||
+      url.search !== window.location.search ||
+      !url.hash
+    ) {
+      return;
+    }
+
+    if (!scrollToHash(url.hash)) return;
+
+    event.preventDefault();
+    window.history.pushState(null, "", url.hash);
+  };
+
+  mount.addEventListener("click", handleClick);
+
+  if (window.location.hash) {
+    window.requestAnimationFrame(() => {
+      scrollToHash(window.location.hash, "auto");
+    });
+  }
+
+  return () => {
+    mount.removeEventListener("click", handleClick);
   };
 }
 
