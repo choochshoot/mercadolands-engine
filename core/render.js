@@ -100,7 +100,7 @@ function initLandingEffects(mount, templateKey) {
 
     const rect = hero.getBoundingClientRect();
     const progress = clamp(-rect.top / Math.max(rect.height, 1), 0, 1);
-    const offset = Math.round(progress * 42);
+    const offset = Math.round(progress * 110);
 
     video.style.setProperty("--derma-hero-parallax", `${offset}px`);
   };
