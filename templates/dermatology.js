@@ -18,7 +18,7 @@ export function render(data = {}) {
         <div class="derma-hero-shade"></div>
         <div class="derma-hero-content">
           ${renderBrandLogo(brand, "derma-hero-logo", { fallback: false })}
-          ${renderHeroAvatar(doctor)}
+          ${renderHeroAvatar(doctor, brand)}
           <p class="derma-eyebrow">${escapeHtml(hero.eyebrow || brand.specialty)}</p>
           <h1>${escapeHtml(hero.title)}</h1>
           <p>${escapeHtml(hero.subtitle)}</p>
@@ -104,20 +104,20 @@ export function render(data = {}) {
   `;
 }
 
-function renderHeroAvatar(doctor = {}) {
+function renderHeroAvatar(doctor = {}, brand = {}) {
   if (doctor.showHeroAvatar === false) return "";
 
   const photo = safeUrl(doctor.photo);
+  const logo = safeUrl(brand.logo);
+  const avatar = photo || logo;
 
-  if (photo) {
-    return `
-      <div class="derma-hero-avatar">
-        <img src="${photo}" alt="${escapeHtml(doctor.name || "Doctora")}">
-      </div>
-    `;
-  }
+  if (!avatar) return "";
 
-  return `<div class="derma-hero-avatar derma-avatar-fallback"></div>`;
+  return `
+    <div class="derma-hero-avatar">
+      <img src="${avatar}" alt="${escapeHtml(photo ? doctor.name || "Doctora" : brand.name || "Logo")}">
+    </div>
+  `;
 }
 function renderBrandLogo(brand = {}, className = "derma-logo", options = {}) {
   const logo = safeUrl(brand.logo);
@@ -151,7 +151,7 @@ function renderHeroMedia(hero = {}, alt) {
   if (video) {
     const poster = photo ? ` poster="${photo}"` : "";
     return `
-      <video class="derma-hero-media" autoplay muted loop playsinline${poster}>
+      <video class="derma-hero-media derma-hero-video" autoplay muted loop playsinline${poster}>
         <source src="${video}" type="${getVideoType(video)}">
       </video>
     `;

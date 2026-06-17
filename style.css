@@ -874,6 +874,12 @@ img {
   filter: saturate(0.85) contrast(1.05) brightness(0.72);
 }
 
+.derma-hero-video {
+  object-fit: contain;
+  object-position: center;
+  background: #0f1213;
+}
+
 .derma-image-fallback {
   background:
     radial-gradient(circle at 65% 18%, rgba(234, 200, 175, 0.26), transparent 28%),
