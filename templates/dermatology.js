@@ -19,12 +19,12 @@ export function render(data = {}) {
         <div class="derma-hero-content">
           ${brand.showHeroLogo ? renderBrandLogo(brand, "derma-hero-logo", { fallback: false }) : ""}
           ${renderHeroAvatar(doctor)}
-          <p class="derma-eyebrow">${escapeHtml(hero.eyebrow || brand.specialty)}</p>
-          <h1>${escapeHtml(hero.title)}</h1>
-          <p>${escapeHtml(hero.subtitle)}</p>
+          <p class="derma-eyebrow">${escapeCopy(hero.eyebrow || brand.specialty)}</p>
+          <h1>${escapeCopy(hero.title)}</h1>
+          <p>${escapeCopy(hero.subtitle)}</p>
           <div class="derma-actions">
-            ${renderActionButton({ label: hero.ctaPrimaryLabel || "Agendar cita", link: hero.ctaPrimaryLink || contact.whatsapp, type: "whatsapp", subtitle: "CITA PRIVADA" })}
-            ${hero.ctaSecondaryLink ? renderActionButton({ label: hero.ctaSecondaryLabel || "Tratamientos", link: hero.ctaSecondaryLink, type: "menu", subtitle: "EXPLORAR" }) : ""}
+            ${renderActionButton({ label: normalizeSpanishCopy(hero.ctaPrimaryLabel || "Agendar cita"), link: hero.ctaPrimaryLink || contact.whatsapp, type: "whatsapp", subtitle: "CITA PRIVADA" })}
+            ${hero.ctaSecondaryLink ? renderActionButton({ label: normalizeSpanishCopy(hero.ctaSecondaryLabel || "Tratamientos"), link: hero.ctaSecondaryLink, type: "menu", subtitle: "EXPLORAR" }) : ""}
           </div>
         </div>
       </section>
@@ -32,9 +32,9 @@ export function render(data = {}) {
       <section class="derma-card derma-brand-card">
         ${renderBrandLogo(brand, "derma-logo", { enabled: brand.showBrandCardLogo !== false })}
         <div>
-          <p class="derma-eyebrow">${escapeHtml(brand.tagline)}</p>
-          <h2>${escapeHtml(brand.name)}</h2>
-          <p>${escapeHtml(brand.specialty)}</p>
+          <p class="derma-eyebrow">${escapeCopy(brand.tagline)}</p>
+          <h2>${escapeCopy(brand.name)}</h2>
+          <p>${escapeCopy(brand.specialty)}</p>
         </div>
       </section>
 
@@ -42,19 +42,19 @@ export function render(data = {}) {
         ${renderImage(doctor.photo, doctor.name, "derma-doctor-photo")}
         <div class="derma-section-head">
           <span>Especialista</span>
-          <h2>${escapeHtml(doctor.name)}</h2>
-          <p>${escapeHtml(doctor.title)}</p>
+          <h2>${escapeCopy(doctor.name)}</h2>
+          <p>${escapeCopy(doctor.title)}</p>
         </div>
-        <p class="derma-copy">${escapeHtml(doctor.description)}</p>
-        <blockquote>${escapeHtml(doctor.quote)}</blockquote>
+        <p class="derma-copy">${escapeCopy(doctor.description)}</p>
+        <blockquote>${escapeCopy(doctor.quote)}</blockquote>
         ${renderStats(doctor.stats)}
       </section>
 
       <section class="derma-card derma-experience">
         <div>
-          <p class="derma-eyebrow">${escapeHtml(experience.eyebrow || "Experiencia")}</p>
-          <h2>${escapeHtml(experience.title)}</h2>
-          <p>${escapeHtml(experience.description)}</p>
+          <p class="derma-eyebrow">${escapeCopy(experience.eyebrow || "Experiencia")}</p>
+          <h2>${escapeCopy(experience.title)}</h2>
+          <p>${escapeCopy(experience.description)}</p>
           ${renderMaterials(experience.materials)}
         </div>
         ${renderImage(experience.photo, experience.title, "derma-experience-photo")}
@@ -83,11 +83,11 @@ export function render(data = {}) {
       <section class="derma-card derma-contact">
         <div class="derma-section-head">
           <span>Cita privada</span>
-          <h2>${escapeHtml(contact.title || "Reserva tu valoración")}</h2>
-          <p>${escapeHtml(contact.text)}</p>
+          <h2>${escapeCopy(contact.title || "Reserva tu valoración")}</h2>
+          <p>${escapeCopy(contact.text)}</p>
         </div>
         <div class="derma-contact-info">
-          <p>${escapeHtml(contact.address)}</p>
+          <p>${escapeCopy(contact.address)}</p>
           <div class="derma-actions">
             ${renderActionButton({ label: "WhatsApp", link: contact.whatsapp, type: "whatsapp", subtitle: "AGENDAR" })}
             ${renderActionButton({ label: "Llamar", link: contact.phone, type: "phone", subtitle: "CONTACTO" })}
@@ -98,7 +98,7 @@ export function render(data = {}) {
       </section>
 
       <footer class="derma-footer">
-        ${escapeHtml(brand.name)} - Dermatología estética de precisión
+        ${escapeCopy(brand.name)} - Dermatología estética de precisión
       </footer>
     </main>
   `;
@@ -174,8 +174,8 @@ function renderStats(stats = []) {
     <div class="derma-stats">
       ${stats.slice(0, 3).map((item) => `
         <div>
-          <strong>${escapeHtml(item.value)}</strong>
-          <span>${escapeHtml(item.label)}</span>
+          <strong>${escapeCopy(item.value)}</strong>
+          <span>${escapeCopy(item.label)}</span>
         </div>
       `).join("")}
     </div>
@@ -187,7 +187,7 @@ function renderMaterials(materials = []) {
 
   return `
     <div class="derma-materials">
-      ${materials.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+      ${materials.map((item) => `<span>${escapeCopy(item)}</span>`).join("")}
     </div>
   `;
 }
@@ -195,9 +195,9 @@ function renderMaterials(materials = []) {
 function renderService(service = {}) {
   return `
     <article class="derma-service">
-      <span>${escapeHtml(service.category)}</span>
-      <h3>${escapeHtml(service.name)}</h3>
-      <p>${escapeHtml(service.description)}</p>
+      <span>${escapeCopy(service.category)}</span>
+      <h3>${escapeCopy(service.name)}</h3>
+      <p>${escapeCopy(service.description)}</p>
     </article>
   `;
 }
@@ -207,11 +207,58 @@ function renderCase(item = {}) {
     <article class="derma-case">
       ${renderImage(item.image, item.title, "derma-case-image")}
       <div>
-        <h3>${escapeHtml(item.title)}</h3>
-        <p>${escapeHtml(item.description)}</p>
+        <h3>${escapeCopy(item.title)}</h3>
+        <p>${escapeCopy(item.description)}</p>
       </div>
     </article>
   `;
+}
+
+function escapeCopy(value) {
+  return escapeHtml(normalizeSpanishCopy(value));
+}
+
+function normalizeSpanishCopy(value) {
+  if (value === null || value === undefined) return "";
+
+  return String(value)
+    .replace(/\bDermatologia\b/g, "Dermatología")
+    .replace(/\bdermatologia\b/g, "dermatología")
+    .replace(/\bEstetica\b/g, "Estética")
+    .replace(/\bestetica\b/g, "estética")
+    .replace(/\bClinica\b/g, "Clínica")
+    .replace(/\bclinica\b/g, "clínica")
+    .replace(/\bMedica\b/g, "Médica")
+    .replace(/\bmedica\b/g, "médica")
+    .replace(/\bAmerica\b/g, "América")
+    .replace(/\bValoracion\b/g, "Valoración")
+    .replace(/\bvaloracion\b/g, "valoración")
+    .replace(/\bEvolucion\b/g, "Evolución")
+    .replace(/\bevolucion\b/g, "evolución")
+    .replace(/\bdisenado\b/g, "diseñado")
+    .replace(/\bdisenar\b/g, "diseñar")
+    .replace(/\barmonia\b/g, "armonía")
+    .replace(/\bintima\b/g, "íntima")
+    .replace(/\bdiagnostico\b/g, "diagnóstico")
+    .replace(/\banos\b/g, "años")
+    .replace(/\batmosfera\b/g, "atmósfera")
+    .replace(/\bsofisticacion\b/g, "sofisticación")
+    .replace(/\biluminacion\b/g, "iluminación")
+    .replace(/\bcalida\b/g, "cálida")
+    .replace(/\bprecision\b/g, "precisión")
+    .replace(/\bexpresion\b/g, "expresión")
+    .replace(/\bregeneracion\b/g, "regeneración")
+    .replace(/\bhumedo\b/g, "húmedo")
+    .replace(/\bhidratacion\b/g, "hidratación")
+    .replace(/\bcolageno\b/g, "colágeno")
+    .replace(/\bcutanea\b/g, "cutánea")
+    .replace(/\bArmonia\b/g, "Armonía")
+    .replace(/\bDefinicion\b/g, "Definición")
+    .replace(/\bdefinicion\b/g, "definición")
+    .replace(/\bGonzalez\b/g, "González")
+    .replace(/\bSalmon Face\b/g, "Salmón Face")
+    .replace(/\bBioestimulacion\b/g, "Bioestimulación")
+    .replace(/\bbioestimulacion\b/g, "bioestimulación");
 }
 
 function getInitials(name = "ML") {
