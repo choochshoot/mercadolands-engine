@@ -1,0 +1,76 @@
+:root {
+  --page-bg:
+    radial-gradient(circle at 18% 12%, rgba(255, 79, 195, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(170, 43, 138, 0.22), transparent 34%),
+    linear-gradient(145deg, #1c2424, #0f1314 58%, #21141d);
+  --screen-bg: linear-gradient(180deg, #171b1c, #090a0b);
+  --panel-bg: linear-gradient(160deg, rgba(54, 18, 47, 0.76), rgba(8, 9, 12, 0.7));
+  --footer-bg: linear-gradient(145deg, #090a0b, #24111f);
+  --accent: #ff8bd9;
+  --text: #f7f4f7;
+  --muted: #bdb6bd;
+  --surface: rgba(255, 255, 255, 0.08);
+  --button-text: #ffffff;
+  --whatsapp-bg: linear-gradient(135deg, rgba(255, 54, 188, 0.92), rgba(139, 33, 116, 0.78));
+  --instagram-bg: linear-gradient(135deg, rgba(255, 104, 205, 0.78), rgba(108, 41, 125, 0.72));
+  --email-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+  --email-text: #f7f4f7;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-page {
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 54, 188, 0.12), transparent 28%),
+    linear-gradient(180deg, #171b1c, #070809 58%, #140911);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-hero {
+  background:
+    radial-gradient(circle at 52% 18%, rgba(255, 54, 188, 0.24), transparent 34%),
+    linear-gradient(145deg, #171b1c, #070809);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-hero-media {
+  filter: saturate(1.22) contrast(1.1) brightness(1.02);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-hero-video {
+  top: -72px;
+  height: calc(100% + 72px);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-hero-shade {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08) 34%, rgba(0, 0, 0, 0.74) 68%, rgba(0, 0, 0, 0.94)),
+    linear-gradient(105deg, rgba(18, 14, 18, 0.22), transparent 62%);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-eyebrow,
+.theme-rosa-neon-lux.template-dermatology .derma-section-head span,
+.theme-rosa-neon-lux.template-dermatology .derma-service span,
+.theme-rosa-neon-lux.template-dermatology .derma-doctor blockquote,
+.theme-rosa-neon-lux.template-dermatology .derma-stats strong,
+.theme-rosa-neon-lux.template-dermatology .derma-materials span {
+  color: #ffb1e6;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-card {
+  border-color: rgba(255, 104, 205, 0.18);
+  background: rgba(15, 11, 15, 0.7);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-logo {
+  background: linear-gradient(135deg, #ff8bd9, #8f2a82);
+  color: #100811;
+  box-shadow: 0 0 0 8px rgba(255, 104, 205, 0.13);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-actions .btn-whatsapp {
+  border: 1px solid rgba(255, 177, 230, 0.36);
+  box-shadow:
+    0 16px 34px rgba(255, 54, 188, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-contact .derma-actions {
+  background: linear-gradient(160deg, rgba(71, 18, 61, 0.58), rgba(8, 8, 10, 0.52));
+}

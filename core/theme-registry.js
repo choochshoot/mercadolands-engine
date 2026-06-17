@@ -1,6 +1,7 @@
 ﻿const themes = {
   "green-gold": "green-gold.css",
   "rose-gold": "rose-gold.css",
+  "rosa-neon-lux": "rosa-neon-lux.css",
   "dark-luxury": "dark-luxury.css",
   minimal: "minimal.css",
   glassmorphism: "glassmorphism.css"
