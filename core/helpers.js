@@ -20,7 +20,7 @@ export function safeUrl(value) {
   const url = String(value).trim();
   const allowedPrefixes = ["https://", "http://", "mailto:", "tel:"];
 
-  if (allowedPrefixes.some((prefix) => url.startsWith(prefix))) {
+  if (url.startsWith("#") || allowedPrefixes.some((prefix) => url.startsWith(prefix))) {
     return escapeHtml(url);
   }
 
@@ -35,4 +35,3 @@ export function toRegistryKey(value, fallback) {
 
   return key || fallback;
 }
-

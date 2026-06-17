@@ -27,6 +27,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 img {
   max-width: 100%;
 }
@@ -1016,6 +1020,7 @@ img {
 }
 
 .derma-card {
+  scroll-margin-top: 18px;
   margin: 16px;
   padding: 20px;
   border: 1px solid rgba(216, 172, 156, 0.16);

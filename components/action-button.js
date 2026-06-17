@@ -3,9 +3,13 @@ import { getDefaultSubtitle, getIcon } from "../core/icons.js";
 
 export function renderActionButton(button = {}) {
   const type = toRegistryKey(button.type, "link");
+  const link = safeUrl(button.link);
+  const targetAttrs = isInternalLink(button.link)
+    ? ""
+    : ' target="_blank" rel="noopener noreferrer"';
 
   return `
-    <a href="${safeUrl(button.link)}" target="_blank" rel="noopener noreferrer" class="btn btn-${type}">
+    <a href="${link}"${targetAttrs} class="btn btn-${type}">
       <div class="btn-left">
         <span class="icon">${getIcon(type)}</span>
         <div>
@@ -18,3 +22,6 @@ export function renderActionButton(button = {}) {
   `;
 }
 
+function isInternalLink(link = "") {
+  return String(link).trim().startsWith("#");
+}
