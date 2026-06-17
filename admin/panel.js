@@ -217,15 +217,17 @@ function renderBooleanInput(key, value, path) {
 }
 function renderAssetInput(key, value, path) {
   const inputValue = escapeHtml(value);
+  const accept = getAssetAccept(path);
+  const placeholder = getAssetPlaceholder(path);
 
   return `
     <div class="field-row asset-row">
       <label>${toTitle(key)}</label>
       <div class="asset-control">
-        <input data-path="${path}" value="${inputValue}" placeholder="URL de imagen o video">
+        <input data-path="${path}" value="${inputValue}" placeholder="${placeholder}">
         <label class="asset-upload-btn">
           Subir archivo
-          <input type="file" accept="image/png,image/jpeg,image/webp,image/heic,image/gif,video/webm,video/mp4" data-upload-path="${path}">
+          <input type="file" accept="${accept}" data-upload-path="${path}">
         </label>
       </div>
       ${value ? `
@@ -431,7 +433,7 @@ async function uploadAssetForField(input) {
   }
 
   try {
-    validateAssetFile(file);
+    validateAssetFile(file, fieldPath);
     setStatus(`Subiendo ${toTitle(fieldPath.split(".").pop())}...`);
 
     const filePath = createAssetPath({ slug, template, fieldPath, file });
@@ -493,7 +495,7 @@ async function saveAssetHistory({ slug, fieldPath, publicUrl }) {
   }
 }
 
-function validateAssetFile(file) {
+function validateAssetFile(file, fieldPath = "") {
   const allowedImages = [
     "image/png",
     "image/jpeg",
@@ -507,12 +509,17 @@ function validateAssetFile(file) {
   ];
   const isImage = allowedImages.includes(file.type);
   const isVideo = allowedVideos.includes(file.type);
+  const isShareImage = String(fieldPath).toLowerCase() === "share.image";
+
+  if (isShareImage && !isImage) {
+    throw new Error("La imagen OG debe ser PNG, JPG, WEBP, HEIC o GIF.");
+  }
 
   if (!isImage && !isVideo) {
     throw new Error("Formato no permitido. Usa PNG, JPG, WEBP, HEIC, GIF, WEBM o MP4.");
   }
 
-  const maxMB = isVideo ? 20 : 5;
+  const maxMB = isShareImage ? 1 : isVideo ? 20 : 5;
 
   if (file.size > maxMB * 1024 * 1024) {
     throw new Error(`El archivo supera ${maxMB}MB.`);
@@ -590,6 +597,9 @@ function isAssetField(key, path) {
   const fieldName = String(key || path.split(".").pop()).toLowerCase();
   const fullPath = String(path || "").toLowerCase();
 
+  if (fullPath === "share.image") return true;
+  if (fullPath.startsWith("share.")) return false;
+  if (["imagealt", "imagewidth", "imageheight"].includes(fieldName)) return false;
   if (fieldName.includes("mapurl")) return false;
   if (fieldName === "url" || fieldName === "link" || fieldName === "email") return false;
 
@@ -604,6 +614,22 @@ function isAssetField(key, path) {
     "background",
     "gallery"
   ].some((token) => fieldName.includes(token) || fullPath.includes(`.${token}`));
+}
+
+function getAssetAccept(path = "") {
+  if (String(path).toLowerCase() === "share.image") {
+    return "image/png,image/jpeg,image/webp,image/heic,image/gif";
+  }
+
+  return "image/png,image/jpeg,image/webp,image/heic,image/gif,video/webm,video/mp4";
+}
+
+function getAssetPlaceholder(path = "") {
+  if (String(path).toLowerCase() === "share.image") {
+    return "URL de imagen OG: 1200x630, PNG/JPG, ideal <500KB";
+  }
+
+  return "URL de imagen o video";
 }
 
 function isVideoUrl(value) {
