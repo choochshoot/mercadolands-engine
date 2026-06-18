@@ -1,0 +1,12 @@
+:root {
+  --page-bg: #141411;
+  --screen-bg: #f3f0e9;
+  --panel-bg: #19241f;
+  --footer-bg: #101713;
+  --accent: #b5925a;
+  --text: #1f211d;
+  --muted: #6d716a;
+  --surface: #f8f6f0;
+  --button-text: #fff;
+  --whatsapp-bg: linear-gradient(135deg, #174f3c, #237259);
+}

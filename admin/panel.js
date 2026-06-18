@@ -110,6 +110,11 @@ async function getContract(template) {
     return response.json();
   }
 
+  if (template === "realestate") {
+    const response = await fetch("./contracts/realestate.json");
+    return response.json();
+  }
+
   return structuredClone(FALLBACK_CONTRACTS[template] || FALLBACK_CONTRACTS.creator);
 }
 
@@ -646,6 +651,13 @@ function cleanSlug(value) {
 }
 
 function toTitle(value) {
+  const labels = {
+    realestate: "Inmobiliaria",
+    "estate-luxury": "Inmobiliario Luxury"
+  };
+
+  if (labels[value]) return labels[value];
+
   return String(value)
     .replace(/-/g, " ")
     .replace(/([A-Z])/g, " $1")

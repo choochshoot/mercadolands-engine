@@ -3,6 +3,7 @@
   "rose-gold": "rose-gold.css",
   "rosa-neon-lux": "rosa-neon-lux.css",
   "dark-luxury": "dark-luxury.css",
+  "estate-luxury": "estate-luxury.css",
   minimal: "minimal.css",
   glassmorphism: "glassmorphism.css"
 };

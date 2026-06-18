@@ -3,6 +3,7 @@ const templateLoaders = {
   wedding: () => import("../templates/wedding.js"),
   pizza: () => import("../templates/pizza.js"),
   business: () => import("../templates/business.js"),
+  realestate: () => import("../templates/realestate.js"),
   dermatology: () => import("../templates/dermatology.js")
 };
 
@@ -19,4 +20,3 @@ export async function getTemplate(templateName) {
 export function getAvailableTemplates() {
   return Object.keys(templateLoaders);
 }
-
