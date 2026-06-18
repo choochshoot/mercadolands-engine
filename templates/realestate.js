@@ -1,5 +1,8 @@
 import { escapeHtml, safeUrl } from "../core/helpers.js";
 
+const DEFAULT_WHATSAPP_PHONE = "523310976219";
+const DEFAULT_WHATSAPP_MESSAGE = "Hola Lourdes, me interesa agendar una cita.";
+
 export function render(data = {}) {
   const agent = data.agent || {};
   const hero = data.hero || {};
@@ -15,7 +18,7 @@ export function render(data = {}) {
 
         <div class="estate-hero-top">
           <span class="estate-wordmark">${escapeHtml(agent.brandName || "Asesoría inmobiliaria")}</span>
-          <a class="estate-top-cta" href="${safeUrl(contact.whatsapp)}" target="_blank" rel="noopener noreferrer">
+          <a class="estate-top-cta" href="${safeUrl(buildWhatsappUrl(contact))}" target="_blank" rel="noopener noreferrer">
             WhatsApp
           </a>
         </div>
@@ -26,7 +29,7 @@ export function render(data = {}) {
           <h1>${escapeHtml(hero.title || "Encuentra un lugar que se sienta tuyo")}</h1>
           <p>${escapeHtml(hero.subtitle)}</p>
           <div class="estate-hero-actions">
-            ${renderWhatsappLink(hero.ctaLabel || "Agenda una visita privada", hero.ctaLink || contact.whatsapp, "QUIERO CONOCERLOS")}
+            ${renderWhatsappLink(hero.ctaLabel || "Agenda una visita privada", buildWhatsappUrl(contact), "QUIERO CONOCERLOS")}
             <a class="estate-secondary-link" href="#desarrollos">Explorar desarrollos <span aria-hidden="true">↓</span></a>
           </div>
         </div>
@@ -56,7 +59,7 @@ export function render(data = {}) {
         </header>
 
         <div class="estate-development-list">
-          ${developments.map((development, index) => renderDevelopment(development, index, contact.whatsapp)).join("")}
+          ${developments.map((development, index) => renderDevelopment(development, index, contact)).join("")}
         </div>
       </section>
 
@@ -66,7 +69,7 @@ export function render(data = {}) {
           <h2>${escapeHtml(data.tour?.title || "No tienes que elegir a ciegas")}</h2>
           <p>${escapeHtml(data.tour?.text)}</p>
         </div>
-        ${renderWhatsappLink(data.tour?.ctaLabel || "Recorrer opciones con Lourdes", data.tour?.ctaLink || contact.whatsapp, "AGENDA PERSONALIZADA")}
+        ${renderWhatsappLink(data.tour?.ctaLabel || "Recorrer opciones con Lourdes", buildWhatsappUrl(contact), "AGENDA PERSONALIZADA")}
       </section>
 
       <footer class="estate-contact">
@@ -74,9 +77,9 @@ export function render(data = {}) {
         <div>
           <p class="estate-eyebrow">Hablemos de tu próxima inversión</p>
           <h2>${escapeHtml(agent.name)}</h2>
-          <p>${escapeHtml(contact.phone)}${contact.email ? ` · ${escapeHtml(contact.email)}` : ""}</p>
+          <p>${escapeHtml(formatWhatsappPhone(contact))}${contact.email ? ` · ${escapeHtml(contact.email)}` : ""}</p>
         </div>
-        ${renderWhatsappLink(contact.ctaLabel || "Escribir por WhatsApp", contact.whatsapp, "RESPUESTA DIRECTA")}
+        ${renderWhatsappLink(contact.ctaLabel || "Escribir por WhatsApp", buildWhatsappUrl(contact), "RESPUESTA DIRECTA")}
       </footer>
     </main>
   `;
@@ -103,7 +106,7 @@ function renderAgentBadge(agent = {}, extraClass = "") {
   `;
 }
 
-function renderDevelopment(item = {}, index = 0, defaultWhatsapp = "") {
+function renderDevelopment(item = {}, index = 0, contact = {}) {
   const gallery = Array.isArray(item.gallery) ? item.gallery.filter(Boolean) : [];
   const features = Array.isArray(item.features) ? item.features : [];
 
@@ -137,7 +140,11 @@ function renderDevelopment(item = {}, index = 0, defaultWhatsapp = "") {
           <a class="estate-location-link" href="${safeUrl(item.mapUrl)}" target="_blank" rel="noopener noreferrer">
             Ver ubicación
           </a>
-          ${renderWhatsappLink(item.ctaLabel || `Visitar ${item.name}`, item.whatsapp || defaultWhatsapp, "AGENDAR RECORRIDO")}
+          ${renderWhatsappLink(
+            item.ctaLabel || `Visitar ${item.name}`,
+            buildWhatsappUrl(contact, getDevelopmentMessage(item)),
+            "AGENDAR RECORRIDO"
+          )}
         </div>
       </div>
     </article>
@@ -152,6 +159,31 @@ function renderWhatsappLink(label, link, subtitle) {
       <b aria-hidden="true">›</b>
     </a>
   `;
+}
+
+function buildWhatsappUrl(contact = {}, message = "") {
+  const phone = String(contact.whatsappPhone || DEFAULT_WHATSAPP_PHONE)
+    .replace(/\D/g, "");
+  const text = message || contact.whatsappMessage || DEFAULT_WHATSAPP_MESSAGE;
+
+  return `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+}
+
+function getDevelopmentMessage(item = {}) {
+  const developmentName = String(item.name || "el desarrollo").trim();
+
+  return `Hola Lourdes, me interesa agendar una cita para conocer ${developmentName}.`;
+}
+
+function formatWhatsappPhone(contact = {}) {
+  const phone = String(contact.whatsappPhone || DEFAULT_WHATSAPP_PHONE)
+    .replace(/\D/g, "");
+
+  if (phone.length === 12 && phone.startsWith("52")) {
+    return `+52 ${phone.slice(2, 4)} ${phone.slice(4, 6)} ${phone.slice(6, 8)} ${phone.slice(8, 10)} ${phone.slice(10, 12)}`;
+  }
+
+  return contact.phone || phone;
 }
 
 function renderImage(src, alt, className) {

@@ -86,9 +86,10 @@
     "ctaLink": "https://wa.me/5210000000000"
   },
   "contact": {
-    "phone": "+52 1 000 000 0000",
+    "phone": "+52 33 10 97 62 19",
     "email": "hola@lourdestapia.mx",
-    "whatsapp": "https://wa.me/5210000000000",
+    "whatsappPhone": "523310976219",
+    "whatsappMessage": "Hola Lourdes, me interesa agendar una cita.",
     "ctaLabel": "Escribir a Lourdes"
   }
 }
