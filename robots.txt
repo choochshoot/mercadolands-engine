@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://choochshoot.github.io/mercadolands-engine/sitemap.xml

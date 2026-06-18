@@ -59,15 +59,17 @@ async function fetchLanding(config, slugValue) {
 function renderShareHtml(landing) {
   const data = landing.data;
   const brand = data.brand || {};
+  const agent = data.agent || {};
   const hero = data.hero || {};
   const contact = data.contact || {};
   const share = data.share || {};
   const canonical = `${SITE_URL}/share/${encodeURIComponent(landing.slug)}.html`;
   const landingUrl = `${SITE_URL}/u/index.html?slug=${encodeURIComponent(landing.slug)}`;
-  const title = share.title || `${brand.name || hero.title || "MercadoLands"}`;
+  const entityName = brand.name || agent.name || agent.brandName || hero.title || "MercadoLands";
+  const title = share.title || `${entityName}`;
   const description = share.description || hero.subtitle || contact.text || "Landing digital MercadoLands.";
-  const image = absoluteUrl(share.image || brand.logo || hero.photo || `${SITE_URL}/share/assets/${landing.slug}-og.png`);
-  const imageAlt = share.imageAlt || `${brand.name || title}`;
+  const image = absoluteUrl(share.image || brand.logo || agent.logo || hero.photo || `${SITE_URL}/share/assets/${landing.slug}-og.png`);
+  const imageAlt = share.imageAlt || `${entityName}`;
   const width = String(share.imageWidth || "1200");
   const height = String(share.imageHeight || "630");
 
@@ -98,6 +100,9 @@ function renderShareHtml(landing) {
   <meta name="twitter:title" content="${escapeHtml(title)}">
   <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${escapeHtml(image)}">
+  <meta name="twitter:image:alt" content="${escapeHtml(imageAlt)}">
+
+  ${renderStructuredData({ landing, title, description, image, agent, contact, canonical })}
 
   <style>
     :root {
@@ -125,7 +130,7 @@ function renderShareHtml(landing) {
 <body>
   <main>
     <p>Abriendo landing...</p>
-    <p><a href="${landingUrl}">Abrir ${escapeHtml(brand.name || title)}</a></p>
+    <p><a href="${landingUrl}">Abrir ${escapeHtml(entityName)}</a></p>
   </main>
 
   <script>
@@ -136,6 +141,32 @@ function renderShareHtml(landing) {
 </body>
 </html>
 `;
+}
+
+function renderStructuredData({ landing, title, description, image, agent, contact, canonical }) {
+  const isRealEstate = landing.data.template === "realestate";
+
+  if (!isRealEstate) return "";
+
+  const phone = contact.phone || contact.whatsappPhone || "";
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    name: agent.brandName || agent.name || title,
+    description,
+    url: canonical,
+    image,
+    telephone: phone,
+    employee: agent.name
+      ? {
+          "@type": "Person",
+          name: agent.name,
+          jobTitle: agent.role || "Asesora inmobiliaria"
+        }
+      : undefined
+  };
+
+  return `<script type="application/ld+json">${JSON.stringify(schema).replaceAll("<", "\\u003c")}</script>`;
 }
 
 function absoluteUrl(url) {

@@ -9,6 +9,14 @@
     "logo": "",
     "introduction": "Te acompaño a descubrir propiedades que combinan ubicación, diseño y una inversión con sentido. Seleccionamos opciones y las recorremos juntos."
   },
+  "share": {
+    "title": "Lourdes Tapia | Asesora inmobiliaria en Guadalajara",
+    "description": "Descubre desarrollos inmobiliarios seleccionados, precios, ubicaciones y amenidades. Agenda una visita guiada con Lourdes Tapia.",
+    "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&h=630&q=88",
+    "imageAlt": "Lourdes Tapia Bienes Raíces y desarrollos inmobiliarios",
+    "imageWidth": "1200",
+    "imageHeight": "630"
+  },
   "hero": {
     "eyebrow": "Vive, invierte, disfruta",
     "title": "Tu próximo hogar comienza con una buena visita",
