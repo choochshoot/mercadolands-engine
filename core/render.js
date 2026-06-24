@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js";
-import { getTemplate } from "./template-registry.js";
-import { loadTheme } from "./theme-registry.js";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260624-treatment-cards";
+import { getTemplate } from "./template-registry.js?v=20260624-treatment-cards";
+import { loadTheme } from "./theme-registry.js?v=20260624-treatment-cards";
 
 let cleanupLandingEffects = () => {};
 

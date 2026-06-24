@@ -28,7 +28,7 @@ async function unlockAdmin() {
   document.body.classList.add("admin-unlocked");
   await loadScript("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2");
   await loadScript("./config.js");
-  await import("./panel.js?v=20260617-admin-share");
+  await import("./panel.js?v=20260624-treatment-cards");
 }
 
 function loadScript(src) {
