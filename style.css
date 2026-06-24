@@ -1174,6 +1174,15 @@ img {
   min-width: 0;
 }
 
+.derma-service:nth-child(even) {
+  background: rgba(234, 200, 175, 0.07);
+}
+
+.derma-service:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
 .derma-service h3,
 .derma-case h3 {
   margin: 8px 0 8px;
