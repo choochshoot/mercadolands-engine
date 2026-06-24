@@ -260,7 +260,10 @@ function getServiceShareUrl(service = {}, context = {}) {
 
   if (!profileUrl) return "";
 
-  const message = `Te comparto informacion sobre ${name}: ${profileUrl}`;
+  const mediaUrl = safeUrl(service.previewImage || service.detailImage);
+  const message = mediaUrl
+    ? `Te comparto informacion sobre ${name}: ${mediaUrl} ${profileUrl}`
+    : `Te comparto informacion sobre ${name}: ${profileUrl}`;
 
   return `https://wa.me/?text=${encodeURIComponent(message)}`;
 }

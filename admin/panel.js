@@ -198,7 +198,7 @@ function renderInput(key, value, path) {
   if (tag === "textarea") {
     return `
       <div class="field-row">
-        <label>${toTitle(key)}</label>
+        <label>${getFieldLabel(key, path)}</label>
         <textarea data-path="${path}">${inputValue}</textarea>
       </div>
     `;
@@ -227,7 +227,7 @@ function renderAssetInput(key, value, path) {
 
   return `
     <div class="field-row asset-row">
-      <label>${toTitle(key)}</label>
+      <label>${getFieldLabel(key, path)}</label>
       <div class="asset-control">
         <input data-path="${path}" value="${inputValue}" placeholder="${placeholder}">
         <label class="asset-upload-btn">
@@ -240,7 +240,7 @@ function renderAssetInput(key, value, path) {
           ${isVideoUrl(value) ? `
             <video src="${inputValue}" muted loop playsinline controls></video>
           ` : `
-            <img src="${inputValue}" alt="${escapeHtml(toTitle(key))}">
+            <img src="${inputValue}" alt="${escapeHtml(getFieldLabel(key, path))}">
           `}
         </div>
       ` : ""}
@@ -358,12 +358,9 @@ async function loadLandingBySlug() {
     els.theme.value = theme;
 
     state.contract = await getContract(template);
-    state.data = {
-      ...structuredClone(state.contract),
-      ...(data.data || {}),
-      template,
-      theme
-    };
+    state.data = deepMerge(structuredClone(state.contract), data.data || {});
+    state.data.template = template;
+    state.data.theme = theme;
     normalizeLoadedData(template);
 
     renderDynamicFields();
@@ -567,6 +564,36 @@ function updateViewLink() {
 function setStatus(message, tone = "default") {
   els.status.textContent = message;
   els.status.dataset.tone = tone;
+}
+
+function deepMerge(base, override) {
+  if (Array.isArray(base) || Array.isArray(override)) {
+    return override === undefined ? base : override;
+  }
+
+  if (!isObject(base) || !isObject(override)) {
+    return override === undefined ? base : override;
+  }
+
+  const result = { ...base };
+
+  Object.entries(override).forEach(([key, value]) => {
+    result[key] = deepMerge(base[key], value);
+  });
+
+  return result;
+}
+
+function getFieldLabel(key, path = "") {
+  const labels = {
+    "doctor.photo": "Foto doctora",
+    "experience.photo": "Foto atm&oacute;sfera",
+    "hero.photo": "Foto principal",
+    "brand.logo": "Logo marca",
+    "share.image": "Imagen para compartir"
+  };
+
+  return labels[path] || toTitle(key);
 }
 
 function setByPath(target, path, value) {
