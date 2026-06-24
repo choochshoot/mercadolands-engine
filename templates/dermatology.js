@@ -14,7 +14,7 @@ export function render(data = {}, context = {}) {
   return `
     <main class="derma-page">
       <section class="derma-hero">
-        ${renderHeroMedia(hero, brand.name || "Clínica dermatológica")}
+        ${renderHeroMedia(hero, brand.name || "Cl\u00ednica dermatol\u00f3gica")}
         <div class="derma-hero-shade"></div>
         <div class="derma-hero-content">
           ${brand.showHeroLogo ? renderBrandLogo(brand, "derma-hero-logo", { fallback: false }) : ""}
@@ -60,10 +60,11 @@ export function render(data = {}, context = {}) {
         ${renderImage(experience.photo, experience.title, "derma-experience-photo")}
       </section>
 
-      <section id="derma-services" class="derma-card">
-        <div class="derma-section-head">
+      <section id="derma-services" class="derma-card derma-services-card">
+        <div class="derma-section-head derma-treatment-intro">
           <span>Tratamientos signature</span>
-          <h2>Protocolos avanzados, resultados naturales</h2>
+          <h2>Est&aacute;s a un paso de renovar tu piel</h2>
+          <p>Elige el protocolo que quieres explorar y descubre c&oacute;mo puede verse una versi&oacute;n m&aacute;s luminosa, firme y fresca de ti.</p>
         </div>
         <div class="derma-services">
           ${services.map((service) => renderService(service, context)).join("")}
@@ -73,7 +74,7 @@ export function render(data = {}, context = {}) {
       <section class="derma-card">
         <div class="derma-section-head">
           <span>Resultados sutiles</span>
-          <h2>Evolución natural sin estridencias</h2>
+          <h2>Evoluci&oacute;n natural sin estridencias</h2>
         </div>
         <div class="derma-cases">
           ${cases.map(renderCase).join("")}
@@ -83,7 +84,7 @@ export function render(data = {}, context = {}) {
       <section class="derma-card derma-contact">
         <div class="derma-section-head">
           <span>Cita privada</span>
-          <h2>${escapeCopy(contact.title || "Reserva tu valoración")}</h2>
+          <h2>${escapeCopy(contact.title || "Reserva tu valoraci\u00f3n")}</h2>
           <p>${escapeCopy(contact.text)}</p>
         </div>
         <div class="derma-contact-info">
@@ -91,14 +92,14 @@ export function render(data = {}, context = {}) {
           <div class="derma-actions">
             ${renderActionButton({ label: "WhatsApp", link: contact.whatsapp, type: "whatsapp", subtitle: "AGENDAR" })}
             ${renderActionButton({ label: "Llamar", link: contact.phone, type: "phone", subtitle: "CONTACTO" })}
-            ${renderActionButton({ label: "Cómo llegar", link: contact.mapUrl, type: "map", subtitle: "MAPS" })}
+            ${renderActionButton({ label: "C\u00f3mo llegar", link: contact.mapUrl, type: "map", subtitle: "MAPS" })}
             ${social.instagram ? renderActionButton({ label: social.label || "Instagram", link: social.instagram, type: "instagram", subtitle: "REDES" }) : ""}
           </div>
         </div>
       </section>
 
       <footer class="derma-footer">
-        ${escapeCopy(brand.name)} - Dermatología estética de precisión
+        ${escapeCopy(brand.name)} - Dermatolog&iacute;a est&eacute;tica de precisi&oacute;n
       </footer>
     </main>
   `;

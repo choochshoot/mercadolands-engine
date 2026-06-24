@@ -1148,6 +1148,37 @@ img {
   margin: 18px 0 0;
 }
 
+.derma-services-card {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(234, 200, 175, 0.08), transparent 34%),
+    rgba(24, 28, 29, 0.72);
+}
+
+.derma-services-card::before {
+  content: "";
+  width: 76px;
+  height: 2px;
+  display: block;
+  margin: 0 0 16px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #eac8af, rgba(255, 153, 218, 0.72), transparent);
+}
+
+.derma-treatment-intro {
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(234, 200, 175, 0.14);
+}
+
+.derma-treatment-intro h2 {
+  max-width: 340px;
+}
+
+.derma-treatment-intro p {
+  max-width: 360px;
+}
+
 .derma-services,
 .derma-cases {
   display: grid;
@@ -1189,6 +1220,23 @@ img {
   font-size: 24px;
   line-height: 1;
 }
+
+.derma-service h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.derma-service h3::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(234, 200, 175, 0.78);
+  transform: rotate(45deg);
+  box-shadow: 0 0 12px rgba(255, 153, 218, 0.22);
+}
+
 
 .derma-service p,
 .derma-case p {
