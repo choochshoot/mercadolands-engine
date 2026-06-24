@@ -364,6 +364,7 @@ async function loadLandingBySlug() {
       template,
       theme
     };
+    normalizeLoadedData(template);
 
     renderDynamicFields();
     updatePreview();
@@ -514,17 +515,17 @@ function validateAssetFile(file, fieldPath = "") {
   ];
   const isImage = allowedImages.includes(file.type);
   const isVideo = allowedVideos.includes(file.type);
-  const isShareImage = String(fieldPath).toLowerCase() === "share.image";
+  const isImageOnly = isImageOnlyAssetPath(fieldPath);
 
-  if (isShareImage && !isImage) {
-    throw new Error("La imagen OG debe ser PNG, JPG, WEBP, HEIC o GIF.");
+  if (isImageOnly && !isImage) {
+    throw new Error("Este campo solo permite PNG, JPG, WEBP, HEIC o GIF.");
   }
 
   if (!isImage && !isVideo) {
     throw new Error("Formato no permitido. Usa PNG, JPG, WEBP, HEIC, GIF, WEBM o MP4.");
   }
 
-  const maxMB = isShareImage ? 1 : isVideo ? 20 : 5;
+  const maxMB = String(fieldPath).toLowerCase() === "share.image" ? 1 : isVideo ? 20 : 5;
 
   if (file.size > maxMB * 1024 * 1024) {
     throw new Error(`El archivo supera ${maxMB}MB.`);
@@ -622,7 +623,7 @@ function isAssetField(key, path) {
 }
 
 function getAssetAccept(path = "") {
-  if (String(path).toLowerCase() === "share.image") {
+  if (isImageOnlyAssetPath(path)) {
     return "image/png,image/jpeg,image/webp,image/heic,image/gif";
   }
 
@@ -630,6 +631,14 @@ function getAssetAccept(path = "") {
 }
 
 function getAssetPlaceholder(path = "") {
+  if (isServicePreviewImagePath(path)) {
+    return "URL de thumb WEBP/JPG/PNG ligero para la card";
+  }
+
+  if (isServiceDetailImagePath(path)) {
+    return "URL de WEBP/JPG/PNG con el detalle del tratamiento";
+  }
+
   if (String(path).toLowerCase() === "share.image") {
     return "URL de imagen OG: 1200x630, PNG/JPG, ideal <500KB";
   }
@@ -639,6 +648,35 @@ function getAssetPlaceholder(path = "") {
 
 function isVideoUrl(value) {
   return /\.(webm|mp4)(\?|#|$)/i.test(String(value || ""));
+}
+
+function normalizeLoadedData(template) {
+  if (template !== "dermatology") return;
+  if (!Array.isArray(state.data.services)) return;
+
+  state.data.services = state.data.services.map((service) => ({
+    detailImage: "",
+    previewImage: "",
+    ...service
+  }));
+}
+
+function isImageOnlyAssetPath(path = "") {
+  const normalizedPath = String(path).toLowerCase();
+
+  return normalizedPath === "share.image" || isServiceImagePath(normalizedPath);
+}
+
+function isServiceImagePath(path = "") {
+  return isServiceDetailImagePath(path) || isServicePreviewImagePath(path);
+}
+
+function isServiceDetailImagePath(path = "") {
+  return /^services\.\d+\.detailimage$/i.test(String(path));
+}
+
+function isServicePreviewImagePath(path = "") {
+  return /^services\.\d+\.previewimage$/i.test(String(path));
 }
 
 function cleanSlug(value) {

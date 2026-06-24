@@ -1163,6 +1163,17 @@ img {
   background: rgba(255, 255, 255, 0.055);
 }
 
+.derma-service {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.derma-service-copy {
+  min-width: 0;
+}
+
 .derma-service h3,
 .derma-case h3 {
   margin: 8px 0 8px;
@@ -1176,6 +1187,84 @@ img {
   color: rgba(255, 255, 255, 0.68);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.derma-service-preview {
+  width: clamp(116px, 34vw, 150px);
+  aspect-ratio: 1.12;
+  border: 1px solid rgba(234, 200, 175, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.16);
+  align-self: start;
+}
+
+.derma-service-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transform: none;
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.derma-service-preview:hover img {
+  transform: none;
+}
+
+.derma-service-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 6px;
+  padding: 10px 16px;
+  border: 1px solid rgba(234, 200, 175, 0.34);
+  border-radius: 999px;
+  color: #f7dfcd;
+  background: rgba(234, 200, 175, 0.1);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.derma-service-download:hover {
+  background: rgba(234, 200, 175, 0.18);
+  transform: translateY(-1px);
+}
+
+.derma-service-share {
+  grid-column: 1 / -1;
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(247, 223, 205, 0.72);
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.derma-service-share svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.derma-service-share:hover {
+  color: #f7dfcd;
 }
 
 .derma-case-image {
@@ -1197,6 +1286,24 @@ img {
   color: rgba(255, 255, 255, 0.52);
   text-align: center;
   font-size: 12px;
+}
+
+@media (max-width: 380px) {
+  .derma-service {
+    grid-template-columns: minmax(0, 1fr) 96px;
+    gap: 10px;
+    padding: 14px;
+  }
+
+  .derma-service-preview {
+    width: 104px;
+  }
+
+  .derma-service-download {
+    min-height: 44px;
+    padding: 9px 11px;
+    font-size: 9.5px;
+  }
 }
 
 @media (min-width: 700px) {

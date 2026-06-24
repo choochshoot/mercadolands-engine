@@ -1,7 +1,7 @@
 import { renderActionButton } from "../components/action-button.js";
 import { escapeHtml, safeUrl } from "../core/helpers.js";
 
-export function render(data = {}) {
+export function render(data = {}, context = {}) {
   const brand = data.brand || {};
   const hero = data.hero || {};
   const doctor = data.doctor || {};
@@ -66,7 +66,7 @@ export function render(data = {}) {
           <h2>Protocolos avanzados, resultados naturales</h2>
         </div>
         <div class="derma-services">
-          ${services.map(renderService).join("")}
+          ${services.map((service) => renderService(service, context)).join("")}
         </div>
       </section>
 
@@ -192,16 +192,77 @@ function renderMaterials(materials = []) {
   `;
 }
 
-function renderService(service = {}) {
+function renderService(service = {}, context = {}) {
   return `
     <article class="derma-service">
-      <span>${escapeCopy(service.category)}</span>
-      <h3>${escapeCopy(service.name)}</h3>
-      <p>${escapeCopy(service.description)}</p>
+      <div class="derma-service-copy">
+        <span>${escapeCopy(service.category)}</span>
+        <h3>${escapeCopy(service.name)}</h3>
+        <p>${escapeCopy(service.description)}</p>
+      </div>
+      ${renderServicePreview(service)}
+      ${renderServiceDownload(service)}
+      ${renderServiceShare(service, context)}
     </article>
   `;
 }
 
+function renderServicePreview(service = {}) {
+  const previewUrl = safeUrl(service.previewImage || service.detailImage);
+  const detailUrl = safeUrl(service.detailImage || service.previewImage);
+
+  if (!previewUrl) return "";
+
+  return `
+    <a class="derma-service-preview" href="${detailUrl || previewUrl}" target="_blank" rel="noopener noreferrer" aria-label="Ver detalle de ${escapeHtml(service.name || "tratamiento")}">
+      <img src="${previewUrl}" alt="${escapeHtml(service.name || "Tratamiento")}">
+    </a>
+  `;
+}
+
+function renderServiceDownload(service = {}) {
+  const url = safeUrl(service.detailImage);
+
+  if (!url) return "";
+
+  const name = escapeHtml(slugifyFilename(service.name || "tratamiento"));
+
+  return `
+    <a class="derma-service-download" href="${url}" target="_blank" rel="noopener noreferrer">
+      Quiero saber m&aacute;s sobre este tratamiento
+    </a>
+  `;
+}
+
+function renderServiceShare(service = {}, context = {}) {
+  const shareUrl = getServiceShareUrl(service, context);
+
+  if (!shareUrl) return "";
+
+  return `
+    <a class="derma-service-share" href="${shareUrl}" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M18 16.1c-.8 0-1.5.3-2 .8L8.9 12.7a3.2 3.2 0 0 0 0-1.4L16 7.1A2.9 2.9 0 1 0 15 5c0 .2 0 .5.1.7L8 9.9A3 3 0 1 0 8 14l7.1 4.2-.1.7a3 3 0 1 0 3-2.8z"/>
+      </svg>
+      Compartir tratamiento
+    </a>
+  `;
+}
+
+function getServiceShareUrl(service = {}, context = {}) {
+  const name = service.name || "este tratamiento";
+  const hasWindow = typeof window !== "undefined";
+  const currentUrl = hasWindow ? window.location.href : "";
+  const profileUrl = context.slug && hasWindow
+    ? `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(context.slug)}#derma-services`
+    : currentUrl;
+
+  if (!profileUrl) return "";
+
+  const message = `Te comparto informacion sobre ${name}: ${profileUrl}`;
+
+  return `https://wa.me/?text=${encodeURIComponent(message)}`;
+}
 function renderCase(item = {}) {
   return `
     <article class="derma-case">
@@ -212,6 +273,15 @@ function renderCase(item = {}) {
       </div>
     </article>
   `;
+}
+
+function slugifyFilename(value = "") {
+  return String(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "") || "tratamiento";
 }
 
 function escapeCopy(value) {

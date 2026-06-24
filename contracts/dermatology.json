@@ -65,22 +65,30 @@
     {
       "name": "Baby Botox",
       "category": "precisión sutil",
-      "description": "Microdosis que preservan la expresión natural. Piel luminosa, movimiento elegante y efecto descansado."
+      "description": "Microdosis que preservan la expresión natural. Piel luminosa, movimiento elegante y efecto descansado.",
+      "detailImage": "",
+      "previewImage": ""
     },
     {
       "name": "Salmon Face",
       "category": "regeneración premium",
-      "description": "Glow húmedo, hidratación profunda y luminosidad regenerativa con enfoque antiaging."
+      "description": "Glow húmedo, hidratación profunda y luminosidad regenerativa con enfoque antiaging.",
+      "detailImage": "",
+      "previewImage": ""
     },
     {
       "name": "Sculptra",
       "category": "bioestimulacion",
-      "description": "Restaura firmeza y estructura facial con resultados progresivos y colágeno propio."
+      "description": "Restaura firmeza y estructura facial con resultados progresivos y colágeno propio.",
+      "detailImage": "",
+      "previewImage": ""
     },
     {
       "name": "Skin Quality & Glow",
       "category": "skin wellness",
-      "description": "Protocolos de vitalidad cutánea, vitaminas e hidratación intensiva para piel saludable."
+      "description": "Protocolos de vitalidad cutánea, vitaminas e hidratación intensiva para piel saludable.",
+      "detailImage": "",
+      "previewImage": ""
     }
   ],
   "cases": [
