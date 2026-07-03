@@ -1,6 +1,31 @@
 export function getSlug() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("slug");
+  const slug = normalizeSlug(params.get("slug"));
+
+  if (slug && params.get("slug") !== slug) {
+    params.set("slug", slug);
+    const nextUrl = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+    window.history.replaceState(null, "", nextUrl);
+  }
+
+  return slug;
+}
+
+export function normalizeSlug(value) {
+  const slug = String(value || "")
+    .trim()
+    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+    .toLowerCase()
+    .replace(/[^a-z0-9-]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  const aliases = {
+    vanessagonzalez: "vanessa-gonzalez",
+    vanessagonzales: "vanessa-gonzalez"
+  };
+
+  return aliases[slug] || slug;
 }
 
 export function escapeHtml(value) {
@@ -20,7 +45,13 @@ export function safeUrl(value) {
   const url = String(value).trim();
   const allowedPrefixes = ["https://", "http://", "mailto:", "tel:"];
 
-  if (url.startsWith("#") || allowedPrefixes.some((prefix) => url.startsWith(prefix))) {
+  const allowedRelativePrefixes = ["../share/assets/", "./share/assets/", "share/assets/"];
+
+  if (
+    url.startsWith("#") ||
+    allowedPrefixes.some((prefix) => url.startsWith(prefix)) ||
+    allowedRelativePrefixes.some((prefix) => url.startsWith(prefix))
+  ) {
     return escapeHtml(url);
   }
 

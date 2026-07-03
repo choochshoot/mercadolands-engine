@@ -1,5 +1,7 @@
 <script>
+const repoBase = "/mercadolands-engine/";
 const path = window.location.pathname;
-const slug = path.split("/").pop();
-window.location.href = "/u/index.html?slug=" + slug;
+const withoutRepo = path.startsWith(repoBase) ? path.slice(repoBase.length) : path.replace(/^\//, "");
+const slug = withoutRepo.split("/").filter(Boolean).pop() || "vanessa-gonzalez";
+window.location.href = `${repoBase}u/index.html?slug=${encodeURIComponent(slug)}`;
 </script>

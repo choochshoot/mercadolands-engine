@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260624-treatment-cards";
-import { getTemplate } from "./template-registry.js?v=20260624-treatment-cards";
-import { loadTheme } from "./theme-registry.js?v=20260624-treatment-cards";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260702-vanessa-assets-v4";
+import { getTemplate } from "./template-registry.js?v=20260702-vanessa-assets-v4";
+import { loadTheme } from "./theme-registry.js?v=20260702-vanessa-assets-v4";
 
 let cleanupLandingEffects = () => {};
 
@@ -145,6 +145,8 @@ function initHashNavigation(mount) {
 
     if (!target) return false;
 
+    openAncestorDetails(target);
+
     target.scrollIntoView({
       behavior,
       block: "start"
@@ -172,7 +174,7 @@ function initHashNavigation(mount) {
     if (!scrollToHash(url.hash)) return;
 
     event.preventDefault();
-    window.history.pushState(null, "", url.hash);
+    window.history.pushState(null, "", `${window.location.pathname}${window.location.search}${url.hash}`);
   };
 
   mount.addEventListener("click", handleClick);
@@ -186,6 +188,18 @@ function initHashNavigation(mount) {
   return () => {
     mount.removeEventListener("click", handleClick);
   };
+}
+
+function openAncestorDetails(target) {
+  let parent = target.parentElement;
+
+  while (parent) {
+    if (parent.tagName === "DETAILS") {
+      parent.open = true;
+    }
+
+    parent = parent.parentElement;
+  }
 }
 
 function clamp(value, min, max) {

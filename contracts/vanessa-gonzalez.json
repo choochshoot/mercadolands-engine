@@ -1,0 +1,1776 @@
+{
+  "template": "dermatology",
+  "theme": "rosa-neon-lux",
+  "brand": {
+    "name": "Vanessa Gonz?lez Studio",
+    "tagline": "Medicina est?tica, beauty studio y glow boutique",
+    "specialty": "Servicios est?ticos, u?as, pesta?as, cabello y eventos",
+    "logo": "",
+    "showHeroLogo": false,
+    "showBrandCardLogo": true
+  },
+  "share": {
+    "title": "Vanessa Gonz?lez Studio | Cat?logo de servicios",
+    "description": "Promociones y servicios de medicina est?tica, u?as, pesta?as, cabello, pies y eventos con CTA directo a WhatsApp.",
+    "image": "https://choochshoot.github.io/mercadolands-engine/share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg",
+    "imageAlt": "Vanessa Gonz?lez Studio cat?logo de servicios",
+    "imageWidth": "1200",
+    "imageHeight": "630"
+  },
+  "hero": {
+    "eyebrow": "Rosa neon lux beauty funnel",
+    "title": "Explora promos, elige tu servicio y agenda por WhatsApp.",
+    "subtitle": "Un cat?logo claro y persuasivo para descubrir tratamientos, precios publicados, restricciones y detalles antes de reservar.",
+    "photo": "../share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg",
+    "video": "",
+    "ctaPrimaryLabel": "Ver promociones",
+    "ctaPrimaryLink": "#derma-promos",
+    "ctaSecondaryLabel": "Explorar servicios",
+    "ctaSecondaryLink": "#derma-funnel"
+  },
+  "doctor": {
+    "name": "Vanessa Gonz?lez Studio",
+    "title": "Beauty & aesthetic studio",
+    "photo": "",
+    "description": "Cat?logo de servicios organizado para navegar desde promociones hasta categor?as, tipos de servicio y ficha detallada con agenda directa.",
+    "quote": "Elige el servicio ideal y agenda con un mensaje listo para WhatsApp.",
+    "stats": [
+      {
+        "value": "38",
+        "label": "servicios activos"
+      },
+      {
+        "value": "4",
+        "label": "promociones destacadas"
+      },
+      {
+        "value": "55 42 46 03 71",
+        "label": "agenda WhatsApp"
+      }
+    ],
+    "showHeroAvatar": false
+  },
+  "experience": {
+    "eyebrow": "Embudo guiado",
+    "title": "Promos primero, detalle despu?s, WhatsApp siempre visible.",
+    "description": "Cada servicio conserva precio UI, alcance, notas y mensaje de agenda espec?fico para reducir fricci?n al momento de reservar.",
+    "photo": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
+    "materials": [
+      "promociones",
+      "categor?as",
+      "detalle",
+      "CTA WhatsApp"
+    ]
+  },
+  "catalogIntro": {
+    "eyebrow": "Cat?logo interactivo",
+    "title": "Encuentra tu siguiente cita por categor?a",
+    "description": "Abre una secci?n, elige una categor?a y revisa cada servicio con beneficios, precio y agenda directa."
+  },
+  "promotions": [
+    {
+      "id": "PR001",
+      "serviceSlug": "corte-cabello-dama",
+      "name": "Corte de Cabello Dama",
+      "price": "Promoción $250",
+      "includes": "Incluye: lavado + corte + peinado",
+      "condition": "Vigencia no especificada",
+      "ctaLabel": "Ver detalle",
+      "whatsappMessage": "Hola, quiero información y disponibilidad sobre Corte de Cabello Dama.",
+      "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Corte%20de%20Cabello%20Dama.",
+      "route": "/servicios/corte-cabello-dama",
+      "previewImage": "../share/assets/vanessa-gonzalez/p11-promo-corte-cabello.jpeg",
+      "detailImage": "../share/assets/vanessa-gonzalez/p11-promo-corte-cabello.jpeg"
+    },
+    {
+      "id": "PR002",
+      "serviceSlug": "pestanas-punto-lifting-cejas",
+      "name": "Pestañas por Punto + Lifting de Cejas",
+      "price": "Promoción $299",
+      "includes": "Pestañas por punto + lifting de cejas",
+      "condition": "Pestañas por punto: duración de 1 semana; vigencia no especificada",
+      "ctaLabel": "Ver detalle",
+      "whatsappMessage": "Hola, quiero información y disponibilidad sobre Pestañas por Punto + Lifting de Cejas.",
+      "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Pesta%C3%B1as%20por%20Punto%20%2B%20Lifting%20de%20Cejas.",
+      "route": "/servicios/pestanas-cejas#pestanas-punto-lifting",
+      "previewImage": "../share/assets/vanessa-gonzalez/p12-promo-pestanas-lifting.jpeg",
+      "detailImage": "../share/assets/vanessa-gonzalez/p12-promo-pestanas-lifting.jpeg"
+    },
+    {
+      "id": "PR003",
+      "serviceSlug": "combo-manos-pies-gel-liso",
+      "name": "Combo Manos y Pies — Gel Liso",
+      "price": "Promoción $299",
+      "includes": "Manos y pies · gel liso · un solo tono",
+      "condition": "No incluye retiro; vigencia no especificada",
+      "ctaLabel": "Ver detalle",
+      "whatsappMessage": "Hola, quiero información y disponibilidad sobre Combo Manos y Pies — Gel Liso.",
+      "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Combo%20Manos%20y%20Pies%20%E2%80%94%20Gel%20Liso%20%E2%80%94%20Un%20solo%20tono.",
+      "route": "/servicios/unas-gel#combo-manos-pies",
+      "previewImage": "../share/assets/vanessa-gonzalez/p13-promo-combo-manos-pies.jpeg",
+      "detailImage": "../share/assets/vanessa-gonzalez/p13-promo-combo-manos-pies.jpeg"
+    },
+    {
+      "id": "PR004",
+      "serviceSlug": "aumento-labios-acido-hialuronico",
+      "name": "Aumento de Labios con Ácido Hialurónico",
+      "price": "Promoción $1,999",
+      "includes": "Procedimiento seguro y personalizado",
+      "condition": "Solo 5 cupos; vigencia no especificada; valoración profesional previa",
+      "ctaLabel": "Ver detalle",
+      "whatsappMessage": "Hola, quiero información y disponibilidad sobre Aumento de Labios con Ácido Hialurónico.",
+      "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Aumento%20de%20Labios%20con%20%C3%81cido%20Hialur%C3%B3nico.",
+      "route": "/servicios/acido-hialuronico#aumento-labios",
+      "previewImage": "../share/assets/vanessa-gonzalez/p14-promo-aumento-labios.jpeg",
+      "detailImage": "../share/assets/vanessa-gonzalez/p14-promo-aumento-labios.jpeg"
+    }
+  ],
+  "serviceSections": [
+    {
+      "name": "Medicina estética",
+      "categories": [
+        {
+          "name": "Bioestimulación",
+          "services": [
+            {
+              "id": "SV001",
+              "order": 10,
+              "section": "Medicina estética",
+              "category": "Bioestimulación",
+              "recordType": "Servicio",
+              "name": "PDRN Salmón",
+              "variant": "",
+              "slug": "pdrn-salmon",
+              "route": "/servicios/pdrn-salmon",
+              "price": "$3,500 · 5 sesiones",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre PDRN Salmón.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20PDRN%20Salm%C3%B3n.",
+              "notes": "El precio aparece en el arte general de Bioestimuladores.",
+              "description": "Polidesoxirribonucleótidos (PDRN) derivados del ADN de salmón. Estimulan la regeneración celular, reparan tejidos y mejoran visiblemente la calidad de la piel desde el interior.",
+              "benefits": [
+                "• Regenera y repara células dañadas",
+                "• Mejora la calidad, textura y luminosidad de la piel",
+                "• Aumenta la hidratación y elasticidad",
+                "• Disminuye inflamación y enrojecimiento",
+                "• Potencia los procesos naturales de reparación"
+              ],
+              "starts": "1 a 2 semanas",
+              "duration": "3 a 6 meses",
+              "idealFor": [
+                "• Piel opaca y deshidratada",
+                "• Envejecimiento prematuro",
+                "• Líneas finas y textura irregular",
+                "• Recuperación post procedimientos",
+                "• Piel sensible o con irritación"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Rejuvenecimiento desde el interior",
+                "• Hidratación profunda",
+                "• Regeneración celular",
+                "• Seguro y biocompatible"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P01; P02",
+              "previewImage": "../share/assets/vanessa-gonzalez/p02-pdrn-salmon.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p02-pdrn-salmon.jpeg"
+            },
+            {
+              "id": "SV002",
+              "order": 20,
+              "section": "Medicina estética",
+              "category": "Bioestimulación",
+              "recordType": "Servicio",
+              "name": "Profhilo",
+              "variant": "",
+              "slug": "profhilo",
+              "route": "/servicios/profhilo",
+              "price": "Cotizar",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Profhilo.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Profhilo.",
+              "notes": "El arte no muestra precio.",
+              "description": "Ácido hialurónico de alta pureza e innovación que hidrata profundamente, mejora la calidad de la piel y estimula la producción natural de colágeno y elastina sin aportar volumen, logrando una piel más firme, luminosa y visiblemente rejuvenecida.",
+              "benefits": [
+                "• Hidratación profunda y duradera",
+                "• Mejora la elasticidad y firmeza",
+                "• Bioestimula colágeno y elastina",
+                "• Mejora la calidad, textura y luminosidad",
+                "• Piel más tersa, suave y rejuvenecida"
+              ],
+              "starts": "2 a 4 semanas",
+              "duration": "6 a 9 meses",
+              "idealFor": [
+                "• Flacidez leve a moderada",
+                "• Piel deshidratada y sin luminosidad",
+                "• Rostro, cuello, escote y manos",
+                "• Poros dilatados y textura irregular",
+                "• Prevención del envejecimiento"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Hidratación profunda",
+                "• Piel más firme y elástica",
+                "• Mejora la calidad de la piel",
+                "• Seguro y biocompatible"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P03",
+              "previewImage": "../share/assets/vanessa-gonzalez/p03-profhilo.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p03-profhilo.jpeg"
+            },
+            {
+              "id": "SV003",
+              "order": 30,
+              "section": "Medicina estética",
+              "category": "Bioestimulación",
+              "recordType": "Servicio",
+              "name": "Sculptra",
+              "variant": "",
+              "slug": "sculptra",
+              "route": "/servicios/sculptra",
+              "price": "$7,999 · 1 vial",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Sculptra.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Sculptra.",
+              "notes": "El precio aparece en el arte general de Bioestimuladores.",
+              "description": "Bioestimulador de colágeno a base de ácido poli-L-láctico que estimula la producción natural de colágeno, mejorando la firmeza y restaurando el volumen de manera gradual y natural.",
+              "benefits": [
+                "• Estimula la producción de colágeno",
+                "• Mejora la firmeza y elasticidad",
+                "• Recupera volumen facial",
+                "• Rejuvenecimiento progresivo y natural"
+              ],
+              "starts": "4 a 8 semanas",
+              "duration": "Hasta 24 meses",
+              "idealFor": [
+                "• Flacidez facial",
+                "• Pérdida de volumen",
+                "• Definición de contornos",
+                "• Rejuvenecimiento integral"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Resultados naturales",
+                "• Atención personalizada",
+                "• Seguridad y profesionalismo"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P01; P04",
+              "previewImage": "../share/assets/vanessa-gonzalez/p04-sculptra.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p04-sculptra.jpeg"
+            },
+            {
+              "id": "SV004",
+              "order": 40,
+              "section": "Medicina estética",
+              "category": "Bioestimulación",
+              "recordType": "Servicio",
+              "name": "Exosomas",
+              "variant": "",
+              "slug": "exosomas",
+              "route": "/servicios/exosomas",
+              "price": "Cotizar",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Exosomas.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Exosomas.",
+              "notes": "El arte no muestra precio.",
+              "description": "Nanovesículas con factores de crecimiento, proteínas y lípidos que favorecen la comunicación celular y estimulan los procesos naturales de regeneración y reparación de la piel.",
+              "benefits": [
+                "• Mejora la calidad de la piel",
+                "• Favorece la regeneración celular",
+                "• Ayuda a disminuir inflamación",
+                "• Potencia otros tratamientos estéticos",
+                "• Mejora textura, luminosidad y elasticidad"
+              ],
+              "starts": "2 a 4 semanas",
+              "duration": "Variable según protocolo",
+              "idealFor": [
+                "• Rejuvenecimiento facial",
+                "• Recuperación post procedimientos",
+                "• Mejora de textura y luminosidad",
+                "• Estimulación capilar",
+                "• Piel sensible o con signos de daño"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Rejuvenecimiento integral",
+                "• Regeneración celular",
+                "• Mejora textura y luminosidad",
+                "• Seguro y biocompatible"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P05",
+              "previewImage": "../share/assets/vanessa-gonzalez/p05-exosomas.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p05-exosomas.jpeg"
+            },
+            {
+              "id": "SV005",
+              "order": 50,
+              "section": "Medicina estética",
+              "category": "Bioestimulación",
+              "recordType": "Servicio",
+              "name": "NCTF 135",
+              "variant": "",
+              "slug": "nctf-135",
+              "route": "/servicios/nctf-135",
+              "price": "$2,999 · 5 sesiones",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre NCTF 135.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20NCTF%20135.",
+              "notes": "Detalle extendido no se muestra; se conserva la información del arte general.",
+              "description": "Cóctel revitalizante con 55 ingredientes esenciales que hidrata, nutre y revitaliza la piel.",
+              "benefits": [
+                "• Mejora el tono",
+                "• Mejora la textura",
+                "• Aporta luminosidad y frescura"
+              ],
+              "starts": "No especificado en el material",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "5 sesiones"
+              ],
+              "attributes": [
+                "• Hidratación",
+                "• Nutrición",
+                "• Luminosidad y frescura"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P01",
+              "previewImage": "../share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg"
+            },
+            {
+              "id": "SV008",
+              "order": 80,
+              "section": "Medicina estética",
+              "category": "Bioestimulación",
+              "recordType": "Servicio",
+              "name": "Péptidos",
+              "variant": "",
+              "slug": "peptidos",
+              "route": "/servicios/peptidos",
+              "price": "Desde $1,999 · Tratamiento completo",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Péptidos.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20P%C3%A9ptidos.",
+              "notes": "Detalle extendido no se muestra; se conserva la información del arte general.",
+              "description": "Cadenas de aminoácidos que actúan como mensajeros en la piel y el cuerpo, estimulando procesos naturales de reparación y regeneración.",
+              "benefits": [
+                "• Mejoran la firmeza, elasticidad, tono y textura de la piel",
+                "• Además potencian la producción de colágeno y elastina para una piel más joven y saludable"
+              ],
+              "starts": "No especificado en el material",
+              "duration": "No especificado en el material",
+              "idealFor": [
+                "• Existen péptidos específicos para adelgazar",
+                "• Ganancia muscular",
+                "• Lesiones"
+              ],
+              "includes": [
+                "Tratamiento completo"
+              ],
+              "attributes": [
+                "• Reparación",
+                "• Regeneración",
+                "• Firmeza y elasticidad"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P01",
+              "previewImage": "../share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Armonización facial",
+          "services": [
+            {
+              "id": "SV006",
+              "order": 60,
+              "section": "Medicina estética",
+              "category": "Armonización facial",
+              "recordType": "Servicio",
+              "name": "Ácido Hialurónico",
+              "variant": "",
+              "slug": "acido-hialuronico",
+              "route": "/servicios/acido-hialuronico",
+              "price": "Desde $1,999 · 1 ml",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Ácido Hialurónico.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20%C3%81cido%20Hialur%C3%B3nico.",
+              "notes": "El precio desde aparece en el arte general de Bioestimuladores.",
+              "description": "El ácido hialurónico es una sustancia naturalmente presente en nuestro cuerpo que tiene la capacidad de retener agua, hidratar en profundidad y aportar volumen a la piel. Su aplicación ayuda a restaurar la hidratación, mejorar la textura y lograr un aspecto más fresco, firme y juvenil.",
+              "benefits": [
+                "• Hidratación profunda y duradera",
+                "• Restaura volumen y define contornos",
+                "• Suaviza líneas de expresión y arrugas",
+                "• Mejora la elasticidad de la piel",
+                "• Estimula la producción de colágeno",
+                "• Piel más luminosa, fresca y saludable"
+              ],
+              "starts": "Inmediato",
+              "duration": "6 a 12 meses (según el área tratada y el tipo de producto)",
+              "idealFor": [
+                "• Hidratación facial profunda",
+                "• Mejora de líneas finas y arrugas",
+                "• Aumento de labios",
+                "• Relleno de surcos y ojeras",
+                "• Definición de pómulos y contornos faciales",
+                "• Rejuvenecimiento global del rostro"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Resultados naturales",
+                "• Hidratación profunda",
+                "• Rejuvenecimiento integral",
+                "• Seguro y biocompatible"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P01; P06",
+              "previewImage": "../share/assets/vanessa-gonzalez/p06-acido-hialuronico.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p06-acido-hialuronico.jpeg"
+            },
+            {
+              "id": "SV007",
+              "order": 70,
+              "section": "Medicina estética",
+              "category": "Armonización facial",
+              "recordType": "Servicio",
+              "name": "Botox",
+              "variant": "",
+              "slug": "botox",
+              "route": "/servicios/botox",
+              "price": "Desde $1,999 · 1 zona",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Botox.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Botox.",
+              "notes": "El precio desde aparece en el arte general de Bioestimuladores.",
+              "description": "Toxina botulínica tipo A que relaja temporalmente los músculos faciales, suavizando arrugas de expresión y previniendo la formación de nuevas líneas.",
+              "benefits": [
+                "• Suaviza líneas de expresión y arrugas",
+                "• Previene la formación de nuevas arrugas",
+                "• Rostro más descansado y rejuvenecido",
+                "• Procedimiento rápido y sin cirugía",
+                "• Resultados naturales sin perder expresión"
+              ],
+              "starts": "2 a 5 días",
+              "duration": "4 a 6 meses",
+              "idealFor": [
+                "• Líneas de expresión en frente",
+                "• Entrecejo (líneas de enojo)",
+                "• Patas de gallo",
+                "• Líneas en nariz (bunny lines)",
+                "• Líneas alrededor de la boca",
+                "• Elevación sutil de cejas"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Rejuvenecimiento sin cirugía",
+                "• Procedimiento rápido",
+                "• Resultados naturales",
+                "• Seguro y comprobado"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P01; P10",
+              "previewImage": "../share/assets/vanessa-gonzalez/p10-botox.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p10-botox.jpeg"
+            },
+            {
+              "id": "SV009",
+              "order": 90,
+              "section": "Medicina estética",
+              "category": "Armonización facial",
+              "recordType": "Servicio",
+              "name": "Microblading",
+              "variant": "",
+              "slug": "microblading",
+              "route": "/servicios/microblading",
+              "price": "Cotizar",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Microblading.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Microblading.",
+              "notes": "El arte no muestra precio.",
+              "description": "Técnica de maquillaje semipermanente que permite diseñar, corregir y reconstruir las cejas con trazos hiperrealistas que imitan el vello natural. Se adapta a la forma de tu rostro para lograr una apariencia armónica, definida y natural.",
+              "benefits": [
+                "• Corrige cejas despobladas o asimétricas",
+                "• Define y realza la expresión facial",
+                "• Efecto natural pelo a pelo",
+                "• Ahorra tiempo en tu maquillaje diario",
+                "• Diseño personalizado según tu rostro",
+                "• Resultados duraderos y armoniosos"
+              ],
+              "starts": "Inmediato",
+              "duration": "12 a 18 meses (según tipo de piel y cuidados)",
+              "idealFor": [
+                "• Cejas poco pobladas",
+                "• Personas con pérdida de vello",
+                "• Corregir asimetrías",
+                "• Definir forma y arco de la ceja",
+                "• Quienes buscan un efecto natural y duradero"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Diseño personalizado",
+                "• Efecto pelo a pelo",
+                "• Apariencia natural",
+                "• Larga duración"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P07",
+              "previewImage": "../share/assets/vanessa-gonzalez/p07-microblading.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p07-microblading.jpeg"
+            },
+            {
+              "id": "SV010",
+              "order": 100,
+              "section": "Medicina estética",
+              "category": "Armonización facial",
+              "recordType": "Servicio",
+              "name": "BBLips",
+              "variant": "",
+              "slug": "bblips",
+              "route": "/servicios/bblips",
+              "price": "Cotizar",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre BBLips.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20BBLips.",
+              "notes": "El arte no muestra precio.",
+              "description": "Tratamiento innovador que revitaliza los labios desde adentro. A través de microinyecciones de ácido hialurónico y un cóctel de nutrientes (vitaminas, aminoácidos y antioxidantes), mejora la hidratación, el volumen, el color y la textura.",
+              "benefits": [
+                "• Hidratación profunda y duradera",
+                "• Aumento de volumen natural",
+                "• Mejora del color y luminosidad",
+                "• Labios más suaves y tersos",
+                "• Estimula la producción de colágeno",
+                "• Resultados naturales y progresivos"
+              ],
+              "starts": "1 a 2 semanas",
+              "duration": "6 a 12 meses (puede variar según el metabolismo)",
+              "idealFor": [
+                "• Labios delgados o con poco volumen",
+                "• Labios deshidratados o resecos",
+                "• Pérdida de definición del contorno",
+                "• Asimetrías leves",
+                "• Personas que desean realzar sus labios de forma natural"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Labios más hidratados y suaves",
+                "• Volumen natural y definición",
+                "• Color saludable y luminoso",
+                "• Seguro y biocompatible"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P08",
+              "previewImage": "../share/assets/vanessa-gonzalez/p08-bblips.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p08-bblips.jpeg"
+            },
+            {
+              "id": "SV015",
+              "order": 150,
+              "section": "Medicina estética",
+              "category": "Armonización facial",
+              "recordType": "Promoción",
+              "name": "Aumento de Labios con Ácido Hialurónico",
+              "variant": "",
+              "slug": "aumento-labios-acido-hialuronico",
+              "route": "/servicios/acido-hialuronico#aumento-labios",
+              "price": "Promoción $1,999 · Procedimiento seguro y personalizado",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Aumento de Labios con Ácido Hialurónico.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Aumento%20de%20Labios%20con%20%C3%81cido%20Hialur%C3%B3nico.",
+              "notes": "Solo 5 cupos. Promoción para aumento de labios con ácido hialurónico.",
+              "description": "Promoción de aumento de labios con ácido hialurónico.",
+              "benefits": [
+                "• Volumen",
+                "• Definición",
+                "• Hidratación",
+                "• Resultados naturales que enamoran"
+              ],
+              "starts": "Inmediato",
+              "duration": "Aplican las referencias del servicio de Ácido Hialurónico: 6 a 12 meses, según producto y área tratada.",
+              "idealFor": [
+                "• Personas que buscan volumen, definición e hidratación en labios"
+              ],
+              "includes": [
+                "Procedimiento seguro y personalizado"
+              ],
+              "attributes": [
+                "• Volumen",
+                "• Definición",
+                "• Hidratación",
+                "• Seguro y personalizado"
+              ],
+              "detailNote": "Solo 5 cupos; vigencia no especificada. Requiere valoración profesional.",
+              "sources": "P14; P06",
+              "previewImage": "../share/assets/vanessa-gonzalez/p14-promo-aumento-labios.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p14-promo-aumento-labios.jpeg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cabello",
+      "categories": [
+        {
+          "name": "Tratamientos capilares",
+          "services": [
+            {
+              "id": "SV011",
+              "order": 110,
+              "section": "Cabello",
+              "category": "Tratamientos capilares",
+              "recordType": "Servicio",
+              "name": "Keratina",
+              "variant": "",
+              "slug": "keratina",
+              "route": "/servicios/keratina",
+              "price": "Cotizar",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Keratina.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Keratina.",
+              "notes": "El arte no muestra precio.",
+              "description": "La keratina es un tratamiento capilar que repara, nutre y alisa el cabello desde el interior. Su fórmula penetra en la fibra capilar para reconstruirla, reducir el frizz y devolverle su suavidad, brillo y vitalidad natural.",
+              "benefits": [
+                "• Alisa y reduce el frizz hasta un 100%",
+                "• Reconstruye y fortalece la fibra capilar",
+                "• Aporta brillo intenso y sedosidad",
+                "• Hidrata y nutre profundamente",
+                "• Facilita el peinado y reduce el tiempo de secado",
+                "• Cabello más sano, manejable y sin volumen"
+              ],
+              "starts": "Inmediato",
+              "duration": "3 a 6 meses (según tipo de cabello y cuidados)",
+              "idealFor": [
+                "• Cabello con frizz o volumen excesivo",
+                "• Cabello reseco, opaco o maltratado",
+                "• Cabello rizado, ondulado o rebelde",
+                "• Quienes buscan suavidad y brillo duradero",
+                "• Todo tipo de cabello"
+              ],
+              "includes": [],
+              "attributes": [
+                "• Liso perfecto y sin frizz",
+                "• Brillo intenso",
+                "• Hidratación profunda",
+                "• Cabello sano y fortalecido"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P09",
+              "previewImage": "../share/assets/vanessa-gonzalez/p09-keratina.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p09-keratina.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Corte y peinado",
+          "services": [
+            {
+              "id": "SV012",
+              "order": 120,
+              "section": "Cabello",
+              "category": "Corte y peinado",
+              "recordType": "Promoción",
+              "name": "Corte de Cabello Dama",
+              "variant": "",
+              "slug": "corte-cabello-dama",
+              "route": "/servicios/corte-cabello-dama",
+              "price": "Promoción $250 · Incluye: lavado + corte + peinado",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Corte de Cabello Dama.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Corte%20de%20Cabello%20Dama.",
+              "notes": "Vigencia no especificada en el material.",
+              "description": "Corte personalizado según tu estilo.",
+              "benefits": [
+                "• Corte personalizado según tu estilo",
+                "• Acabado profesional y cuidado",
+                "• Cabello con movimiento, forma y frescura"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Lavado + corte + peinado"
+              ],
+              "attributes": [
+                "• Corte personalizado",
+                "• Acabado profesional",
+                "• Movimiento, forma y frescura"
+              ],
+              "detailNote": "Precio promocional publicado: $250.",
+              "sources": "P11",
+              "previewImage": "../share/assets/vanessa-gonzalez/p11-promo-corte-cabello.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p11-promo-corte-cabello.jpeg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cejas y pestañas",
+      "categories": [
+        {
+          "name": "Paquetes promocionales",
+          "services": [
+            {
+              "id": "SV013",
+              "order": 130,
+              "section": "Cejas y pestañas",
+              "category": "Paquetes promocionales",
+              "recordType": "Promoción",
+              "name": "Pestañas por Punto + Lifting de Cejas",
+              "variant": "",
+              "slug": "pestanas-punto-lifting-cejas",
+              "route": "/servicios/pestanas-cejas#pestanas-punto-lifting",
+              "price": "Promoción $299 · Duración de pestañas por punto: 1 semana",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Pestañas por Punto + Lifting de Cejas.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Pesta%C3%B1as%20por%20Punto%20%2B%20Lifting%20de%20Cejas.",
+              "notes": "Vigencia no especificada en el material.",
+              "description": "Paquete promocional de pestañas por punto y lifting de cejas.",
+              "benefits": [
+                "• Pestañas definidas y naturales",
+                "• Duración de 1 semana",
+                "• Cejas elevadas, definidas y con efecto natural"
+              ],
+              "starts": "Inmediato",
+              "duration": "Pestañas por punto: 1 semana",
+              "idealFor": [],
+              "includes": [
+                "Pestañas por punto + lifting de cejas"
+              ],
+              "attributes": [
+                "• Pestañas definidas",
+                "• Cejas elevadas",
+                "• Efecto natural"
+              ],
+              "detailNote": "Precio promocional publicado: $299.",
+              "sources": "P12",
+              "previewImage": "../share/assets/vanessa-gonzalez/p12-promo-pestanas-lifting.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p12-promo-pestanas-lifting.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Pestañas",
+          "services": [
+            {
+              "id": "SV033",
+              "order": 330,
+              "section": "Cejas y pestañas",
+              "category": "Pestañas",
+              "recordType": "Variante",
+              "name": "Pestaña Clásica, Híbridas o Volumen BBY",
+              "variant": "",
+              "slug": "pestanas-clasicas-hibridas-volumen-bby",
+              "route": "/servicios/pestanas-cejas#pestanas-clasicas-hibridas-bby",
+              "price": "$499",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Pestaña Clásica, Híbridas o Volumen BBY.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Pesta%C3%B1a%20Cl%C3%A1sica%2C%20H%C3%ADbridas%20o%20Volumen%20BBY.",
+              "notes": "El arte muestra el texto «Volumen BBY».",
+              "description": "Pestaña clásica, híbridas o volumen BBY.",
+              "benefits": [
+                "• Resalta tu mirada de forma natural",
+                "• Resultados duraderos y seguros",
+                "• Técnicas profesionales y personalizadas",
+                "• Productos de alta calidad y seguros",
+                "• Acabados definidos y elegantes",
+                "• Belleza que realza tu esencia"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [
+                "• Mirada natural",
+                "• Acabado definido",
+                "• Técnica profesional"
+              ],
+              "detailNote": "Terminología conservada tal como aparece en el arte: «Volumen BBY».",
+              "sources": "P20",
+              "previewImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg"
+            },
+            {
+              "id": "SV037",
+              "order": 370,
+              "section": "Cejas y pestañas",
+              "category": "Pestañas",
+              "recordType": "Variante",
+              "name": "Pestañas por Punto",
+              "variant": "",
+              "slug": "pestanas-por-punto",
+              "route": "/servicios/pestanas-cejas#pestanas-por-punto",
+              "price": "$199",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Pestañas por Punto.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Pesta%C3%B1as%20por%20Punto.",
+              "notes": "P12 promociona la combinación Pestañas por Punto + Lifting de Cejas por $299.",
+              "description": "Pestañas por punto.",
+              "benefits": [
+                "• Pestañas definidas y naturales",
+                "• El arte promocional indica duración de 1 semana"
+              ],
+              "starts": "Inmediato",
+              "duration": "1 semana (referencia del arte promocional P12)",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [
+                "• Pestañas definidas",
+                "• Efecto natural"
+              ],
+              "detailNote": "Precio individual publicado en P20: $199.",
+              "sources": "P20; P12",
+              "previewImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Cejas",
+          "services": [
+            {
+              "id": "SV034",
+              "order": 340,
+              "section": "Cejas y pestañas",
+              "category": "Cejas",
+              "recordType": "Variante",
+              "name": "Lifting de Ceja",
+              "variant": "",
+              "slug": "lifting-ceja",
+              "route": "/servicios/pestanas-cejas#lifting-ceja",
+              "price": "$299",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Lifting de Ceja.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Lifting%20de%20Ceja.",
+              "notes": "",
+              "description": "Lifting de ceja.",
+              "benefits": [
+                "• Resalta tu mirada de forma natural",
+                "• Resultados duraderos y seguros",
+                "• Técnicas profesionales y personalizadas",
+                "• Productos de alta calidad y seguros",
+                "• Acabados definidos y elegantes",
+                "• Belleza que realza tu esencia"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [
+                "• Cejas definidas",
+                "• Efecto natural"
+              ],
+              "detailNote": "",
+              "sources": "P20",
+              "previewImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg"
+            },
+            {
+              "id": "SV035",
+              "order": 350,
+              "section": "Cejas y pestañas",
+              "category": "Cejas",
+              "recordType": "Variante",
+              "name": "Lifting de Ceja + Depilación",
+              "variant": "",
+              "slug": "lifting-ceja-depilacion",
+              "route": "/servicios/pestanas-cejas#lifting-ceja-depilacion",
+              "price": "$399",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Lifting de Ceja + Depilación.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Lifting%20de%20Ceja%20%2B%20Depilaci%C3%B3n.",
+              "notes": "",
+              "description": "Lifting de ceja más depilación.",
+              "benefits": [
+                "• Resalta tu mirada de forma natural",
+                "• Resultados duraderos y seguros",
+                "• Técnicas profesionales y personalizadas",
+                "• Productos de alta calidad y seguros",
+                "• Acabados definidos y elegantes",
+                "• Belleza que realza tu esencia"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Lifting de ceja + depilación"
+              ],
+              "attributes": [
+                "• Cejas definidas",
+                "• Efecto natural"
+              ],
+              "detailNote": "",
+              "sources": "P20",
+              "previewImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg"
+            },
+            {
+              "id": "SV036",
+              "order": 360,
+              "section": "Cejas y pestañas",
+              "category": "Cejas",
+              "recordType": "Variante",
+              "name": "Ceja 4K",
+              "variant": "",
+              "slug": "ceja-4k",
+              "route": "/servicios/pestanas-cejas#ceja-4k",
+              "price": "$449",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Ceja 4K.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Ceja%204K.",
+              "notes": "",
+              "description": "Ceja 4K.",
+              "benefits": [
+                "• Resalta tu mirada de forma natural",
+                "• Resultados duraderos y seguros",
+                "• Técnicas profesionales y personalizadas",
+                "• Productos de alta calidad y seguros",
+                "• Acabados definidos y elegantes",
+                "• Belleza que realza tu esencia"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [
+                "• Cejas definidas",
+                "• Acabado elegante"
+              ],
+              "detailNote": "",
+              "sources": "P20",
+              "previewImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Depilación",
+          "services": [
+            {
+              "id": "SV038",
+              "order": 380,
+              "section": "Cejas y pestañas",
+              "category": "Depilación",
+              "recordType": "Variante",
+              "name": "Depilación de Ceja o Bozo",
+              "variant": "",
+              "slug": "depilacion-ceja-bozo",
+              "route": "/servicios/pestanas-cejas#depilacion-ceja-bozo",
+              "price": "$99",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Depilación de Ceja o Bozo.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Depilaci%C3%B3n%20de%20Ceja%20o%20Bozo.",
+              "notes": "",
+              "description": "Depilación de ceja o bozo.",
+              "benefits": [
+                "• Resalta tu mirada de forma natural",
+                "• Resultados duraderos y seguros",
+                "• Técnicas profesionales y personalizadas",
+                "• Productos de alta calidad y seguros",
+                "• Acabados definidos y elegantes",
+                "• Belleza que realza tu esencia"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Ceja o bozo"
+              ],
+              "attributes": [
+                "• Acabado definido",
+                "• Técnica profesional"
+              ],
+              "detailNote": "",
+              "sources": "P20",
+              "previewImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Manos y uñas",
+      "categories": [
+        {
+          "name": "Paquetes promocionales",
+          "services": [
+            {
+              "id": "SV014",
+              "order": 140,
+              "section": "Manos y uñas",
+              "category": "Paquetes promocionales",
+              "recordType": "Promoción",
+              "name": "Combo Manos y Pies — Gel Liso",
+              "variant": "Un solo tono",
+              "slug": "combo-manos-pies-gel-liso",
+              "route": "/servicios/unas-gel#combo-manos-pies",
+              "price": "Promoción $299 · Manos y pies · gel liso · un solo tono",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Combo Manos y Pies — Gel Liso — Un solo tono.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Combo%20Manos%20y%20Pies%20%E2%80%94%20Gel%20Liso%20%E2%80%94%20Un%20solo%20tono.",
+              "notes": "No incluye retiro. Vigencia no especificada en el material.",
+              "description": "Combo de gel liso para manos y pies en un solo tono.",
+              "benefits": [
+                "• Brillo intenso y acabado profesional",
+                "• Duración de hasta 3 semanas",
+                "• Uñas más fuertes y cuidadas"
+              ],
+              "starts": "Inmediato",
+              "duration": "Hasta 3 semanas",
+              "idealFor": [],
+              "includes": [
+                "Manos y pies · gel liso · un solo tono"
+              ],
+              "attributes": [
+                "• Brillo intenso",
+                "• Larga duración",
+                "• Uñas cuidadas"
+              ],
+              "detailNote": "No incluye retiro.",
+              "sources": "P13",
+              "previewImage": "../share/assets/vanessa-gonzalez/p13-promo-combo-manos-pies.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p13-promo-combo-manos-pies.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Acrílico",
+          "services": [
+            {
+              "id": "SV016",
+              "order": 160,
+              "section": "Manos y uñas",
+              "category": "Acrílico",
+              "recordType": "Variante",
+              "name": "Acrílico",
+              "variant": "Hasta el núm. 2, diseño sencillo",
+              "slug": "acrilico-num-2-diseno-sencillo",
+              "route": "/servicios/acrilico#acrilico-num-2",
+              "price": "$399 · Hasta el núm. 2 · diseño sencillo",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Acrílico — Hasta el núm. 2, diseño sencillo.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Acr%C3%ADlico%20%E2%80%94%20Hasta%20el%20n%C3%BAm.%202%2C%20dise%C3%B1o%20sencillo.",
+              "notes": "",
+              "description": "Servicio de acrílico hasta el núm. 2 con diseño sencillo.",
+              "benefits": [
+                "• Uñas más fuertes y resistentes",
+                "• Acabado perfecto y duradero",
+                "• Diseños personalizados",
+                "• Luce uñas impecables por más tiempo"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Hasta el núm. 2 · diseño sencillo"
+              ],
+              "attributes": [
+                "• Fortaleza",
+                "• Acabado duradero",
+                "• Diseño personalizado"
+              ],
+              "detailNote": "",
+              "sources": "P15",
+              "previewImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg"
+            },
+            {
+              "id": "SV017",
+              "order": 170,
+              "section": "Manos y uñas",
+              "category": "Acrílico",
+              "recordType": "Variante",
+              "name": "Acrílico Diseño",
+              "variant": "Hasta el núm. 3",
+              "slug": "acrilico-diseno-num-3",
+              "route": "/servicios/acrilico#acrilico-diseno-num-3",
+              "price": "$499 · Hasta el núm. 3",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Acrílico Diseño — Hasta el núm. 3.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Acr%C3%ADlico%20Dise%C3%B1o%20%E2%80%94%20Hasta%20el%20n%C3%BAm.%203.",
+              "notes": "",
+              "description": "Servicio de acrílico con diseño hasta el núm. 3.",
+              "benefits": [
+                "• Uñas más fuertes y resistentes",
+                "• Acabado perfecto y duradero",
+                "• Diseños personalizados",
+                "• Luce uñas impecables por más tiempo"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Hasta el núm. 3"
+              ],
+              "attributes": [
+                "• Fortaleza",
+                "• Acabado duradero",
+                "• Diseño personalizado"
+              ],
+              "detailNote": "",
+              "sources": "P15",
+              "previewImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg"
+            },
+            {
+              "id": "SV018",
+              "order": 180,
+              "section": "Manos y uñas",
+              "category": "Acrílico",
+              "recordType": "Variante",
+              "name": "Retoque de Acrílico",
+              "variant": "",
+              "slug": "retoque-acrilico",
+              "route": "/servicios/acrilico#retoque",
+              "price": "$550",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Retoque de Acrílico.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Retoque%20de%20Acr%C3%ADlico.",
+              "notes": "",
+              "description": "Retoque de acrílico.",
+              "benefits": [
+                "• Acabado profesional y duradero",
+                "• Mantiene uñas impecables"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [
+                "• Acabado profesional"
+              ],
+              "detailNote": "",
+              "sources": "P15",
+              "previewImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg"
+            },
+            {
+              "id": "SV019",
+              "order": 190,
+              "section": "Manos y uñas",
+              "category": "Acrílico",
+              "recordType": "Variante",
+              "name": "Nivelación con Rubber",
+              "variant": "",
+              "slug": "nivelacion-rubber",
+              "route": "/servicios/acrilico#nivelacion-rubber",
+              "price": "$349",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Nivelación con Rubber.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Nivelaci%C3%B3n%20con%20Rubber.",
+              "notes": "",
+              "description": "Nivelación con rubber.",
+              "benefits": [
+                "• Acabado profesional",
+                "• Uñas cuidadas"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [
+                "• Acabado profesional"
+              ],
+              "detailNote": "",
+              "sources": "P15",
+              "previewImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg"
+            },
+            {
+              "id": "SV020",
+              "order": 200,
+              "section": "Manos y uñas",
+              "category": "Acrílico",
+              "recordType": "Variante",
+              "name": "Retiro de Acrílico",
+              "variant": "",
+              "slug": "retiro-acrilico",
+              "route": "/servicios/acrilico#retiro",
+              "price": "$150",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Retiro de Acrílico.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Retiro%20de%20Acr%C3%ADlico.",
+              "notes": "",
+              "description": "Retiro de acrílico.",
+              "benefits": [],
+              "starts": "No especificado en el material",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [],
+              "detailNote": "",
+              "sources": "P15",
+              "previewImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p15-acrilico.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Gel semipermanente",
+          "services": [
+            {
+              "id": "SV021",
+              "order": 210,
+              "section": "Manos y uñas",
+              "category": "Gel semipermanente",
+              "recordType": "Variante",
+              "name": "Gel Liso",
+              "variant": "1 tono",
+              "slug": "gel-liso-1-tono",
+              "route": "/servicios/unas-gel#gel-liso-1-tono",
+              "price": "$150 · 1 tono",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Gel Liso — 1 tono.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Gel%20Liso%20%E2%80%94%201%20tono.",
+              "notes": "",
+              "description": "Gel semipermanente en 1 tono.",
+              "benefits": [
+                "• Duración de hasta 3 semanas",
+                "• Brillo intenso y acabado profesional",
+                "• Protección adicional con calcio, cuando aplique",
+                "• Diseños personalizados para cualquier ocasión",
+                "• Uñas más fuertes y cuidadas"
+              ],
+              "starts": "Inmediato",
+              "duration": "Hasta 3 semanas",
+              "idealFor": [],
+              "includes": [
+                "Gel liso en 1 tono"
+              ],
+              "attributes": [
+                "• Brillo intenso",
+                "• Acabado profesional",
+                "• Larga duración"
+              ],
+              "detailNote": "",
+              "sources": "P16",
+              "previewImage": "../share/assets/vanessa-gonzalez/p16-unas-gel.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p16-unas-gel.jpeg"
+            },
+            {
+              "id": "SV022",
+              "order": 220,
+              "section": "Manos y uñas",
+              "category": "Gel semipermanente",
+              "recordType": "Variante",
+              "name": "Gel Liso + Calcio",
+              "variant": "1 tono",
+              "slug": "gel-liso-calcio-1-tono",
+              "route": "/servicios/unas-gel#gel-liso-calcio",
+              "price": "$199 · 1 tono + calcio",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Gel Liso + Calcio — 1 tono.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Gel%20Liso%20%2B%20Calcio%20%E2%80%94%201%20tono.",
+              "notes": "",
+              "description": "Gel semipermanente en 1 tono con calcio.",
+              "benefits": [
+                "• Duración de hasta 3 semanas",
+                "• Brillo intenso y acabado profesional",
+                "• Protección adicional con calcio, cuando aplique",
+                "• Diseños personalizados para cualquier ocasión",
+                "• Uñas más fuertes y cuidadas"
+              ],
+              "starts": "Inmediato",
+              "duration": "Hasta 3 semanas",
+              "idealFor": [],
+              "includes": [
+                "Gel liso en 1 tono + calcio"
+              ],
+              "attributes": [
+                "• Protección con calcio",
+                "• Brillo intenso",
+                "• Larga duración"
+              ],
+              "detailNote": "",
+              "sources": "P16",
+              "previewImage": "../share/assets/vanessa-gonzalez/p16-unas-gel.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p16-unas-gel.jpeg"
+            },
+            {
+              "id": "SV023",
+              "order": 230,
+              "section": "Manos y uñas",
+              "category": "Gel semipermanente",
+              "recordType": "Variante",
+              "name": "Gel + Calcio + Diseño",
+              "variant": "",
+              "slug": "gel-calcio-diseno",
+              "route": "/servicios/unas-gel#gel-calcio-diseno",
+              "price": "$299 · Gel + calcio + diseño",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Gel + Calcio + Diseño.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Gel%20%2B%20Calcio%20%2B%20Dise%C3%B1o.",
+              "notes": "",
+              "description": "Gel semipermanente con calcio y diseño.",
+              "benefits": [
+                "• Duración de hasta 3 semanas",
+                "• Brillo intenso y acabado profesional",
+                "• Protección adicional con calcio, cuando aplique",
+                "• Diseños personalizados para cualquier ocasión",
+                "• Uñas más fuertes y cuidadas"
+              ],
+              "starts": "Inmediato",
+              "duration": "Hasta 3 semanas",
+              "idealFor": [],
+              "includes": [
+                "Gel + calcio + diseño"
+              ],
+              "attributes": [
+                "• Protección con calcio",
+                "• Diseño personalizado",
+                "• Larga duración"
+              ],
+              "detailNote": "",
+              "sources": "P16",
+              "previewImage": "../share/assets/vanessa-gonzalez/p16-unas-gel.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p16-unas-gel.jpeg"
+            },
+            {
+              "id": "SV024",
+              "order": 240,
+              "section": "Manos y uñas",
+              "category": "Gel semipermanente",
+              "recordType": "Variante",
+              "name": "Retiro de Gel",
+              "variant": "",
+              "slug": "retiro-gel-manos",
+              "route": "/servicios/unas-gel#retiro-gel",
+              "price": "$50 · Costo",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Retiro de Gel.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Retiro%20de%20Gel.",
+              "notes": "",
+              "description": "Retiro de gel.",
+              "benefits": [],
+              "starts": "No especificado en el material",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [],
+              "detailNote": "El arte lo presenta como costo de retiro.",
+              "sources": "P16",
+              "previewImage": "../share/assets/vanessa-gonzalez/p16-unas-gel.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p16-unas-gel.jpeg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pies y pedicura",
+      "categories": [
+        {
+          "name": "Pedicura",
+          "services": [
+            {
+              "id": "SV027",
+              "order": 270,
+              "section": "Pies y pedicura",
+              "category": "Pedicura",
+              "recordType": "Variante",
+              "name": "Pedicura Spa + Gel",
+              "variant": "",
+              "slug": "pedicura-spa-gel",
+              "route": "/servicios/pedicura-gel-pies#pedicura-spa-gel",
+              "price": "$449",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Pedicura Spa + Gel.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Pedicura%20Spa%20%2B%20Gel.",
+              "notes": "Ninguno de los servicios incluye retiro.",
+              "description": "Pedicura spa más gel.",
+              "benefits": [
+                "• Hidratación profunda y relajación",
+                "• Pies suaves, saludables y renovados",
+                "• Fortalece y protege tus uñas",
+                "• Acabado duradero y elegante",
+                "• Belleza y bienestar para tus pies"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Pedicura spa + gel"
+              ],
+              "attributes": [
+                "• Hidratación",
+                "• Uñas protegidas",
+                "• Acabado elegante"
+              ],
+              "detailNote": "No incluye retiro.",
+              "sources": "P19",
+              "previewImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg"
+            },
+            {
+              "id": "SV028",
+              "order": 280,
+              "section": "Pies y pedicura",
+              "category": "Pedicura",
+              "recordType": "Variante",
+              "name": "Pedicura Spa + Gel + Calcio",
+              "variant": "",
+              "slug": "pedicura-spa-gel-calcio",
+              "route": "/servicios/pedicura-gel-pies#pedicura-spa-gel-calcio",
+              "price": "$499",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Pedicura Spa + Gel + Calcio.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Pedicura%20Spa%20%2B%20Gel%20%2B%20Calcio.",
+              "notes": "Ninguno de los servicios incluye retiro.",
+              "description": "Pedicura spa más gel más calcio.",
+              "benefits": [
+                "• Hidratación profunda y relajación",
+                "• Pies suaves, saludables y renovados",
+                "• Fortalece y protege tus uñas",
+                "• Acabado duradero y elegante",
+                "• Belleza y bienestar para tus pies"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Pedicura spa + gel + calcio"
+              ],
+              "attributes": [
+                "• Hidratación",
+                "• Protección con calcio",
+                "• Acabado elegante"
+              ],
+              "detailNote": "No incluye retiro.",
+              "sources": "P19",
+              "previewImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Gel en pies",
+          "services": [
+            {
+              "id": "SV029",
+              "order": 290,
+              "section": "Pies y pedicura",
+              "category": "Gel en pies",
+              "recordType": "Variante",
+              "name": "Gel Pies",
+              "variant": "1 tono",
+              "slug": "gel-pies-1-tono",
+              "route": "/servicios/pedicura-gel-pies#gel-pies-1-tono",
+              "price": "$199 · 1 tono",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Gel Pies — 1 tono.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Gel%20Pies%20%E2%80%94%201%20tono.",
+              "notes": "Ninguno de los servicios incluye retiro.",
+              "description": "Gel en pies en 1 tono.",
+              "benefits": [
+                "• Hidratación profunda y relajación",
+                "• Pies suaves, saludables y renovados",
+                "• Fortalece y protege tus uñas",
+                "• Acabado duradero y elegante",
+                "• Belleza y bienestar para tus pies"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Gel pies en 1 tono"
+              ],
+              "attributes": [
+                "• Acabado duradero",
+                "• Belleza y bienestar"
+              ],
+              "detailNote": "No incluye retiro.",
+              "sources": "P19",
+              "previewImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg"
+            },
+            {
+              "id": "SV030",
+              "order": 300,
+              "section": "Pies y pedicura",
+              "category": "Gel en pies",
+              "recordType": "Variante",
+              "name": "Gel + Calcio + Diseño en Pies",
+              "variant": "",
+              "slug": "gel-calcio-diseno-pies",
+              "route": "/servicios/pedicura-gel-pies#gel-calcio-diseno",
+              "price": "$249 · Gel + calcio + diseño en pies",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Gel + Calcio + Diseño en Pies.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Gel%20%2B%20Calcio%20%2B%20Dise%C3%B1o%20en%20Pies.",
+              "notes": "Ninguno de los servicios incluye retiro.",
+              "description": "Gel en pies con calcio más diseño.",
+              "benefits": [
+                "• Hidratación profunda y relajación",
+                "• Pies suaves, saludables y renovados",
+                "• Fortalece y protege tus uñas",
+                "• Acabado duradero y elegante",
+                "• Belleza y bienestar para tus pies"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [
+                "Gel + calcio + diseño en pies"
+              ],
+              "attributes": [
+                "• Protección con calcio",
+                "• Diseño",
+                "• Acabado duradero"
+              ],
+              "detailNote": "No incluye retiro.",
+              "sources": "P19",
+              "previewImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg"
+            },
+            {
+              "id": "SV032",
+              "order": 320,
+              "section": "Pies y pedicura",
+              "category": "Gel en pies",
+              "recordType": "Variante",
+              "name": "Retiro Gel Pies",
+              "variant": "",
+              "slug": "retiro-gel-pies",
+              "route": "/servicios/pedicura-gel-pies#retiro-gel-pies",
+              "price": "$50",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Retiro Gel Pies.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Retiro%20Gel%20Pies.",
+              "notes": "",
+              "description": "Retiro de gel en pies.",
+              "benefits": [],
+              "starts": "No especificado en el material",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [],
+              "detailNote": "",
+              "sources": "P19",
+              "previewImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Acripie",
+          "services": [
+            {
+              "id": "SV031",
+              "order": 310,
+              "section": "Pies y pedicura",
+              "category": "Acripie",
+              "recordType": "Servicio",
+              "name": "Acripie",
+              "variant": "",
+              "slug": "acripie",
+              "route": "/servicios/pedicura-gel-pies#acripie",
+              "price": "$399",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Acripie.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Acripie.",
+              "notes": "Ninguno de los servicios incluye retiro.",
+              "description": "Acripie.",
+              "benefits": [
+                "• Hidratación profunda y relajación",
+                "• Pies suaves, saludables y renovados",
+                "• Fortalece y protege tus uñas",
+                "• Acabado duradero y elegante",
+                "• Belleza y bienestar para tus pies"
+              ],
+              "starts": "Inmediato",
+              "duration": "No especificado en el material",
+              "idealFor": [],
+              "includes": [],
+              "attributes": [
+                "• Uñas protegidas",
+                "• Acabado elegante"
+              ],
+              "detailNote": "No incluye retiro.",
+              "sources": "P19",
+              "previewImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p19-pedicura-gel-pies.jpeg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Eventos",
+      "categories": [
+        {
+          "name": "Peinado para eventos",
+          "services": [
+            {
+              "id": "SV025",
+              "order": 250,
+              "section": "Eventos",
+              "category": "Peinado para eventos",
+              "recordType": "Servicio",
+              "name": "Peinado para Eventos Especiales",
+              "variant": "",
+              "slug": "peinado-eventos-especiales",
+              "route": "/servicios/peinado-eventos-especiales",
+              "price": "Cotizar",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Peinado para Eventos Especiales.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Peinado%20para%20Eventos%20Especiales.",
+              "notes": "El arte no muestra precio.",
+              "description": "Servicio profesional de peinado diseñado para realzar tu belleza y complementar tu look en ese día tan especial. Crea estilos únicos que se adaptan a tu personalidad, tipo de evento y tendencias actuales.",
+              "benefits": [
+                "• Realza tu belleza y estilo personal",
+                "• Peinados personalizados según tu evento",
+                "• Acabado profesional y duradero",
+                "• Productos de alta calidad que cuidan tu cabello",
+                "• Te hace sentir segura y espectacular"
+              ],
+              "starts": "Inmediato",
+              "duration": "Larga duración y fijación",
+              "idealFor": [
+                "• Bodas",
+                "• XV años",
+                "• Graduaciones",
+                "• Eventos sociales",
+                "• Cenas",
+                "• Sesiones de fotos"
+              ],
+              "includes": [
+                "• Diagnóstico y asesoría de estilo",
+                "• Preparación y protección del cabello",
+                "• Peinado profesional",
+                "• Fijación de larga duración",
+                "• Retoques y detalles finales"
+              ],
+              "attributes": [
+                "• Estilos únicos y personalizados",
+                "• Acabado profesional",
+                "• Larga duración y fijación",
+                "• Productos premium",
+                "• Segura y radiante"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P17",
+              "previewImage": "../share/assets/vanessa-gonzalez/p17-peinado-eventos.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p17-peinado-eventos.jpeg"
+            }
+          ]
+        },
+        {
+          "name": "Maquillaje para eventos",
+          "services": [
+            {
+              "id": "SV026",
+              "order": 260,
+              "section": "Eventos",
+              "category": "Maquillaje para eventos",
+              "recordType": "Servicio",
+              "name": "Maquillaje para Eventos Especiales",
+              "variant": "",
+              "slug": "maquillaje-eventos-especiales",
+              "route": "/servicios/maquillaje-eventos-especiales",
+              "price": "Cotizar",
+              "isPromo": false,
+              "ctaLabel": "Ver detalle",
+              "whatsappMessage": "Hola, quiero información y disponibilidad sobre Maquillaje para Eventos Especiales.",
+              "whatsappUrl": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20sobre%20Maquillaje%20para%20Eventos%20Especiales.",
+              "notes": "El arte no muestra precio.",
+              "description": "Servicio profesional de maquillaje diseñado para realzar tus rasgos y complementar tu estilo, adaptado al tipo de evento y a tu personalidad. Utiliza productos de alta calidad y técnicas avanzadas para lograr un look impecable, duradero y fotogénico.",
+              "benefits": [
+                "• Look personalizado según tu evento y estilo",
+                "• Resalta tus mejores rasgos",
+                "• Maquillaje de larga duración",
+                "• Acabado profesional y fotogénico",
+                "• Productos de alta calidad",
+                "• Te hace sentir segura y radiante"
+              ],
+              "starts": "Inmediato",
+              "duration": "Alta duración y fijación",
+              "idealFor": [
+                "• Bodas",
+                "• XV años",
+                "• Graduaciones",
+                "• Cenas",
+                "• Eventos sociales",
+                "• Sesiones de fotos"
+              ],
+              "includes": [
+                "• Preparación de la piel",
+                "• Maquillaje completo (rostro, ojos y labios)",
+                "• Pestañas según el look",
+                "• Fijación de larga duración",
+                "• Toque final de perfeccionamiento"
+              ],
+              "attributes": [
+                "• Look personalizado",
+                "• Alta duración y fijación",
+                "• Productos premium",
+                "• Acabado impecable"
+              ],
+              "detailNote": "Valoración profesional previa.",
+              "sources": "P18",
+              "previewImage": "../share/assets/vanessa-gonzalez/p18-maquillaje-eventos.jpeg",
+              "detailImage": "../share/assets/vanessa-gonzalez/p18-maquillaje-eventos.jpeg"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "services": [],
+  "cases": [],
+  "contact": {
+    "title": "Agenda por WhatsApp",
+    "text": "Todos los servicios llegan con un mensaje sugerido para consultar disponibilidad y resolver dudas antes de reservar.",
+    "whatsapp": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20de%20los%20servicios%20de%20Vanessa%20Gonz%C3%A1lez%20Studio.",
+    "phone": "tel:+525542460371",
+    "address": "WhatsApp de agenda: 55 42 46 03 71",
+    "mapUrl": "https://maps.google.com"
+  },
+  "social": {
+    "instagram": "",
+    "label": "Instagram"
+  }
+}

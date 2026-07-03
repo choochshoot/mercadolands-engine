@@ -7,6 +7,9 @@ export function render(data = {}, context = {}) {
   const doctor = data.doctor || {};
   const experience = data.experience || {};
   const services = Array.isArray(data.services) ? data.services : [];
+  const promotions = Array.isArray(data.promotions) ? data.promotions : [];
+  const serviceSections = Array.isArray(data.serviceSections) ? data.serviceSections : [];
+  const catalogIntro = data.catalogIntro || {};
   const cases = Array.isArray(data.cases) ? data.cases : [];
   const contact = data.contact || {};
   const social = data.social || {};
@@ -61,14 +64,8 @@ export function render(data = {}, context = {}) {
       </section>
 
       <section id="derma-services" class="derma-card derma-services-card">
-        <div class="derma-section-head derma-treatment-intro">
-          <span>Tratamientos signature</span>
-          <h2>Est&aacute;s a un paso de renovar tu piel</h2>
-          <p>Elige el protocolo que quieres explorar y descubre c&oacute;mo puede verse una versi&oacute;n m&aacute;s luminosa, firme y fresca de ti.</p>
-        </div>
-        <div class="derma-services">
-          ${services.map((service) => renderService(service, context)).join("")}
-        </div>
+        ${promotions.length ? renderPromotions(promotions) : ""}
+        ${serviceSections.length ? renderServiceFunnel(serviceSections, catalogIntro) : renderLegacyServices(services, context)}
       </section>
 
       <section class="derma-card">
@@ -102,6 +99,167 @@ export function render(data = {}, context = {}) {
         ${escapeCopy(brand.name)} - Dermatolog&iacute;a est&eacute;tica de precisi&oacute;n
       </footer>
     </main>
+  `;
+}
+
+
+function renderDetailImage(item = {}, className = "derma-detail-image") {
+  const image = safeUrl(item.detailImage || item.previewImage);
+
+  if (!image) return "";
+
+  return `
+    <a class="${className}" href="${image}" target="_blank" rel="noopener noreferrer" aria-label="Ver arte de ${escapeHtml(item.name || "servicio")}">
+      <img src="${image}" alt="${escapeHtml(item.name || "Servicio")}">
+    </a>
+  `;
+}
+
+function renderLegacyServices(services = [], context = {}) {
+  return `
+    <div class="derma-section-head derma-treatment-intro">
+      <span>Tratamientos signature</span>
+      <h2>Est&aacute;s a un paso de renovar tu piel</h2>
+      <p>Elige el protocolo que quieres explorar y descubre c&oacute;mo puede verse una versi&oacute;n m&aacute;s luminosa, firme y fresca de ti.</p>
+    </div>
+    <div class="derma-services">
+      ${services.map((service) => renderService(service, context)).join("")}
+    </div>
+  `;
+}
+
+function renderPromotions(promotions = []) {
+  return `
+    <div id="derma-promos" class="derma-section-head derma-treatment-intro derma-promo-intro">
+      <span>Promociones primero</span>
+      <h2>Oportunidades activas para reservar hoy</h2>
+      <p>Precios publicados, alcance claro y condiciones visibles antes de escribir por WhatsApp.</p>
+    </div>
+    <div class="derma-promo-grid">
+      ${promotions.map(renderPromotion).join("")}
+    </div>
+  `;
+}
+
+function renderPromotion(promo = {}) {
+  const target = promo.serviceSlug ? `#service-${escapeHtml(slugifyFilename(promo.serviceSlug))}` : "#derma-funnel";
+
+  return `
+    <article class="derma-promo">
+
+      ${renderDetailImage(promo, "derma-promo-image")}<span>${escapeCopy(promo.price || "Promocion")}</span>
+      <h3>${escapeCopy(promo.name)}</h3>
+      <p>${escapeCopy(promo.includes)}</p>
+      ${promo.condition ? `<small>${escapeCopy(promo.condition)}</small>` : ""}
+      <div class="derma-inline-actions">
+        <a href="${target}">${escapeCopy(promo.ctaLabel || "Ver detalle")}</a>
+        ${renderActionButton({ label: "WhatsApp", link: promo.whatsappUrl, type: "whatsapp", subtitle: "AGENDAR" })}
+      </div>
+    </article>
+  `;
+}
+
+function renderServiceFunnel(serviceSections = [], intro = {}) {
+  return `
+    <div id="derma-funnel" class="derma-section-head derma-treatment-intro">
+      <span>${escapeCopy(intro.eyebrow || "Catalogo interactivo")}</span>
+      <h2>${escapeCopy(intro.title || "Explora por categoria")}</h2>
+      <p>${escapeCopy(intro.description || "Abre una seccion, revisa sus categorias y llega al detalle de cada servicio.")}</p>
+    </div>
+    <div class="derma-funnel">
+      ${serviceSections.map(renderServiceSection).join("")}
+    </div>
+  `;
+}
+
+function renderServiceSection(section = {}) {
+  const categories = Array.isArray(section.categories) ? section.categories : [];
+  const count = categories.reduce((total, category) => total + (Array.isArray(category.services) ? category.services.length : 0), 0);
+
+  return `
+    <details class="derma-funnel-section">
+      <summary>
+        <span>${escapeCopy(count)} servicios</span>
+        <strong>${escapeCopy(section.name)}</strong>
+      </summary>
+      <div class="derma-category-list">
+        ${categories.map(renderServiceCategory).join("")}
+      </div>
+    </details>
+  `;
+}
+
+function renderServiceCategory(category = {}) {
+  const services = Array.isArray(category.services) ? category.services : [];
+
+  return `
+    <details class="derma-category">
+      <summary>
+        <span>${escapeCopy(services.length)} opciones</span>
+        <strong>${escapeCopy(category.name)}</strong>
+      </summary>
+      <div class="derma-detail-list">
+        ${services.map(renderServiceDetail).join("")}
+      </div>
+    </details>
+  `;
+}
+
+function renderServiceDetail(service = {}) {
+  const title = service.variant ? `${service.name} - ${service.variant}` : service.name;
+
+  return `
+    <article id="service-${escapeHtml(slugifyFilename(service.slug || service.name))}" class="derma-service-detail">
+      <div class="derma-service-detail-head">
+        <span>${escapeCopy(service.recordType || service.category)}</span>
+        <h3>${escapeCopy(title)}</h3>
+        ${service.price ? `<strong>${escapeCopy(service.price)}</strong>` : ""}
+      </div>
+      ${renderDetailImage(service, "derma-detail-image")}
+      <p>${escapeCopy(service.description)}</p>
+      ${renderDetailMeta(service)}
+      ${renderDetailList("Beneficios", service.benefits)}
+      ${renderDetailList("Ideal para", service.idealFor)}
+      ${renderDetailList("Incluye", service.includes)}
+      ${renderDetailList("Sellos", service.attributes)}
+      ${service.notes || service.detailNote ? `<p class="derma-note">${escapeCopy(service.notes || service.detailNote)}</p>` : ""}
+      <div class="derma-inline-actions">
+        ${renderActionButton({ label: "Agendar por WhatsApp", link: service.whatsappUrl, type: "whatsapp", subtitle: "CTA SERVICIO" })}
+      </div>
+    </article>
+  `;
+}
+
+function renderDetailMeta(service = {}) {
+  const items = [
+    service.starts ? ["Inicio", service.starts] : null,
+    service.duration ? ["Duracion", service.duration] : null
+  ].filter(Boolean);
+
+  if (!items.length) return "";
+
+  return `
+    <div class="derma-detail-meta">
+      ${items.map(([label, value]) => `
+        <div>
+          <span>${label}</span>
+          <strong>${escapeCopy(value)}</strong>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderDetailList(title, items = []) {
+  if (!Array.isArray(items) || !items.length) return "";
+
+  return `
+    <div class="derma-detail-block">
+      <h4>${escapeCopy(title)}</h4>
+      <ul>
+        ${items.map((item) => `<li>${escapeCopy(item)}</li>`).join("")}
+      </ul>
+    </div>
   `;
 }
 

@@ -1,10 +1,10 @@
 const templateLoaders = {
-  creator: () => import("../templates/creator.js?v=20260624-treatment-cards"),
-  wedding: () => import("../templates/wedding.js?v=20260624-treatment-cards"),
-  pizza: () => import("../templates/pizza.js?v=20260624-treatment-cards"),
-  business: () => import("../templates/business.js?v=20260624-treatment-cards"),
-  realestate: () => import("../templates/realestate.js?v=20260624-treatment-cards"),
-  dermatology: () => import("../templates/dermatology.js?v=20260624-treatment-cards")
+  creator: () => import("../templates/creator.js?v=20260702-vanessa-assets-v4"),
+  wedding: () => import("../templates/wedding.js?v=20260702-vanessa-assets-v4"),
+  pizza: () => import("../templates/pizza.js?v=20260702-vanessa-assets-v4"),
+  business: () => import("../templates/business.js?v=20260702-vanessa-assets-v4"),
+  realestate: () => import("../templates/realestate.js?v=20260702-vanessa-assets-v4"),
+  dermatology: () => import("../templates/dermatology.js?v=20260702-vanessa-assets-v4")
 };
 
 export async function getTemplate(templateName) {

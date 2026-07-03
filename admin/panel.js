@@ -707,12 +707,20 @@ function isServicePreviewImagePath(path = "") {
 }
 
 function cleanSlug(value) {
-  return String(value || "")
+  const slug = String(value || "")
     .trim()
+    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
     .toLowerCase()
     .replace(/[^a-z0-9-]/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
+
+  const aliases = {
+    vanessagonzalez: "vanessa-gonzalez",
+    vanessagonzales: "vanessa-gonzalez"
+  };
+
+  return aliases[slug] || slug;
 }
 
 function toTitle(value) {

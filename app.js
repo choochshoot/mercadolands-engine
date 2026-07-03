@@ -1,4 +1,4 @@
-import { bootLanding } from "./core/render.js?v=20260624-treatment-cards";
+import { bootLanding } from "./core/render.js?v=20260702-vanessa-assets-v4";
 
 bootLanding({
   mountSelector: "#app",
