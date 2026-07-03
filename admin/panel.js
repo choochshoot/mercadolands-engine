@@ -123,11 +123,189 @@ function renderDynamicFields() {
   delete editableData.template;
   delete editableData.theme;
 
+  if (shouldUseVanessaCatalogEditor()) {
+    els.fields.innerHTML = renderVanessaCatalogEditor(editableData);
+    return;
+  }
+
   els.fields.innerHTML = Object.entries(editableData)
     .map(([key, value]) => renderGroup(key, value, key))
     .join("");
 }
 
+function shouldUseVanessaCatalogEditor() {
+  return cleanSlug(els.slug.value) === "vanessa-gonzalez" && Array.isArray(state.data.serviceSections);
+}
+
+function renderVanessaCatalogEditor(editableData) {
+  const serviceSections = Array.isArray(state.data.serviceSections) ? state.data.serviceSections : [];
+  const promotions = Array.isArray(state.data.promotions) ? state.data.promotions : [];
+  const serviceCount = serviceSections.reduce((total, section) => total + getSectionServiceCount(section), 0);
+  const categoryCount = serviceSections.reduce((total, section) => total + (Array.isArray(section.categories) ? section.categories.length : 0), 0);
+  const otherGroups = Object.entries(editableData)
+    .filter(([key]) => key !== "serviceSections")
+    .map(([key, value]) => renderGroup(key, value, key))
+    .join("");
+
+  return `
+    <section class="vanessa-admin-hero">
+      <div>
+        <span>Editor especial</span>
+        <h2>Vanessa Gonzalez Studio</h2>
+        <p>Gestiona el catalogo por secciones, categorias, servicios y variantes sin modificar el admin de otros slugs.</p>
+      </div>
+      <div class="vanessa-admin-stats">
+        ${renderVanessaStat(serviceSections.length, "secciones")}
+        ${renderVanessaStat(categoryCount, "categorias")}
+        ${renderVanessaStat(serviceCount, "servicios")}
+        ${renderVanessaStat(promotions.length, "promos")}
+      </div>
+    </section>
+
+    <section class="field-group vanessa-catalog" data-path="serviceSections">
+      <div class="group-title vanessa-catalog-title">
+        <div>
+          <span>Catalogo operativo</span>
+          <h2>Categorias y servicios actuales</h2>
+        </div>
+        <button type="button" class="mini-btn" data-action="add" data-path="serviceSections">Agregar seccion</button>
+      </div>
+      <div class="vanessa-section-list">
+        ${serviceSections.map((section, sectionIndex) => renderVanessaSection(section, sectionIndex)).join("")}
+      </div>
+    </section>
+
+    <details class="field-group vanessa-secondary-groups">
+      <summary>
+        <span>Datos generales</span>
+        <strong>Marca, hero, promos, contacto y SEO</strong>
+      </summary>
+      <div class="vanessa-secondary-body">
+        ${otherGroups}
+      </div>
+    </details>
+  `;
+}
+
+function renderVanessaStat(value, label) {
+  return `
+    <div>
+      <strong>${escapeHtml(value)}</strong>
+      <span>${escapeHtml(label)}</span>
+    </div>
+  `;
+}
+
+function renderVanessaSection(section = {}, sectionIndex = 0) {
+  const sectionPath = `serviceSections.${sectionIndex}`;
+  const categories = Array.isArray(section.categories) ? section.categories : [];
+
+  return `
+    <details class="vanessa-section-card" open>
+      <summary>
+        <div>
+          <span>${escapeHtml(getSectionServiceCount(section))} servicios</span>
+          <strong>${escapeHtml(section.name || `Seccion ${sectionIndex + 1}`)}</strong>
+        </div>
+        <button type="button" class="mini-btn" data-action="remove" data-path="${sectionPath}">Quitar</button>
+      </summary>
+      <div class="vanessa-section-fields">
+        ${renderInput("name", section.name || "", `${sectionPath}.name`)}
+        <div class="vanessa-add-row">
+          <button type="button" class="mini-btn" data-action="add" data-path="${sectionPath}.categories">Agregar categoria</button>
+        </div>
+      </div>
+      <div class="vanessa-category-list">
+        ${categories.map((category, categoryIndex) => renderVanessaCategory(category, sectionPath, categoryIndex)).join("")}
+      </div>
+    </details>
+  `;
+}
+
+function renderVanessaCategory(category = {}, sectionPath = "", categoryIndex = 0) {
+  const categoryPath = `${sectionPath}.categories.${categoryIndex}`;
+  const services = Array.isArray(category.services) ? category.services : [];
+
+  return `
+    <details class="vanessa-category-card" open>
+      <summary>
+        <div>
+          <span>${escapeHtml(services.length)} opciones</span>
+          <strong>${escapeHtml(category.name || `Categoria ${categoryIndex + 1}`)}</strong>
+        </div>
+        <button type="button" class="mini-btn" data-action="remove" data-path="${categoryPath}">Quitar</button>
+      </summary>
+      <div class="vanessa-category-fields">
+        ${renderInput("name", category.name || "", `${categoryPath}.name`)}
+        <div class="vanessa-add-row">
+          <button type="button" class="mini-btn" data-action="add" data-path="${categoryPath}.services">Agregar servicio</button>
+        </div>
+      </div>
+      <div class="vanessa-service-list">
+        ${services.map((service, serviceIndex) => renderVanessaService(service, categoryPath, serviceIndex)).join("")}
+      </div>
+    </details>
+  `;
+}
+
+function renderVanessaService(service = {}, categoryPath = "", serviceIndex = 0) {
+  const servicePath = `${categoryPath}.services.${serviceIndex}`;
+  const title = service.variant ? `${service.name || "Servicio"} - ${service.variant}` : service.name || `Servicio ${serviceIndex + 1}`;
+
+  return `
+    <article class="vanessa-service-card">
+      <div class="vanessa-service-head">
+        <div>
+          <span>${escapeHtml(service.recordType || service.category || "servicio")}</span>
+          <h3>${escapeHtml(title)}</h3>
+          ${service.price ? `<p>${escapeHtml(service.price)}</p>` : ""}
+        </div>
+        <button type="button" class="mini-btn" data-action="remove" data-path="${servicePath}">Quitar</button>
+      </div>
+      <div class="vanessa-service-grid">
+        ${renderInput("name", service.name || "", `${servicePath}.name`)}
+        ${renderInput("variant", service.variant || "", `${servicePath}.variant`)}
+        ${renderInput("price", service.price || "", `${servicePath}.price`)}
+        ${renderInput("recordType", service.recordType || "", `${servicePath}.recordType`)}
+        ${renderInput("category", service.category || "", `${servicePath}.category`)}
+        ${renderInput("slug", service.slug || "", `${servicePath}.slug`)}
+      </div>
+      ${renderInput("description", service.description || "", `${servicePath}.description`)}
+      <div class="vanessa-service-grid">
+        ${renderInput("starts", service.starts || "", `${servicePath}.starts`)}
+        ${renderInput("duration", service.duration || "", `${servicePath}.duration`)}
+      </div>
+      <div class="vanessa-list-grid">
+        ${renderListTextarea("benefits", service.benefits, `${servicePath}.benefits`)}
+        ${renderListTextarea("idealFor", service.idealFor, `${servicePath}.idealFor`)}
+        ${renderListTextarea("includes", service.includes, `${servicePath}.includes`)}
+        ${renderListTextarea("attributes", service.attributes, `${servicePath}.attributes`)}
+      </div>
+      ${renderInput("notes", service.notes || service.detailNote || "", `${servicePath}.${service.notes !== undefined ? "notes" : "detailNote"}`)}
+      ${renderInput("whatsappUrl", service.whatsappUrl || "", `${servicePath}.whatsappUrl`)}
+      <div class="vanessa-service-grid">
+        ${renderAssetInput("previewImage", service.previewImage || "", `${servicePath}.previewImage`)}
+        ${renderAssetInput("detailImage", service.detailImage || "", `${servicePath}.detailImage`)}
+      </div>
+    </article>
+  `;
+}
+
+function renderListTextarea(key, value = [], path) {
+  const lines = Array.isArray(value) ? value.join("\n") : String(value || "");
+
+  return `
+    <div class="field-row vanessa-list-field">
+      <label>${getFieldLabel(key, path)}</label>
+      <textarea data-list-path="${path}" placeholder="Una linea por item">${escapeHtml(lines)}</textarea>
+    </div>
+  `;
+}
+
+function getSectionServiceCount(section = {}) {
+  const categories = Array.isArray(section.categories) ? section.categories : [];
+  return categories.reduce((total, category) => total + (Array.isArray(category.services) ? category.services.length : 0), 0);
+}
 function renderGroup(key, value, path) {
   return `
     <section class="field-group" data-path="${path}">
@@ -252,6 +430,9 @@ function handleDynamicClick(event) {
   const button = event.target.closest("[data-action]");
   if (!button) return;
 
+  event.preventDefault();
+  event.stopPropagation();
+
   const path = button.dataset.path;
 
   if (button.dataset.action === "add") {
@@ -318,6 +499,15 @@ function syncStateFromFields() {
     if (field.matches("input, textarea")) {
       setByPath(state.data, field.dataset.path, field.value);
     }
+  });
+
+  els.fields.querySelectorAll("[data-list-path]").forEach((field) => {
+    const items = field.value
+      .split(/\r?\n/)
+      .map((item) => item.trim())
+      .filter(Boolean);
+
+    setByPath(state.data, field.dataset.listPath, items);
   });
 }
 
@@ -699,11 +889,11 @@ function isServiceImagePath(path = "") {
 }
 
 function isServiceDetailImagePath(path = "") {
-  return /^services\.\d+\.detailimage$/i.test(String(path));
+  return /(^|\.)services\.\d+\.detailimage$/i.test(String(path));
 }
 
 function isServicePreviewImagePath(path = "") {
-  return /^services\.\d+\.previewimage$/i.test(String(path));
+  return /(^|\.)services\.\d+\.previewimage$/i.test(String(path));
 }
 
 function cleanSlug(value) {
