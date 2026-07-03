@@ -1,4 +1,4 @@
-const THEME_ASSET_VERSION = "20260702-vanessa-assets-v6";
+const THEME_ASSET_VERSION = "20260703-rose-button-v7";
 
 const themes = {
   "green-gold": "green-gold.css",
