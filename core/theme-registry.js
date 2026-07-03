@@ -1,4 +1,4 @@
-const THEME_ASSET_VERSION = "20260703-matte-rose-button-v9";
+const THEME_ASSET_VERSION = "20260703-tall-border-button-v10";
 
 const themes = {
   "green-gold": "green-gold.css",

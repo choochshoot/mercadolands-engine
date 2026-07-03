@@ -90,15 +90,15 @@
   isolation: isolate;
   width: min(100%, 338px);
   min-width: min(100%, 270px);
-  min-height: 54px;
-  padding: 0 26px;
+  min-height: 64px;
+  padding: 0 28px;
   border-radius: 16px;
   overflow: visible;
   color: #fff7f4;
   background:
     linear-gradient(180deg, rgba(255, 238, 234, 0.05), rgba(255, 238, 234, 0) 34%),
     linear-gradient(180deg, #171616 0%, #111010 48%, var(--rose-dark) 100%);
-  border: 1px solid rgba(234, 163, 153, 0.86);
+  border: 2px solid rgba(234, 163, 153, 0.92);
   font-family: Arial, sans-serif;
   font-size: 11px;
   font-weight: 300;
@@ -108,8 +108,8 @@
     inset 0 1px 0 rgba(255, 239, 235, 0.12),
     inset 0 -11px 18px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(70, 35, 35, 0.34),
-    0 0 5px rgba(255, 214, 205, 0.42),
-    0 0 12px var(--rose-glow),
+    0 0 6px rgba(255, 214, 205, 0.46),
+    0 0 14px var(--rose-glow),
     0 8px 18px rgba(0, 0, 0, 0.48);
   transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
@@ -117,25 +117,25 @@
 .theme-rosa-neon-lux.template-dermatology .vg-rose-button::before {
   content: "";
   position: absolute;
-  inset: 3px;
-  border-radius: 13px;
+  inset: 4px;
+  border-radius: 12px;
   pointer-events: none;
-  border: 1px solid rgba(255, 218, 211, 0.5);
+  border: 2px solid rgba(255, 218, 211, 0.52);
   box-shadow:
-    inset 0 0 7px rgba(255, 214, 205, 0.1),
+    inset 0 0 6px rgba(255, 214, 205, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .theme-rosa-neon-lux.template-dermatology .vg-rose-button::after {
   content: "";
   position: absolute;
-  inset: -4px -6px;
+  inset: -5px -7px;
   z-index: -1;
   border-radius: 20px;
   background:
     linear-gradient(90deg, rgba(218, 92, 126, 0.18), rgba(255, 202, 194, 0.14) 22%, rgba(255, 202, 194, 0.08) 50%, rgba(218, 92, 126, 0.18));
-  filter: blur(7px);
-  opacity: 0.58;
+  filter: blur(6px);
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -143,7 +143,7 @@
 .theme-rosa-neon-lux.template-dermatology .vg-rose-button .icon,
 .theme-rosa-neon-lux.template-dermatology .vg-rose-button .arrow {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .theme-rosa-neon-lux.template-dermatology .vg-rose-button .btn-left {
@@ -173,13 +173,13 @@
 
 .theme-rosa-neon-lux.template-dermatology .vg-rose-button:hover {
   transform: translateY(-1px) scale(1.004);
-  border-color: rgba(255, 217, 210, 0.92);
+  border-color: rgba(255, 217, 210, 0.96);
   box-shadow:
     inset 0 1px 0 rgba(255, 239, 235, 0.16),
     inset 0 -11px 18px rgba(0, 0, 0, 0.46),
     0 0 0 1px rgba(95, 46, 46, 0.38),
-    0 0 7px rgba(255, 216, 208, 0.52),
-    0 0 16px rgba(224, 100, 130, 0.4),
+    0 0 8px rgba(255, 216, 208, 0.56),
+    0 0 18px rgba(224, 100, 130, 0.38),
     0 9px 20px rgba(0, 0, 0, 0.5);
 }
 
