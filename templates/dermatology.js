@@ -1,6 +1,8 @@
 import { renderActionButton } from "../components/action-button.js";
 import { escapeHtml, safeUrl } from "../core/helpers.js";
 
+const DERMA_BUTTON_CLASS = "vg-rose-button";
+
 export function render(data = {}, context = {}) {
   const brand = data.brand || {};
   const hero = data.hero || {};
@@ -26,8 +28,8 @@ export function render(data = {}, context = {}) {
           <h1>${escapeCopy(hero.title)}</h1>
           <p>${escapeCopy(hero.subtitle)}</p>
           <div class="derma-actions">
-            ${renderActionButton({ label: normalizeSpanishCopy(hero.ctaPrimaryLabel || "Agendar cita"), link: hero.ctaPrimaryLink || contact.whatsapp, type: "whatsapp", subtitle: "CITA PRIVADA" })}
-            ${hero.ctaSecondaryLink ? renderActionButton({ label: normalizeSpanishCopy(hero.ctaSecondaryLabel || "Tratamientos"), link: hero.ctaSecondaryLink, type: "menu", subtitle: "EXPLORAR" }) : ""}
+            ${renderDermaActionButton({ label: normalizeSpanishCopy(hero.ctaPrimaryLabel || "Agendar cita"), link: hero.ctaPrimaryLink || contact.whatsapp, type: "whatsapp", subtitle: "CITA PRIVADA" })}
+            ${hero.ctaSecondaryLink ? renderDermaActionButton({ label: normalizeSpanishCopy(hero.ctaSecondaryLabel || "Tratamientos"), link: hero.ctaSecondaryLink, type: "menu", subtitle: "EXPLORAR" }) : ""}
           </div>
         </div>
       </section>
@@ -87,10 +89,10 @@ export function render(data = {}, context = {}) {
         <div class="derma-contact-info">
           <p>${escapeCopy(contact.address)}</p>
           <div class="derma-actions">
-            ${renderActionButton({ label: "WhatsApp", link: contact.whatsapp, type: "whatsapp", subtitle: "AGENDAR" })}
-            ${renderActionButton({ label: "Llamar", link: contact.phone, type: "phone", subtitle: "CONTACTO" })}
-            ${renderActionButton({ label: "C\u00f3mo llegar", link: contact.mapUrl, type: "map", subtitle: "MAPS" })}
-            ${social.instagram ? renderActionButton({ label: social.label || "Instagram", link: social.instagram, type: "instagram", subtitle: "REDES" }) : ""}
+            ${renderDermaActionButton({ label: "WhatsApp", link: contact.whatsapp, type: "whatsapp", subtitle: "AGENDAR" })}
+            ${renderDermaActionButton({ label: "Llamar", link: contact.phone, type: "phone", subtitle: "CONTACTO" })}
+            ${renderDermaActionButton({ label: "C\u00f3mo llegar", link: contact.mapUrl, type: "map", subtitle: "MAPS" })}
+            ${social.instagram ? renderDermaActionButton({ label: social.label || "Instagram", link: social.instagram, type: "instagram", subtitle: "REDES" }) : ""}
           </div>
         </div>
       </section>
@@ -153,7 +155,7 @@ function renderPromotion(promo = {}) {
       ${promo.condition ? `<small>${escapeCopy(promo.condition)}</small>` : ""}
       <div class="derma-inline-actions">
         <a href="${target}">${escapeCopy(promo.ctaLabel || "Ver detalle")}</a>
-        ${renderActionButton({ label: "WhatsApp", link: promo.whatsappUrl, type: "whatsapp", subtitle: "AGENDAR" })}
+        ${renderDermaActionButton({ label: "WhatsApp", link: promo.whatsappUrl, type: "whatsapp", subtitle: "AGENDAR" })}
       </div>
     </article>
   `;
@@ -224,7 +226,7 @@ function renderServiceDetail(service = {}) {
       ${renderDetailList("Sellos", service.attributes)}
       ${service.notes || service.detailNote ? `<p class="derma-note">${escapeCopy(service.notes || service.detailNote)}</p>` : ""}
       <div class="derma-inline-actions">
-        ${renderActionButton({ label: "Agendar por WhatsApp", link: service.whatsappUrl, type: "whatsapp", subtitle: "CTA SERVICIO" })}
+        ${renderDermaActionButton({ label: "Agendar por WhatsApp", link: service.whatsappUrl, type: "whatsapp", subtitle: "CTA SERVICIO" })}
       </div>
     </article>
   `;
@@ -448,6 +450,10 @@ function slugifyFilename(value = "") {
 
 function escapeCopy(value) {
   return escapeHtml(normalizeSpanishCopy(value));
+}
+
+function renderDermaActionButton(button = {}) {
+  return renderActionButton({ ...button, className: DERMA_BUTTON_CLASS });
 }
 
 function normalizeSpanishCopy(value) {

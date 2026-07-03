@@ -7,9 +7,11 @@ export function renderActionButton(button = {}) {
   const targetAttrs = isInternalLink(button.link)
     ? ""
     : ' target="_blank" rel="noopener noreferrer"';
+  const extraClass = normalizeClassNames(button.className);
+  const classes = ["btn", `btn-${type}`, extraClass].filter(Boolean).join(" ");
 
   return `
-    <a href="${link}"${targetAttrs} class="btn btn-${type}">
+    <a href="${link}"${targetAttrs} class="${classes}">
       <div class="btn-left">
         <span class="icon">${getIcon(type)}</span>
         <div>
@@ -20,6 +22,14 @@ export function renderActionButton(button = {}) {
       <span class="arrow" aria-hidden="true">&rsaquo;</span>
     </a>
   `;
+}
+
+function normalizeClassNames(value = "") {
+  return String(value)
+    .split(/\s+/)
+    .map((className) => className.trim())
+    .filter((className) => /^[a-zA-Z0-9_-]+$/.test(className))
+    .join(" ");
 }
 
 function isInternalLink(link = "") {

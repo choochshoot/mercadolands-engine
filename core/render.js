@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260702-vanessa-assets-v5";
-import { getTemplate } from "./template-registry.js?v=20260702-vanessa-assets-v5";
-import { loadTheme } from "./theme-registry.js?v=20260702-vanessa-assets-v5";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260702-vanessa-assets-v6";
+import { getTemplate } from "./template-registry.js?v=20260702-vanessa-assets-v6";
+import { loadTheme } from "./theme-registry.js?v=20260702-vanessa-assets-v6";
 
 let cleanupLandingEffects = () => {};
 

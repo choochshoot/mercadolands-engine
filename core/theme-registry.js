@@ -1,4 +1,6 @@
-﻿const themes = {
+const THEME_ASSET_VERSION = "20260702-vanessa-assets-v6";
+
+const themes = {
   "green-gold": "green-gold.css",
   "rose-gold": "rose-gold.css",
   "rosa-neon-lux": "rosa-neon-lux.css",
@@ -15,7 +17,7 @@ export function resolveTheme(themeName) {
 export function loadTheme(themeName) {
   const theme = resolveTheme(themeName);
   const existing = document.getElementById("mercadolands-theme");
-  const href = new URL(`../themes/${themes[theme]}`, import.meta.url).href;
+  const href = new URL(`../themes/${themes[theme]}?v=${THEME_ASSET_VERSION}`, import.meta.url).href;
 
   if (existing) {
     existing.href = href;
