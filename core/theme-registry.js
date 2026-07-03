@@ -1,4 +1,4 @@
-const THEME_ASSET_VERSION = "20260703-tall-border-button-v10";
+const THEME_ASSET_VERSION = "20260703-funnel-hierarchy-v11";
 
 const themes = {
   "green-gold": "green-gold.css",

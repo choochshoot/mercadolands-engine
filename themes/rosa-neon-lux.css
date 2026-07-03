@@ -191,3 +191,136 @@
   outline: 2px solid #ffe2dd;
   outline-offset: 5px;
 }
+/* Dermatology funnel hierarchy: level 1 categories vs level 2 options. */
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section {
+  border-width: 1.5px;
+  border-radius: 24px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.13),
+    0 24px 64px rgba(0, 0, 0, 0.32),
+    0 0 30px rgba(255, 92, 190, 0.14);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section > summary {
+  min-height: 82px;
+  padding: 19px 20px;
+  position: relative;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section > summary::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid rgba(255, 218, 235, 0.72);
+  border-bottom: 2px solid rgba(255, 218, 235, 0.72);
+  transform: translateY(-58%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section[open] > summary::after {
+  transform: translateY(-32%) rotate(225deg);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section > summary strong {
+  font-size: 29px;
+  letter-spacing: 0;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section > summary span {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section[open] {
+  border-color: rgba(255, 136, 218, 0.42);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section[open] > summary {
+  border-bottom-color: rgba(255, 182, 226, 0.22);
+  background:
+    radial-gradient(circle at 90% 16%, rgba(255, 105, 205, 0.2), transparent 34%),
+    linear-gradient(135deg, rgba(255, 55, 188, 0.16), rgba(255, 255, 255, 0.035));
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category-list {
+  gap: 10px;
+  padding: 12px 12px 14px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.025));
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category {
+  margin-left: 0;
+  border-width: 1px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 86% 8%, rgba(255, 222, 214, 0.12), transparent 36%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+    rgba(12, 10, 12, 0.46);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 26px rgba(0, 0, 0, 0.22);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category > summary {
+  min-height: 64px;
+  padding: 14px 16px 14px 18px;
+  position: relative;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category > summary::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  border-radius: 999px;
+  background: rgba(255, 183, 226, 0.48);
+  box-shadow: 0 0 8px rgba(255, 104, 205, 0.24);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category > summary::after {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid rgba(255, 224, 218, 0.62);
+  border-bottom: 1.5px solid rgba(255, 224, 218, 0.62);
+  transform: translateY(-58%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category[open] > summary::after {
+  transform: translateY(-30%) rotate(225deg);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category > summary strong {
+  font-size: 25px;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category > summary span {
+  font-size: 10px;
+  letter-spacing: 1.6px;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category[open] {
+  border-color: rgba(255, 218, 211, 0.38);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(255, 224, 218, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 218, 211, 0.12), rgba(255, 104, 205, 0.05)),
+    rgba(10, 8, 10, 0.55);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category[open] > summary {
+  border-bottom-color: rgba(255, 218, 211, 0.16);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category .derma-detail-list {
+  padding: 10px 10px 12px;
+  background: rgba(0, 0, 0, 0.1);
+}
