@@ -1,0 +1,14 @@
+{
+  "name": "mercadolands-engine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static MercadoLands landing engine for GitHub Pages.",
+  "scripts": {
+    "build": "node scripts/validate-build.cjs",
+    "check": "node scripts/validate-build.cjs",
+    "dev": "python -m http.server 5500 --bind 127.0.0.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
