@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260702-vanessa-assets-v4";
-import { getTemplate } from "./template-registry.js?v=20260702-vanessa-assets-v4";
-import { loadTheme } from "./theme-registry.js?v=20260702-vanessa-assets-v4";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260702-vanessa-assets-v5";
+import { getTemplate } from "./template-registry.js?v=20260702-vanessa-assets-v5";
+import { loadTheme } from "./theme-registry.js?v=20260702-vanessa-assets-v5";
 
 let cleanupLandingEffects = () => {};
 
@@ -102,7 +102,7 @@ function initLandingEffects(mount, templateKey) {
 
     const rect = hero.getBoundingClientRect();
     const progress = clamp(-rect.top / Math.max(rect.height, 1), 0, 1);
-    const offset = Math.round(progress * 110);
+    const offset = Math.round(progress * 150);
 
     video.style.setProperty("--derma-hero-parallax", `${offset}px`);
   };

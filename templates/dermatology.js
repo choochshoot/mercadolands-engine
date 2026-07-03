@@ -167,33 +167,33 @@ function renderServiceFunnel(serviceSections = [], intro = {}) {
       <p>${escapeCopy(intro.description || "Abre una seccion, revisa sus categorias y llega al detalle de cada servicio.")}</p>
     </div>
     <div class="derma-funnel">
-      ${serviceSections.map(renderServiceSection).join("")}
+      ${serviceSections.map((section, index) => renderServiceSection(section, index)).join("")}
     </div>
   `;
 }
 
-function renderServiceSection(section = {}) {
+function renderServiceSection(section = {}, sectionIndex = 0) {
   const categories = Array.isArray(section.categories) ? section.categories : [];
   const count = categories.reduce((total, category) => total + (Array.isArray(category.services) ? category.services.length : 0), 0);
 
   return `
-    <details class="derma-funnel-section">
+    <details class="derma-funnel-section derma-tone-${sectionIndex % 2 ? "b" : "a"}">
       <summary>
         <span>${escapeCopy(count)} servicios</span>
         <strong>${escapeCopy(section.name)}</strong>
       </summary>
       <div class="derma-category-list">
-        ${categories.map(renderServiceCategory).join("")}
+        ${categories.map((category, index) => renderServiceCategory(category, index)).join("")}
       </div>
     </details>
   `;
 }
 
-function renderServiceCategory(category = {}) {
+function renderServiceCategory(category = {}, categoryIndex = 0) {
   const services = Array.isArray(category.services) ? category.services : [];
 
   return `
-    <details class="derma-category">
+    <details class="derma-category derma-tone-${categoryIndex % 2 ? "b" : "a"}">
       <summary>
         <span>${escapeCopy(services.length)} opciones</span>
         <strong>${escapeCopy(category.name)}</strong>
