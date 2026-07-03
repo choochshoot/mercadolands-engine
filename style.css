@@ -1977,6 +1977,7 @@ img {
   min-height: 70px;
   display: grid;
   gap: 5px;
+  position: relative;
   padding: 16px;
   cursor: pointer;
   list-style: none;
@@ -1992,6 +1993,48 @@ img {
   font-family: "Cormorant Garamond", "Playfair Display", serif;
   font-size: 26px;
   line-height: 1;
+}
+
+.derma-category summary {
+  min-height: 84px;
+  padding: 18px 48px 18px 20px;
+  border: 1px solid rgba(255, 177, 230, 0.18);
+  border-radius: 20px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.derma-category summary::after {
+  content: "+";
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.derma-category[open] > summary::after {
+  content: "-";
+  border-color: rgba(255, 177, 230, 0.42);
+  background: rgba(255, 104, 205, 0.18);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.derma-category summary strong {
+  font-size: 28px;
 }
 
 .derma-funnel-section[open] > summary,
@@ -2048,6 +2091,16 @@ img {
 .derma-detail-list {
   margin: 0;
   padding: 12px;
+}
+
+.derma-category[open] > .derma-detail-list {
+  margin-left: 10px;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 177, 230, 0.34);
+}
+
+.derma-category[open] > .derma-detail-list .derma-service-detail {
+  transform: translateX(4px);
 }
 
 .derma-service-detail {

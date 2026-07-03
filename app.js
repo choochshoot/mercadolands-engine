@@ -1,4 +1,4 @@
-import { bootLanding } from "./core/render.js?v=20260702-vanessa-assets-v6";
+import { bootLanding } from "./core/render.js?v=20260703-category-ux-v1";
 
 bootLanding({
   mountSelector: "#app",
