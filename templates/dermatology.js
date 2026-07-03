@@ -1,4 +1,4 @@
-import { renderActionButton } from "../components/action-button.js";
+﻿import { renderActionButton } from "../components/action-button.js";
 import { escapeHtml, safeUrl } from "../core/helpers.js";
 
 const DERMA_BUTTON_CLASS = "vg-rose-button";
@@ -434,7 +434,7 @@ function getServiceShareUrl(service = {}, context = {}) {
   const hasWindow = typeof window !== "undefined";
   const serviceSlug = slugifyFilename(service.slug || service.name);
   const sharePageUrl = hasWindow
-    ? new URL(`../share/vanessa-gonzalez/${serviceSlug}.html?v=2`, window.location.href).href
+    ? new URL(`../share/vanessa-gonzalez/${serviceSlug}.html?v=4`, window.location.href).href
     : "";
 
   if (!sharePageUrl) return "";
@@ -480,43 +480,43 @@ function normalizeSpanishCopy(value) {
   if (value === null || value === undefined) return "";
 
   return String(value)
-    .replace(/\bDermatologia\b/g, "Dermatología")
-    .replace(/\bdermatologia\b/g, "dermatología")
-    .replace(/\bEstetica\b/g, "Estética")
-    .replace(/\bestetica\b/g, "estética")
-    .replace(/\bClinica\b/g, "Clínica")
-    .replace(/\bclinica\b/g, "clínica")
-    .replace(/\bMedica\b/g, "Médica")
-    .replace(/\bmedica\b/g, "médica")
-    .replace(/\bAmerica\b/g, "América")
-    .replace(/\bValoracion\b/g, "Valoración")
-    .replace(/\bvaloracion\b/g, "valoración")
-    .replace(/\bEvolucion\b/g, "Evolución")
-    .replace(/\bevolucion\b/g, "evolución")
-    .replace(/\bdisenado\b/g, "diseñado")
-    .replace(/\bdisenar\b/g, "diseñar")
-    .replace(/\barmonia\b/g, "armonía")
-    .replace(/\bintima\b/g, "íntima")
-    .replace(/\bdiagnostico\b/g, "diagnóstico")
-    .replace(/\banos\b/g, "años")
-    .replace(/\batmosfera\b/g, "atmósfera")
-    .replace(/\bsofisticacion\b/g, "sofisticación")
-    .replace(/\biluminacion\b/g, "iluminación")
-    .replace(/\bcalida\b/g, "cálida")
-    .replace(/\bprecision\b/g, "precisión")
-    .replace(/\bexpresion\b/g, "expresión")
-    .replace(/\bregeneracion\b/g, "regeneración")
-    .replace(/\bhumedo\b/g, "húmedo")
-    .replace(/\bhidratacion\b/g, "hidratación")
-    .replace(/\bcolageno\b/g, "colágeno")
-    .replace(/\bcutanea\b/g, "cutánea")
-    .replace(/\bArmonia\b/g, "Armonía")
-    .replace(/\bDefinicion\b/g, "Definición")
-    .replace(/\bdefinicion\b/g, "definición")
-    .replace(/\bGonzalez\b/g, "González")
-    .replace(/\bSalmon Face\b/g, "Salmón Face")
-    .replace(/\bBioestimulacion\b/g, "Bioestimulación")
-    .replace(/\bbioestimulacion\b/g, "bioestimulación");
+    .replace(/\bDermatologia\b/g, "DermatologÃ­a")
+    .replace(/\bdermatologia\b/g, "dermatologÃ­a")
+    .replace(/\bEstetica\b/g, "EstÃ©tica")
+    .replace(/\bestetica\b/g, "estÃ©tica")
+    .replace(/\bClinica\b/g, "ClÃ­nica")
+    .replace(/\bclinica\b/g, "clÃ­nica")
+    .replace(/\bMedica\b/g, "MÃ©dica")
+    .replace(/\bmedica\b/g, "mÃ©dica")
+    .replace(/\bAmerica\b/g, "AmÃ©rica")
+    .replace(/\bValoracion\b/g, "ValoraciÃ³n")
+    .replace(/\bvaloracion\b/g, "valoraciÃ³n")
+    .replace(/\bEvolucion\b/g, "EvoluciÃ³n")
+    .replace(/\bevolucion\b/g, "evoluciÃ³n")
+    .replace(/\bdisenado\b/g, "diseÃ±ado")
+    .replace(/\bdisenar\b/g, "diseÃ±ar")
+    .replace(/\barmonia\b/g, "armonÃ­a")
+    .replace(/\bintima\b/g, "Ã­ntima")
+    .replace(/\bdiagnostico\b/g, "diagnÃ³stico")
+    .replace(/\banos\b/g, "aÃ±os")
+    .replace(/\batmosfera\b/g, "atmÃ³sfera")
+    .replace(/\bsofisticacion\b/g, "sofisticaciÃ³n")
+    .replace(/\biluminacion\b/g, "iluminaciÃ³n")
+    .replace(/\bcalida\b/g, "cÃ¡lida")
+    .replace(/\bprecision\b/g, "precisiÃ³n")
+    .replace(/\bexpresion\b/g, "expresiÃ³n")
+    .replace(/\bregeneracion\b/g, "regeneraciÃ³n")
+    .replace(/\bhumedo\b/g, "hÃºmedo")
+    .replace(/\bhidratacion\b/g, "hidrataciÃ³n")
+    .replace(/\bcolageno\b/g, "colÃ¡geno")
+    .replace(/\bcutanea\b/g, "cutÃ¡nea")
+    .replace(/\bArmonia\b/g, "ArmonÃ­a")
+    .replace(/\bDefinicion\b/g, "DefiniciÃ³n")
+    .replace(/\bdefinicion\b/g, "definiciÃ³n")
+    .replace(/\bGonzalez\b/g, "GonzÃ¡lez")
+    .replace(/\bSalmon Face\b/g, "SalmÃ³n Face")
+    .replace(/\bBioestimulacion\b/g, "BioestimulaciÃ³n")
+    .replace(/\bbioestimulacion\b/g, "bioestimulaciÃ³n");
 }
 
 function getInitials(name = "ML") {
@@ -528,4 +528,5 @@ function getInitials(name = "ML") {
     .join("")
     .toUpperCase();
 }
+
 
