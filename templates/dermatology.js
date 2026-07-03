@@ -434,12 +434,12 @@ function getServiceShareUrl(service = {}, context = {}) {
   const hasWindow = typeof window !== "undefined";
   const serviceSlug = slugifyFilename(service.slug || service.name);
   const sharePageUrl = hasWindow
-    ? new URL(`../share/vanessa-gonzalez/${serviceSlug}.html`, window.location.href).href
+    ? new URL(`../share/vanessa-gonzalez/${serviceSlug}.html?v=2`, window.location.href).href
     : "";
 
   if (!sharePageUrl) return "";
 
-  const message = `Hola mira este tratamiento que da la Dra. Vanessa G \u{1F469}\u200D\u{1F52C}\n${title}\n${sharePageUrl}`;
+  const message = `Mira este tratamiento de la Dra. Vanessa G \u{1F469}\u200D\u{1F52C}\n${title}\n${sharePageUrl}`;
 
   return `https://wa.me/?text=${encodeURIComponent(message)}`;
 }
