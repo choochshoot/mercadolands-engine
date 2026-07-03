@@ -215,7 +215,7 @@ function renderServiceDetail(service = {}, context = {}) {
       <div class="derma-service-detail-head">
         <span>${escapeCopy(service.recordType || service.category)}</span>
         <h3>${escapeCopy(title)}</h3>
-        ${service.price ? `<strong>${escapeCopy(service.price)}</strong>` : ""}
+        ${renderServicePriceBadge(service)}
       </div>
       ${renderDetailImage(service, "derma-detail-image")}
       <p>${escapeCopy(service.description)}</p>
@@ -233,6 +233,18 @@ function renderServiceDetail(service = {}, context = {}) {
   `;
 }
 
+function renderServicePriceBadge(service = {}) {
+  if (service.price) {
+    return `<strong class="derma-price-badge">${escapeCopy(service.price)}</strong>`;
+  }
+
+  return `
+    <strong class="derma-price-badge derma-price-premium" aria-label="Servicio premium sin precio publicado">
+      <span aria-hidden="true">&#9819;&#9819;&#9819;&#9819;&#9819;</span>
+      Premium
+    </strong>
+  `;
+}
 function renderDetailMeta(service = {}) {
   const items = [
     service.starts ? ["Inicio", service.starts] : null,

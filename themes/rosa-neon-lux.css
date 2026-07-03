@@ -465,3 +465,41 @@
   border-color: rgba(255, 177, 230, 0.42);
   transform: translateY(-1px);
 }
+
+.theme-rosa-neon-lux.template-dermatology .derma-price-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 13px;
+  border: 1px solid rgba(255, 224, 218, 0.3);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 177, 230, 0.18), rgba(255, 104, 205, 0.08)),
+    rgba(10, 8, 12, 0.66);
+  color: #fff7fb;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 10px 26px rgba(255, 54, 188, 0.16),
+    0 14px 34px rgba(0, 0, 0, 0.18);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-price-premium {
+  border-color: rgba(247, 223, 205, 0.38);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(247, 223, 205, 0.2), transparent 32%),
+    linear-gradient(135deg, rgba(247, 223, 205, 0.14), rgba(255, 104, 205, 0.08)),
+    rgba(12, 9, 11, 0.68);
+  color: #f7dfcd;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-price-premium span {
+  color: #ffb1e6;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 104, 205, 0.34);
+}
