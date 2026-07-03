@@ -67,7 +67,7 @@ export function render(data = {}, context = {}) {
 
       <section id="derma-services" class="derma-card derma-services-card">
         ${promotions.length ? renderPromotions(promotions) : ""}
-        ${serviceSections.length ? renderServiceFunnel(serviceSections, catalogIntro) : renderLegacyServices(services, context)}
+        ${serviceSections.length ? renderServiceFunnel(serviceSections, catalogIntro, context) : renderLegacyServices(services, context)}
       </section>
 
       <section class="derma-card">
@@ -161,7 +161,7 @@ function renderPromotion(promo = {}) {
   `;
 }
 
-function renderServiceFunnel(serviceSections = [], intro = {}) {
+function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
   return `
     <div id="derma-funnel" class="derma-section-head derma-treatment-intro">
       <span>${escapeCopy(intro.eyebrow || "Catalogo interactivo")}</span>
@@ -169,12 +169,12 @@ function renderServiceFunnel(serviceSections = [], intro = {}) {
       <p>${escapeCopy(intro.description || "Abre una seccion, revisa sus categorias y llega al detalle de cada servicio.")}</p>
     </div>
     <div class="derma-funnel">
-      ${serviceSections.map((section, index) => renderServiceSection(section, index)).join("")}
+      ${serviceSections.map((section, index) => renderServiceSection(section, index, context)).join("")}
     </div>
   `;
 }
 
-function renderServiceSection(section = {}, sectionIndex = 0) {
+function renderServiceSection(section = {}, sectionIndex = 0, context = {}) {
   const categories = Array.isArray(section.categories) ? section.categories : [];
   const count = categories.reduce((total, category) => total + (Array.isArray(category.services) ? category.services.length : 0), 0);
 
@@ -185,13 +185,13 @@ function renderServiceSection(section = {}, sectionIndex = 0) {
         <strong>${escapeCopy(section.name)}</strong>
       </summary>
       <div class="derma-category-list">
-        ${categories.map((category, index) => renderServiceCategory(category, index)).join("")}
+        ${categories.map((category, index) => renderServiceCategory(category, index, context)).join("")}
       </div>
     </details>
   `;
 }
 
-function renderServiceCategory(category = {}, categoryIndex = 0) {
+function renderServiceCategory(category = {}, categoryIndex = 0, context = {}) {
   const services = Array.isArray(category.services) ? category.services : [];
 
   return `
@@ -201,13 +201,13 @@ function renderServiceCategory(category = {}, categoryIndex = 0) {
         <strong>${escapeCopy(category.name)}</strong>
       </summary>
       <div class="derma-detail-list">
-        ${services.map(renderServiceDetail).join("")}
+        ${services.map((service) => renderServiceDetail(service, context)).join("")}
       </div>
     </details>
   `;
 }
 
-function renderServiceDetail(service = {}) {
+function renderServiceDetail(service = {}, context = {}) {
   const title = service.variant ? `${service.name} - ${service.variant}` : service.name;
 
   return `
@@ -227,6 +227,7 @@ function renderServiceDetail(service = {}) {
       ${service.notes || service.detailNote ? `<p class="derma-note">${escapeCopy(service.notes || service.detailNote)}</p>` : ""}
       <div class="derma-inline-actions">
         ${renderDermaActionButton({ label: "Agendar por WhatsApp", link: service.whatsappUrl, type: "whatsapp", subtitle: "CTA SERVICIO" })}
+        ${renderServiceShare(service, context)}
       </div>
     </article>
   `;
@@ -397,35 +398,65 @@ function renderServiceDownload(service = {}) {
 
 function renderServiceShare(service = {}, context = {}) {
   const shareUrl = getServiceShareUrl(service, context);
+  const title = getServiceDisplayName(service);
 
   if (!shareUrl) return "";
 
   return `
-    <a class="derma-service-share" href="${shareUrl}" target="_blank" rel="noopener noreferrer">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="currentColor" d="M18 16.1c-.8 0-1.5.3-2 .8L8.9 12.7a3.2 3.2 0 0 0 0-1.4L16 7.1A2.9 2.9 0 1 0 15 5c0 .2 0 .5.1.7L8 9.9A3 3 0 1 0 8 14l7.1 4.2-.1.7a3 3 0 1 0 3-2.8z"/>
-      </svg>
-      Compartir tratamiento
+    <a class="derma-service-share derma-service-share-card" href="${shareUrl}" target="_blank" rel="noopener noreferrer" aria-label="Compartir ${escapeHtml(title)} por WhatsApp">
+      <span class="derma-share-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path fill="currentColor" d="M18 16.1c-.8 0-1.5.3-2 .8L8.9 12.7a3.2 3.2 0 0 0 0-1.4L16 7.1A2.9 2.9 0 1 0 15 5c0 .2 0 .5.1.7L8 9.9A3 3 0 1 0 8 14l7.1 4.2-.1.7a3 3 0 1 0 3-2.8z"/>
+        </svg>
+      </span>
+      <span>
+        <small>Tarjeta premium por WhatsApp</small>
+        <strong>Compartir a una amiga</strong>
+      </span>
     </a>
   `;
 }
 
 function getServiceShareUrl(service = {}, context = {}) {
-  const name = service.name || "este tratamiento";
+  const title = getServiceDisplayName(service) || "este servicio";
   const hasWindow = typeof window !== "undefined";
   const currentUrl = hasWindow ? window.location.href : "";
+  const serviceHash = `#service-${slugifyFilename(service.slug || service.name)}`;
   const profileUrl = context.slug && hasWindow
-    ? `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(context.slug)}#derma-services`
+    ? `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(context.slug)}${serviceHash}`
     : currentUrl;
 
   if (!profileUrl) return "";
 
-  const mediaUrl = safeUrl(service.previewImage || service.detailImage);
-  const message = mediaUrl
-    ? `Te comparto informacion sobre ${name}: ${mediaUrl} ${profileUrl}`
-    : `Te comparto informacion sobre ${name}: ${profileUrl}`;
+  const mediaUrl = resolveShareMediaUrl(service.previewImage || service.detailImage);
+  const lines = [
+    "Te comparto esta tarjeta premium de Vanessa Gonzalez Studio.",
+    "",
+    `Servicio: ${title}`,
+    service.price ? `Precio: ${service.price}` : "",
+    service.description ? `Detalle: ${service.description}` : "",
+    mediaUrl ? `Arte del servicio: ${mediaUrl}` : "",
+    `Ver ficha: ${profileUrl}`
+  ].filter(Boolean);
 
-  return `https://wa.me/?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/?text=${encodeURIComponent(lines.join("\n"))}`;
+}
+
+function getServiceDisplayName(service = {}) {
+  return service.variant ? `${service.name} - ${service.variant}` : service.name;
+}
+
+function resolveShareMediaUrl(value) {
+  const url = safeUrl(value);
+
+  if (!url) return "";
+  if (typeof window === "undefined") return url;
+
+  try {
+    return new URL(url, window.location.href).href;
+  } catch (error) {
+    return url;
+  }
 }
 function renderCase(item = {}) {
   return `

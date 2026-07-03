@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260703-category-ux-v2";
-import { getTemplate } from "./template-registry.js?v=20260703-category-ux-v2";
-import { loadTheme } from "./theme-registry.js?v=20260703-category-ux-v2";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260703-service-share-v3";
+import { getTemplate } from "./template-registry.js?v=20260703-service-share-v3";
+import { loadTheme } from "./theme-registry.js?v=20260703-service-share-v3";
 
 let cleanupLandingEffects = () => {};
 

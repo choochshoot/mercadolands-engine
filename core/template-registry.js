@@ -1,10 +1,10 @@
 const templateLoaders = {
-  creator: () => import("../templates/creator.js?v=20260703-category-ux-v2"),
-  wedding: () => import("../templates/wedding.js?v=20260703-category-ux-v2"),
-  pizza: () => import("../templates/pizza.js?v=20260703-category-ux-v2"),
-  business: () => import("../templates/business.js?v=20260703-category-ux-v2"),
-  realestate: () => import("../templates/realestate.js?v=20260703-category-ux-v2"),
-  dermatology: () => import("../templates/dermatology.js?v=20260703-category-ux-v2")
+  creator: () => import("../templates/creator.js?v=20260703-service-share-v3"),
+  wedding: () => import("../templates/wedding.js?v=20260703-service-share-v3"),
+  pizza: () => import("../templates/pizza.js?v=20260703-service-share-v3"),
+  business: () => import("../templates/business.js?v=20260703-service-share-v3"),
+  realestate: () => import("../templates/realestate.js?v=20260703-service-share-v3"),
+  dermatology: () => import("../templates/dermatology.js?v=20260703-service-share-v3")
 };
 
 export async function getTemplate(templateName) {
