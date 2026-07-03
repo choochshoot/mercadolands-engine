@@ -212,12 +212,14 @@ function renderServiceDetail(service = {}, context = {}) {
 
   return `
     <article id="service-${escapeHtml(slugifyFilename(service.slug || service.name))}" class="derma-service-detail">
-      <div class="derma-service-detail-head">
-        <span>${escapeCopy(service.recordType || service.category)}</span>
-        <h3>${escapeCopy(title)}</h3>
-        ${renderServicePriceBadge(service)}
+      <div class="derma-service-spotlight">
+        <div class="derma-service-detail-head">
+          <span>${escapeCopy(service.recordType || service.category)}</span>
+          <h3>${escapeCopy(title)}</h3>
+          ${renderServicePriceBadge(service)}
+        </div>
+        ${renderDetailImage(service, "derma-detail-image derma-detail-image-spotlight")}
       </div>
-      ${renderDetailImage(service, "derma-detail-image")}
       <p>${escapeCopy(service.description)}</p>
       ${renderDetailMeta(service)}
       ${renderDetailList("Beneficios", service.benefits)}
