@@ -349,18 +349,55 @@
 }
 
 .theme-rosa-neon-lux.template-dermatology .derma-category .derma-detail-list {
-  padding: 10px 10px 12px;
-  background: rgba(0, 0, 0, 0.1);
+  padding: 12px 10px 14px;
+  background:
+    linear-gradient(90deg, rgba(255, 177, 230, 0.1), transparent 18px),
+    rgba(0, 0, 0, 0.1);
 }
 
 .theme-rosa-neon-lux.template-dermatology .derma-category[open] > .derma-detail-list {
-  margin-left: 10px;
-  padding-left: 16px;
+  margin-left: 4px;
+  padding-left: 10px;
   border-left: 2px solid rgba(255, 177, 230, 0.36);
 }
 
 .theme-rosa-neon-lux.template-dermatology .derma-category[open] > .derma-detail-list .derma-service-detail {
-  transform: translateX(4px);
+  transform: none;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category[open] > .derma-detail-list .derma-service-detail::before {
+  content: "Servicio dentro de esta categoria";
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 177, 230, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 104, 205, 0.09);
+  color: rgba(255, 224, 235, 0.74);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .theme-rosa-neon-lux.template-dermatology .derma-category-list {
+    padding-inline: 8px;
+  }
+
+  .theme-rosa-neon-lux.template-dermatology .derma-category .derma-detail-list {
+    padding-right: 6px;
+  }
+
+  .theme-rosa-neon-lux.template-dermatology .derma-category[open] > .derma-detail-list {
+    margin-left: 0;
+    padding-left: 8px;
+    border-left-width: 2px;
+  }
+
+  .theme-rosa-neon-lux.template-dermatology .derma-service-detail {
+    padding: 14px;
+  }
 }
 
 .theme-rosa-neon-lux.template-dermatology .derma-service-share-card {
