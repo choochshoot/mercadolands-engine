@@ -432,44 +432,21 @@ function renderServiceShare(service = {}, context = {}) {
 function getServiceShareUrl(service = {}, context = {}) {
   const title = getServiceDisplayName(service) || "este servicio";
   const hasWindow = typeof window !== "undefined";
-  const currentUrl = hasWindow ? window.location.href : "";
-  const serviceHash = `#service-${slugifyFilename(service.slug || service.name)}`;
-  const profileUrl = context.slug && hasWindow
-    ? `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(context.slug)}${serviceHash}`
-    : currentUrl;
+  const serviceSlug = slugifyFilename(service.slug || service.name);
+  const sharePageUrl = hasWindow
+    ? new URL(`../share/vanessa-gonzalez/${serviceSlug}.html`, window.location.href).href
+    : "";
 
-  if (!profileUrl) return "";
+  if (!sharePageUrl) return "";
 
-  const mediaUrl = resolveShareMediaUrl(service.previewImage || service.detailImage);
-  const lines = [
-    "Te comparto esta tarjeta premium de Vanessa Gonzalez Studio.",
-    "",
-    `Servicio: ${title}`,
-    service.price ? `Precio: ${service.price}` : "",
-    service.description ? `Detalle: ${service.description}` : "",
-    mediaUrl ? `Arte del servicio: ${mediaUrl}` : "",
-    `Ver ficha: ${profileUrl}`
-  ].filter(Boolean);
+  const message = `Mira esta ficha de Vanessa Gonzalez Studio: ${title}\n${sharePageUrl}`;
 
-  return `https://wa.me/?text=${encodeURIComponent(lines.join("\n"))}`;
+  return `https://wa.me/?text=${encodeURIComponent(message)}`;
 }
-
 function getServiceDisplayName(service = {}) {
   return service.variant ? `${service.name} - ${service.variant}` : service.name;
 }
 
-function resolveShareMediaUrl(value) {
-  const url = safeUrl(value);
-
-  if (!url) return "";
-  if (typeof window === "undefined") return url;
-
-  try {
-    return new URL(url, window.location.href).href;
-  } catch (error) {
-    return url;
-  }
-}
 function renderCase(item = {}) {
   return `
     <article class="derma-case">
