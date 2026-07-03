@@ -333,6 +333,14 @@
     rgba(10, 8, 10, 0.55);
 }
 
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section[open] {
+  margin-bottom: 18px;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-funnel-section[open] > .derma-category-list {
+  padding-bottom: 20px;
+}
+
 .theme-rosa-neon-lux.template-dermatology .derma-category[open] > summary {
   border-bottom-color: rgba(255, 218, 211, 0.16);
 }
