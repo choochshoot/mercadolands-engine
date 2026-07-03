@@ -439,7 +439,7 @@ function getServiceShareUrl(service = {}, context = {}) {
 
   if (!sharePageUrl) return "";
 
-  const message = `Mira esta ficha de Vanessa Gonzalez Studio: ${title}\n${sharePageUrl}`;
+  const message = `Hola mira este tratamiento que da la Dra. Vanessa G \u{1F469}\u200D\u{1F52C}\n${title}\n${sharePageUrl}`;
 
   return `https://wa.me/?text=${encodeURIComponent(message)}`;
 }
