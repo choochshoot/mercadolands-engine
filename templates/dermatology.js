@@ -156,7 +156,7 @@ function renderPromotion(promo = {}) {
           <p>${escapeCopy(promo.includes)}</p>
           <strong class="derma-promo-price">${escapeCopy(promo.price || "Promocion")}</strong>
         </div>
-        ${renderDetailImage(promo, "derma-promo-image derma-promo-image-float")}
+        ${renderPromoImage(promo)}
       </div>
       ${renderPromoBenefits(promo)}
       ${promo.condition ? `<small>${escapeCopy(promo.condition)}</small>` : ""}
@@ -165,6 +165,19 @@ function renderPromotion(promo = {}) {
         ${renderDermaActionButton({ label: "WhatsApp", link: promo.whatsappUrl, type: "whatsapp", subtitle: "AGENDAR" })}
       </div>
     </article>
+  `;
+}
+
+function renderPromoImage(promo = {}) {
+  const thumb = safeUrl(promo.thumbImage || promo.previewImage || promo.detailImage);
+  const target = safeUrl(promo.detailImage || promo.previewImage || promo.thumbImage);
+
+  if (!thumb) return "";
+
+  return `
+    <a class="derma-promo-image derma-promo-image-float" href="${target || thumb}" target="_blank" rel="noopener noreferrer" aria-label="Ver arte de ${escapeHtml(promo.name || "promocion")}">
+      <img src="${thumb}" alt="${escapeHtml(promo.name || "Promocion")}">
+    </a>
   `;
 }
 
