@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260705-service-space-v1";
-import { getTemplate } from "./template-registry.js?v=20260705-service-space-v1";
-import { loadTheme } from "./theme-registry.js?v=20260705-service-space-v1";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260705-promo-cards-v1";
+import { getTemplate } from "./template-registry.js?v=20260705-promo-cards-v1";
+import { loadTheme } from "./theme-registry.js?v=20260705-promo-cards-v1";
 
 let cleanupLandingEffects = () => {};
 

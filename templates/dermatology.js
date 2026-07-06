@@ -148,11 +148,17 @@ function renderPromotion(promo = {}) {
   const target = promo.serviceSlug ? `#service-${escapeHtml(slugifyFilename(promo.serviceSlug))}` : "#derma-funnel";
 
   return `
-    <article class="derma-promo">
-
-      ${renderDetailImage(promo, "derma-promo-image")}<span>${escapeCopy(promo.price || "Promocion")}</span>
-      <h3>${escapeCopy(promo.name)}</h3>
-      <p>${escapeCopy(promo.includes)}</p>
+    <article class="derma-promo derma-promo-premium">
+      <div class="derma-promo-hero">
+        <div class="derma-promo-copy">
+          <span>Promo activa</span>
+          <h3>${escapeCopy(promo.name)}</h3>
+          <p>${escapeCopy(promo.includes)}</p>
+          <strong class="derma-promo-price">${escapeCopy(promo.price || "Promocion")}</strong>
+        </div>
+        ${renderDetailImage(promo, "derma-promo-image derma-promo-image-float")}
+      </div>
+      ${renderPromoBenefits(promo)}
       ${promo.condition ? `<small>${escapeCopy(promo.condition)}</small>` : ""}
       <div class="derma-inline-actions">
         <a href="${target}">${escapeCopy(promo.ctaLabel || "Ver detalle")}</a>
@@ -160,6 +166,64 @@ function renderPromotion(promo = {}) {
       </div>
     </article>
   `;
+}
+
+function renderPromoBenefits(promo = {}) {
+  const items = getPromoBenefitItems(promo);
+
+  if (!items.length) return "";
+
+  return `
+    <div class="derma-promo-benefits" aria-label="Beneficios de la promocion">
+      <span>Beneficios</span>
+      ${items.map((item) => `
+        <div>
+          ${renderPromoIcon(promo)}
+          <p>${escapeCopy(item)}</p>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function getPromoBenefitItems(promo = {}) {
+  const name = String(promo.name || promo.includes || "").toLowerCase();
+  const includes = String(promo.includes || "");
+
+  if (name.includes("cabello") || name.includes("corte")) {
+    return ["Corte personalizado segun tu estilo", "Acabado profesional y cuidado", "Cabello con movimiento, forma y frescura"];
+  }
+
+  if (name.includes("pesta") || name.includes("ceja")) {
+    return ["Mirada mas definida", "Efecto visible desde la primera cita", "Promo ideal para renovar cejas y pestanas"];
+  }
+
+  if (name.includes("manos") || name.includes("pies") || name.includes("gel")) {
+    return ["Acabado limpio y duradero", "Manos y pies listos en una sola cita", "Look cuidado con precio promocional"];
+  }
+
+  if (name.includes("labio") || name.includes("hialuronico")) {
+    return ["Valoracion profesional previa", "Procedimiento personalizado", "Promo con cupos limitados"];
+  }
+
+  return includes ? [includes, "Detalle visible antes de reservar", "Agenda directa por WhatsApp"] : ["Promo destacada", "Detalle visible antes de reservar", "Agenda directa por WhatsApp"];
+}
+
+function renderPromoIcon(promo = {}) {
+  const name = String(promo.name || promo.includes || "").toLowerCase();
+  let path = "M12 2l2.5 6.8 7.2.3-5.6 4.4 1.9 7-6-3.9-6 3.9 1.9-7-5.6-4.4 7.2-.3L12 2z";
+
+  if (name.includes("cabello") || name.includes("corte")) {
+    path = "M8.2 5.1 18.9 15.8a2.5 2.5 0 1 1-1.4 1.4L6.8 6.5a2.5 2.5 0 1 1 1.4-1.4zM15.8 8.2l1.7-1.7a2.5 2.5 0 1 1 1.4 1.4l-1.7 1.7M4 20l7.4-7.4";
+  } else if (name.includes("pesta") || name.includes("ceja")) {
+    path = "M2.8 12s3.5-5 9.2-5 9.2 5 9.2 5-3.5 5-9.2 5-9.2-5-9.2-5zm9.2 2.6a2.6 2.6 0 1 0 0-5.2 2.6 2.6 0 0 0 0 5.2z";
+  } else if (name.includes("manos") || name.includes("pies") || name.includes("gel")) {
+    path = "M7 21c-1.7-1.3-2.7-3-2.7-5.2V8.4a1.4 1.4 0 0 1 2.8 0v4.3-6.6a1.4 1.4 0 0 1 2.8 0v6.2-7.5a1.4 1.4 0 0 1 2.8 0v7.5-5.9a1.4 1.4 0 0 1 2.8 0v8.1l1.2-2.2a1.5 1.5 0 0 1 2.7 1.3l-2.2 4.6c-1 2-2.8 3.4-5 3.8H7z";
+  } else if (name.includes("labio") || name.includes("hialuronico")) {
+    path = "M3.5 12.5c2.2-3.2 4.5-4.8 6.8-2.5 1 .9 2.4.9 3.4 0 2.3-2.3 4.6-.7 6.8 2.5-2.8 4-5.7 5.5-8.5 5.5s-5.7-1.5-8.5-5.5zm1.9.2h13.2";
+  }
+
+  return `<span class="derma-promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${path}"/></svg></span>`;
 }
 
 function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {

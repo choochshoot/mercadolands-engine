@@ -1915,6 +1915,106 @@ img {
     rgba(255, 255, 255, 0.05);
 }
 
+.derma-promo-premium {
+  position: relative;
+  overflow: visible;
+  padding: 16px 14px 18px;
+}
+
+.derma-promo-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(118px, 38%);
+  gap: 10px;
+  align-items: start;
+  min-height: 184px;
+}
+
+.derma-promo-copy {
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.derma-promo-price {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 12px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.derma-promo-benefits {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  gap: 11px;
+  margin: 14px 0 0;
+  padding: 14px;
+  border: 1px solid rgba(255, 177, 230, 0.18);
+  border-radius: 2px;
+  background: rgba(5, 3, 7, 0.78);
+}
+
+.derma-promo-benefits > span {
+  color: #f7dfcd;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.derma-promo-benefits > span::before,
+.derma-promo-benefits > span::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 1px;
+  margin: 0 8px 4px;
+  background: linear-gradient(90deg, transparent, #ffb1e6, transparent);
+  box-shadow: 0 0 10px rgba(255, 177, 230, 0.56);
+}
+
+.derma-promo-benefits div {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.derma-promo-benefits p {
+  margin: 0;
+  color: rgba(255, 245, 250, 0.78);
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+.derma-promo-icon {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(247, 223, 205, 0.45);
+  border-radius: 50%;
+  color: #f7dfcd;
+  background: rgba(255, 104, 205, 0.08);
+  box-shadow: inset 0 0 12px rgba(255, 177, 230, 0.08), 0 0 18px rgba(255, 104, 205, 0.12);
+}
+
+.derma-promo-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .derma-promo > span,
 .derma-service-detail-head > span,
 .derma-funnel summary span,
@@ -2223,6 +2323,22 @@ img {
   margin-bottom: 14px;
 }
 
+.derma-promo-image-float {
+  width: min(148px, 43vw);
+  aspect-ratio: 4 / 5;
+  justify-self: end;
+  align-self: start;
+  margin: -30px -10px 0 0;
+  border-radius: 18px;
+  transform: rotate(1.5deg);
+  z-index: 4;
+}
+
+.derma-promo-image-float img {
+  object-fit: cover;
+  object-position: center top;
+}
+
 .derma-detail-image {
   aspect-ratio: 4 / 5;
   margin: 12px 0 14px;
@@ -2423,4 +2539,66 @@ img {
     inset 0 1px 0 rgba(255, 255, 255, 0.11),
     0 24px 62px rgba(0, 0, 0, 0.3),
     0 0 42px rgba(255, 54, 188, 0.15);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-promo-premium {
+  border-color: rgba(255, 104, 205, 0.3);
+  background:
+    radial-gradient(circle at 92% 3%, rgba(255, 177, 230, 0.22), transparent 34%),
+    linear-gradient(180deg, rgba(122, 43, 96, 0.52), rgba(46, 15, 41, 0.86)),
+    rgba(18, 7, 16, 0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 24px 58px rgba(0, 0, 0, 0.34),
+    0 0 34px rgba(255, 54, 188, 0.18);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-promo-price {
+  color: #fff8fb;
+  text-shadow: 0 0 18px rgba(255, 177, 230, 0.28), 0 8px 20px rgba(0, 0, 0, 0.34);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-promo-image-float {
+  border-color: rgba(255, 177, 230, 0.34);
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.38),
+    0 0 28px rgba(255, 104, 205, 0.2);
+}
+
+@media (max-width: 420px) {
+  .derma-promo-premium {
+    padding-inline: 12px;
+  }
+
+  .derma-promo-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(116px, 40%);
+    min-height: 176px;
+  }
+
+  .derma-promo h3 {
+    font-size: 27px;
+  }
+
+  .derma-promo-price {
+    font-size: 31px;
+  }
+
+  .derma-promo-image-float {
+    width: min(142px, 42vw);
+    margin-top: -26px;
+    margin-right: -8px;
+  }
+}
+
+@media (max-width: 350px) {
+  .derma-promo-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .derma-promo-image-float {
+    width: min(178px, 72vw);
+    justify-self: center;
+    margin: 2px auto 0;
+  }
 }
