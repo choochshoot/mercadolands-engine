@@ -788,6 +788,15 @@ function getFieldLabel(key, path = "") {
     "brand.logo": "Logo marca",
     "share.image": "Imagen para compartir"
   };
+  const normalizedPath = String(path || "").toLowerCase();
+
+  if (normalizedPath.includes(".categories.") && normalizedPath.endsWith(".thumbimage")) {
+    return "Thumb del boton de esta categoria";
+  }
+
+  if (normalizedPath.includes(".services.") && normalizedPath.endsWith(".thumbimage")) {
+    return "Thumb visual de este tratamiento";
+  }
 
   return labels[path] || toTitle(key);
 }
@@ -854,6 +863,16 @@ function getAssetAccept(path = "") {
 }
 
 function getAssetPlaceholder(path = "") {
+  const normalizedPath = String(path || "").toLowerCase();
+
+  if (normalizedPath.includes(".categories.") && normalizedPath.endsWith(".thumbimage")) {
+    return "URL del WEBP/PNG que se vera en el boton de esta categoria";
+  }
+
+  if (normalizedPath.includes(".services.") && normalizedPath.endsWith(".thumbimage")) {
+    return "URL del thumb visual que se vera en la ficha del tratamiento";
+  }
+
   if (isServicePreviewImagePath(path)) {
     return "URL de thumb WEBP/JPG/PNG ligero para la card";
   }
@@ -862,7 +881,7 @@ function getAssetPlaceholder(path = "") {
     return "URL de WEBP/JPG/PNG con el detalle del tratamiento";
   }
 
-  if (String(path).toLowerCase() === "share.image") {
+  if (normalizedPath === "share.image") {
     return "URL de imagen OG: 1200x630, PNG/JPG, ideal <500KB";
   }
 
