@@ -284,8 +284,10 @@ function renderVanessaService(service = {}, categoryPath = "", serviceIndex = 0)
       ${renderInput("notes", service.notes || service.detailNote || "", `${servicePath}.${service.notes !== undefined ? "notes" : "detailNote"}`)}
       ${renderInput("whatsappUrl", service.whatsappUrl || "", `${servicePath}.whatsappUrl`)}
       <div class="vanessa-service-grid">
+        ${renderAssetInput("thumbImage", service.thumbImage || "", `${servicePath}.thumbImage`)}
         ${renderAssetInput("previewImage", service.previewImage || "", `${servicePath}.previewImage`)}
         ${renderAssetInput("detailImage", service.detailImage || "", `${servicePath}.detailImage`)}
+        ${renderInput("thumbLink", service.thumbLink || "", `${servicePath}.thumbLink`)}
       </div>
     </article>
   `;
@@ -874,6 +876,8 @@ function normalizeLoadedData(template) {
   state.data.services = state.data.services.map((service) => ({
     detailImage: "",
     previewImage: "",
+    thumbImage: "",
+    thumbLink: "",
     ...service
   }));
 }
@@ -885,7 +889,7 @@ function isImageOnlyAssetPath(path = "") {
 }
 
 function isServiceImagePath(path = "") {
-  return isServiceDetailImagePath(path) || isServicePreviewImagePath(path);
+  return isServiceDetailImagePath(path) || isServicePreviewImagePath(path) || String(path || "").toLowerCase().endsWith(".thumbimage");
 }
 
 function isServiceDetailImagePath(path = "") {

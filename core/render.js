@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260703-service-share-v3";
-import { getTemplate } from "./template-registry.js?v=20260703-service-share-v3";
-import { loadTheme } from "./theme-registry.js?v=20260703-service-share-v3";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260703-hero-webm-v1";
+import { getTemplate } from "./template-registry.js?v=20260703-hero-webm-v1";
+import { loadTheme } from "./theme-registry.js?v=20260703-hero-webm-v1";
 
 let cleanupLandingEffects = () => {};
 

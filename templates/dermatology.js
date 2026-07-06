@@ -106,13 +106,14 @@ export function render(data = {}, context = {}) {
 
 
 function renderDetailImage(item = {}, className = "derma-detail-image") {
-  const image = safeUrl(item.detailImage || item.previewImage);
+  const thumb = safeUrl(item.thumbImage || item.previewImage || item.detailImage);
+  const target = safeUrl(item.thumbLink || item.detailImage || item.previewImage || item.thumbImage);
 
-  if (!image) return "";
+  if (!thumb) return "";
 
   return `
-    <a class="${className}" href="${image}" target="_blank" rel="noopener noreferrer" aria-label="Ver arte de ${escapeHtml(item.name || "servicio")}">
-      <img src="${image}" alt="${escapeHtml(item.name || "Servicio")}">
+    <a class="${className}" href="${target || thumb}" target="_blank" rel="noopener noreferrer" aria-label="Ver arte de ${escapeHtml(item.name || "servicio")}">
+      <img src="${thumb}" alt="${escapeHtml(item.name || "Servicio")}">
     </a>
   `;
 }

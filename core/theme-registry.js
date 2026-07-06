@@ -1,4 +1,4 @@
-const THEME_ASSET_VERSION = "20260703-service-share-v3";
+const THEME_ASSET_VERSION = "20260703-hero-webm-v1";
 
 const themes = {
   "green-gold": "green-gold.css",

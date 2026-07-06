@@ -46,6 +46,21 @@
     linear-gradient(105deg, rgba(18, 14, 18, 0.22), transparent 62%);
 }
 
+@media (max-width: 520px) {
+  .theme-rosa-neon-lux.template-dermatology .derma-hero-video {
+    top: -82px;
+    height: calc(100% + 82px);
+    object-position: center 6%;
+    transform: translate3d(0, var(--derma-hero-parallax, 0px), 0) scale(0.98);
+  }
+
+  .theme-rosa-neon-lux.template-dermatology .derma-hero-shade {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.04) 30%, rgba(0, 0, 0, 0.8) 64%, rgba(0, 0, 0, 0.96)),
+      linear-gradient(105deg, rgba(18, 14, 18, 0.18), transparent 62%);
+  }
+}
+
 .theme-rosa-neon-lux.template-dermatology .derma-eyebrow,
 .theme-rosa-neon-lux.template-dermatology .derma-section-head span,
 .theme-rosa-neon-lux.template-dermatology .derma-service span,

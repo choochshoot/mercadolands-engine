@@ -1,4 +1,4 @@
-import { bootLanding } from "./core/render.js?v=20260703-service-share-v3";
+import { bootLanding } from "./core/render.js?v=20260703-hero-webm-v1";
 
 bootLanding({
   mountSelector: "#app",
