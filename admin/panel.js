@@ -237,6 +237,7 @@ function renderVanessaCategory(category = {}, sectionPath = "", categoryIndex = 
       </summary>
       <div class="vanessa-category-fields">
         ${renderInput("name", category.name || "", `${categoryPath}.name`)}
+        ${renderAssetInput("thumbImage", category.thumbImage || "", `${categoryPath}.thumbImage`)}
         <div class="vanessa-add-row">
           <button type="button" class="mini-btn" data-action="add" data-path="${categoryPath}.services">Agregar servicio</button>
         </div>

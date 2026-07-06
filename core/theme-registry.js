@@ -1,4 +1,4 @@
-const THEME_ASSET_VERSION = "20260705-promo-thumb-v1";
+const THEME_ASSET_VERSION = "20260706-category-front-v1";
 
 const themes = {
   "green-gold": "green-gold.css",

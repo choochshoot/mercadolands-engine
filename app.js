@@ -1,4 +1,4 @@
-import { bootLanding } from "./core/render.js?v=20260705-promo-thumb-v1";
+import { bootLanding } from "./core/render.js?v=20260706-category-front-v1";
 
 bootLanding({
   mountSelector: "#app",

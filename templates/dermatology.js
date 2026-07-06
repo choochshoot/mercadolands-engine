@@ -18,6 +18,11 @@ export function render(data = {}, context = {}) {
 
   return `
     <main class="derma-page">
+      <section id="derma-services" class="derma-card derma-services-card derma-services-first">
+        ${serviceSections.length ? renderServiceFunnel(serviceSections, catalogIntro, context) : renderLegacyServices(services, context)}
+        ${promotions.length ? renderPromotions(promotions) : ""}
+      </section>
+
       <section class="derma-hero">
         ${renderHeroMedia(hero, brand.name || "Cl\u00ednica dermatol\u00f3gica")}
         <div class="derma-hero-shade"></div>
@@ -63,11 +68,6 @@ export function render(data = {}, context = {}) {
           ${renderMaterials(experience.materials)}
         </div>
         ${renderImage(experience.photo, experience.title, "derma-experience-photo")}
-      </section>
-
-      <section id="derma-services" class="derma-card derma-services-card">
-        ${promotions.length ? renderPromotions(promotions) : ""}
-        ${serviceSections.length ? renderServiceFunnel(serviceSections, catalogIntro, context) : renderLegacyServices(services, context)}
       </section>
 
       <section class="derma-card">
@@ -240,16 +240,25 @@ function renderPromoIcon(promo = {}) {
 }
 
 function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
+  const categories = collectServiceCategories(serviceSections);
+
   return `
-    <div id="derma-funnel" class="derma-section-head derma-treatment-intro">
+    <div id="derma-funnel" class="derma-section-head derma-treatment-intro derma-category-first-intro">
       <span>${escapeCopy(intro.eyebrow || "Catalogo interactivo")}</span>
       <h2>${escapeCopy(intro.title || "Explora por categoria")}</h2>
-      <p>${escapeCopy(intro.description || "Abre una seccion, revisa sus categorias y llega al detalle de cada servicio.")}</p>
+      <p>${escapeCopy(intro.description || "Elige una categoria, revisa sus tratamientos y abre la ficha informativa antes de reservar.")}</p>
     </div>
-    <div class="derma-funnel">
-      ${serviceSections.map((section, index) => renderServiceSection(section, index, context)).join("")}
+    <div class="derma-funnel derma-category-first-grid">
+      ${categories.map((category, index) => renderServiceCategory(category, index, context)).join("")}
     </div>
   `;
+}
+
+function collectServiceCategories(serviceSections = []) {
+  return serviceSections.flatMap((section) => {
+    const categories = Array.isArray(section.categories) ? section.categories : [];
+    return categories.map((category) => ({ ...category, sectionName: section.name }));
+  });
 }
 
 function renderServiceSection(section = {}, sectionIndex = 0, context = {}) {
@@ -273,8 +282,9 @@ function renderServiceCategory(category = {}, categoryIndex = 0, context = {}) {
   const services = Array.isArray(category.services) ? category.services : [];
 
   return `
-    <details class="derma-category derma-tone-${categoryIndex % 2 ? "b" : "a"}">
+    <details class="derma-category derma-category-button derma-tone-${categoryIndex % 2 ? "b" : "a"}">
       <summary>
+        ${renderCategoryThumb(category)}
         <span>${escapeCopy(services.length)} opciones</span>
         <strong>${escapeCopy(category.name)}</strong>
       </summary>
@@ -283,6 +293,14 @@ function renderServiceCategory(category = {}, categoryIndex = 0, context = {}) {
       </div>
     </details>
   `;
+}
+
+function renderCategoryThumb(category = {}) {
+  const thumb = safeUrl(category.thumbImage || category.iconImage || category.previewImage);
+
+  if (!thumb) return "";
+
+  return `<img class="derma-category-thumb" src="${thumb}" alt="${escapeHtml(category.name || "Categoria")}">`;
 }
 
 function renderServiceDetail(service = {}, context = {}) {

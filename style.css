@@ -1898,6 +1898,46 @@ img {
   margin-top: 16px;
 }
 
+.derma-services-first {
+  margin-top: 16px;
+}
+
+.derma-category-first-grid {
+  grid-template-columns: 1fr;
+}
+
+.derma-category-button > summary {
+  min-height: 104px;
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 14px;
+}
+
+.derma-category-button > summary span,
+.derma-category-button > summary strong {
+  grid-column: 2;
+}
+
+.derma-category-thumb {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  width: 86px;
+  height: 86px;
+  display: block;
+  border-radius: 18px;
+  object-fit: cover;
+  object-position: center;
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+@media (min-width: 700px) {
+  .derma-category-first-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .derma-promo,
 .derma-funnel-section,
 .derma-category,

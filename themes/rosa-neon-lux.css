@@ -337,6 +337,27 @@
   font-size: 28px;
 }
 
+.theme-rosa-neon-lux.template-dermatology .derma-services-first {
+  border-color: rgba(255, 177, 230, 0.18);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 104, 205, 0.12), transparent 34%),
+    rgba(8, 7, 10, 0.72);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category-button > summary {
+  background:
+    radial-gradient(circle at 18% 14%, rgba(255, 177, 230, 0.16), transparent 34%),
+    linear-gradient(135deg, rgba(255, 177, 230, 0.11), rgba(255, 104, 205, 0.05)),
+    rgba(8, 7, 10, 0.58);
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category-thumb {
+  border: 1px solid rgba(255, 177, 230, 0.28);
+  box-shadow:
+    0 16px 34px rgba(255, 54, 188, 0.12),
+    0 16px 30px rgba(0, 0, 0, 0.32);
+}
+
 .theme-rosa-neon-lux.template-dermatology .derma-category > summary span {
   font-size: 10px;
   letter-spacing: 1.6px;
