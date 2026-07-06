@@ -2302,6 +2302,65 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 480px) {
+  .derma-category-list,
+  .derma-detail-list {
+    padding-inline: 8px;
+  }
+
+  .derma-category[open] > .derma-detail-list {
+    margin-inline: -4px 0;
+    padding-inline: 8px 4px;
+  }
+
+  .derma-service-detail {
+    padding: 14px 12px;
+  }
+
+  .derma-service-spotlight {
+    grid-template-columns: minmax(0, 1fr) minmax(124px, 39%);
+    gap: 9px;
+    margin-inline: -4px;
+  }
+
+  .derma-service-detail h3 {
+    font-size: clamp(26px, 8vw, 34px);
+    line-height: 0.98;
+  }
+
+  .derma-service-detail > p,
+  .derma-detail-block li,
+  .derma-note {
+    font-size: 13.5px;
+    line-height: 1.56;
+  }
+
+  .derma-detail-meta {
+    gap: 9px;
+  }
+
+  .derma-detail-meta div {
+    min-height: 70px;
+    padding: 12px 10px;
+  }
+
+  .derma-detail-meta span,
+  .derma-detail-block h4 {
+    font-size: 11px;
+  }
+
+  .derma-detail-meta strong {
+    font-size: 13px;
+    line-height: 1.22;
+  }
+
+  .derma-price-badge,
+  .derma-service-detail-head strong {
+    font-size: 12.5px;
+    line-height: 1.18;
+  }
+}
 /* Vanessa Gonzalez funnel polish: alternating category tones + stronger glass depth. */
 .template-dermatology .derma-promo,
 .template-dermatology .derma-funnel-section,
