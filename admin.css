@@ -87,12 +87,18 @@ body.admin-unlocked .admin-shell {
 }
 
 .admin-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   padding: 24px;
   border-bottom: 1px solid var(--admin-line);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px) saturate(1.12);
+  -webkit-backdrop-filter: blur(18px) saturate(1.12);
 }
 
 .admin-header span,
@@ -282,10 +288,18 @@ textarea {
 }
 
 .actions-row {
+  position: sticky;
+  bottom: 0;
+  z-index: 18;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
-  margin-top: 22px;
+  margin: 22px -24px -24px;
+  padding: 14px 24px;
+  border-top: 1px solid rgba(228, 222, 213, 0.9);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px) saturate(1.12);
+  -webkit-backdrop-filter: blur(18px) saturate(1.12);
 }
 
 .secondary-btn {
@@ -351,6 +365,15 @@ textarea {
   .actions-row {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .admin-header {
+    top: 0;
+    padding: 16px;
+  }
+
+  .actions-row {
+    margin-inline: -24px;
   }
 
   .builder-grid,
@@ -482,13 +505,33 @@ textarea {
 .vanessa-section-card > summary,
 .vanessa-category-card > summary,
 .vanessa-secondary-groups > summary {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 16px;
+  padding: 16px 48px 16px 16px;
   cursor: pointer;
   list-style: none;
+}
+
+.vanessa-section-card > summary::after,
+.vanessa-category-card > summary::after,
+.vanessa-secondary-groups > summary::after {
+  content: "v";
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  color: #a33c82;
+  font-size: 20px;
+  font-weight: 900;
+  transform: translateY(-50%);
+}
+
+.vanessa-section-card[open] > summary::after,
+.vanessa-category-card[open] > summary::after,
+.vanessa-secondary-groups[open] > summary::after {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .vanessa-section-card > summary::-webkit-details-marker,
@@ -529,18 +572,58 @@ textarea {
 }
 
 .vanessa-service-card {
-  padding: 14px;
+  padding: 0;
   background:
     radial-gradient(circle at 96% 6%, rgba(255, 104, 205, 0.08), transparent 30%),
     #fff;
 }
 
+.vanessa-service-card[open] {
+  border-color: #d9b7cf;
+  box-shadow: 0 16px 34px rgba(66, 24, 54, 0.08);
+}
+
 .vanessa-service-head {
+  position: relative;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 14px;
+  margin: 0;
+  padding: 14px 46px 14px 14px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.vanessa-service-head::-webkit-details-marker {
+  display: none;
+}
+
+.vanessa-service-head::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #ead7e4;
+  border-radius: 50%;
+  color: #a33c82;
+  background: #fff8fc;
+  font-weight: 900;
+  transform: translateY(-50%);
+}
+
+.vanessa-service-card[open] > .vanessa-service-head::after {
+  content: "-";
+}
+
+.vanessa-service-body {
+  display: grid;
+  gap: 12px;
+  padding: 0 14px 14px;
 }
 
 .vanessa-service-head h3 {

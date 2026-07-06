@@ -251,45 +251,48 @@ function renderVanessaCategory(category = {}, sectionPath = "", categoryIndex = 
 function renderVanessaService(service = {}, categoryPath = "", serviceIndex = 0) {
   const servicePath = `${categoryPath}.services.${serviceIndex}`;
   const title = service.variant ? `${service.name || "Servicio"} - ${service.variant}` : service.name || `Servicio ${serviceIndex + 1}`;
+  const slug = service.slug ? `/${service.slug}` : "sin slug";
 
   return `
-    <article class="vanessa-service-card">
-      <div class="vanessa-service-head">
+    <details class="vanessa-service-card">
+      <summary class="vanessa-service-head">
         <div>
           <span>${escapeHtml(service.recordType || service.category || "servicio")}</span>
           <h3>${escapeHtml(title)}</h3>
-          ${service.price ? `<p>${escapeHtml(service.price)}</p>` : ""}
+          <p>${service.price ? escapeHtml(service.price) : "Precio pendiente"} - ${escapeHtml(slug)}</p>
         </div>
         <button type="button" class="mini-btn" data-action="remove" data-path="${servicePath}">Quitar</button>
+      </summary>
+      <div class="vanessa-service-body">
+        <div class="vanessa-service-grid">
+          ${renderInput("name", service.name || "", `${servicePath}.name`)}
+          ${renderInput("variant", service.variant || "", `${servicePath}.variant`)}
+          ${renderInput("price", service.price || "", `${servicePath}.price`)}
+          ${renderInput("recordType", service.recordType || "", `${servicePath}.recordType`)}
+          ${renderInput("category", service.category || "", `${servicePath}.category`)}
+          ${renderInput("slug", service.slug || "", `${servicePath}.slug`)}
+        </div>
+        ${renderInput("description", service.description || "", `${servicePath}.description`)}
+        <div class="vanessa-service-grid">
+          ${renderInput("starts", service.starts || "", `${servicePath}.starts`)}
+          ${renderInput("duration", service.duration || "", `${servicePath}.duration`)}
+        </div>
+        <div class="vanessa-list-grid">
+          ${renderListTextarea("benefits", service.benefits, `${servicePath}.benefits`)}
+          ${renderListTextarea("idealFor", service.idealFor, `${servicePath}.idealFor`)}
+          ${renderListTextarea("includes", service.includes, `${servicePath}.includes`)}
+          ${renderListTextarea("attributes", service.attributes, `${servicePath}.attributes`)}
+        </div>
+        ${renderInput("notes", service.notes || service.detailNote || "", `${servicePath}.${service.notes !== undefined ? "notes" : "detailNote"}`)}
+        ${renderInput("whatsappUrl", service.whatsappUrl || "", `${servicePath}.whatsappUrl`)}
+        <div class="vanessa-service-grid">
+          ${renderAssetInput("thumbImage", service.thumbImage || "", `${servicePath}.thumbImage`)}
+          ${renderAssetInput("previewImage", service.previewImage || "", `${servicePath}.previewImage`)}
+          ${renderAssetInput("detailImage", service.detailImage || "", `${servicePath}.detailImage`)}
+          ${renderInput("thumbLink", service.thumbLink || "", `${servicePath}.thumbLink`)}
+        </div>
       </div>
-      <div class="vanessa-service-grid">
-        ${renderInput("name", service.name || "", `${servicePath}.name`)}
-        ${renderInput("variant", service.variant || "", `${servicePath}.variant`)}
-        ${renderInput("price", service.price || "", `${servicePath}.price`)}
-        ${renderInput("recordType", service.recordType || "", `${servicePath}.recordType`)}
-        ${renderInput("category", service.category || "", `${servicePath}.category`)}
-        ${renderInput("slug", service.slug || "", `${servicePath}.slug`)}
-      </div>
-      ${renderInput("description", service.description || "", `${servicePath}.description`)}
-      <div class="vanessa-service-grid">
-        ${renderInput("starts", service.starts || "", `${servicePath}.starts`)}
-        ${renderInput("duration", service.duration || "", `${servicePath}.duration`)}
-      </div>
-      <div class="vanessa-list-grid">
-        ${renderListTextarea("benefits", service.benefits, `${servicePath}.benefits`)}
-        ${renderListTextarea("idealFor", service.idealFor, `${servicePath}.idealFor`)}
-        ${renderListTextarea("includes", service.includes, `${servicePath}.includes`)}
-        ${renderListTextarea("attributes", service.attributes, `${servicePath}.attributes`)}
-      </div>
-      ${renderInput("notes", service.notes || service.detailNote || "", `${servicePath}.${service.notes !== undefined ? "notes" : "detailNote"}`)}
-      ${renderInput("whatsappUrl", service.whatsappUrl || "", `${servicePath}.whatsappUrl`)}
-      <div class="vanessa-service-grid">
-        ${renderAssetInput("thumbImage", service.thumbImage || "", `${servicePath}.thumbImage`)}
-        ${renderAssetInput("previewImage", service.previewImage || "", `${servicePath}.previewImage`)}
-        ${renderAssetInput("detailImage", service.detailImage || "", `${servicePath}.detailImage`)}
-        ${renderInput("thumbLink", service.thumbLink || "", `${servicePath}.thumbLink`)}
-      </div>
-    </article>
+    </details>
   `;
 }
 
