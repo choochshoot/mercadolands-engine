@@ -2,6 +2,7 @@ import { getAvailableTemplates } from "../core/template-registry.js";
 import { getAvailableThemes } from "../core/theme-registry.js";
 
 const STORAGE_BUCKET = "landing-assets";
+const TEXT_SPELLCHECK_ATTRS = 'spellcheck="true" lang="es-MX" autocapitalize="sentences"';
 
 const FALLBACK_CONTRACTS = {
   creator: {
@@ -303,7 +304,7 @@ function renderListTextarea(key, value = [], path) {
   return `
     <div class="field-row vanessa-list-field">
       <label>${getFieldLabel(key, path)}</label>
-      <textarea data-list-path="${path}" placeholder="Una linea por item">${escapeHtml(lines)}</textarea>
+      <textarea data-list-path="${path}" placeholder="Una linea por item" ${TEXT_SPELLCHECK_ATTRS}>${escapeHtml(lines)}</textarea>
     </div>
   `;
 }
@@ -383,15 +384,17 @@ function renderInput(key, value, path) {
     return `
       <div class="field-row">
         <label>${getFieldLabel(key, path)}</label>
-        <textarea data-path="${path}">${inputValue}</textarea>
+        <textarea data-path="${path}" ${TEXT_SPELLCHECK_ATTRS}>${inputValue}</textarea>
       </div>
     `;
   }
 
+  const spellcheckAttrs = shouldSpellcheckField(key, path) ? ` ${TEXT_SPELLCHECK_ATTRS}` : ' spellcheck="false"';
+
   return `
     <div class="field-row">
       <label>${toTitle(key)}</label>
-      <input data-path="${path}" value="${inputValue}">
+      <input data-path="${path}" value="${inputValue}"${spellcheckAttrs}>
     </div>
   `;
 }
@@ -829,6 +832,18 @@ function cloneEmpty(value) {
 
 function shouldUseTextarea(key, value) {
   return String(value).length > 52 || ["description", "message", "text", "address"].includes(key);
+}
+
+function shouldSpellcheckField(key, path = "") {
+  const fieldName = String(key || "").toLowerCase();
+  const fullPath = String(path || "").toLowerCase();
+
+  if (isAssetField(key, path)) return false;
+  if (fullPath.startsWith("share.")) return false;
+  if (["url", "link", "email", "phone", "whatsappurl", "thumblink", "slug"].some((token) => fieldName.includes(token))) return false;
+  if (["price", "amount", "duration", "rating", "year", "count"].some((token) => fieldName.includes(token))) return false;
+
+  return true;
 }
 
 function isAssetField(key, path) {
