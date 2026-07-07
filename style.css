@@ -1918,9 +1918,9 @@ img {
   height: clamp(126px, 30vw, 156px);
   display: block;
   border-radius: 0;
-  object-fit: cover;
-  object-position: center;
-  background: #1A1A1D;
+  object-fit: contain;
+  object-position: center bottom;
+  background: transparent;
 }
 
 .derma-category-intro-image-empty {

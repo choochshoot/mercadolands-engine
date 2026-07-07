@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260706-category-hero-v4";
-import { getTemplate } from "./template-registry.js?v=20260706-category-hero-v4";
-import { loadTheme } from "./theme-registry.js?v=20260706-category-hero-v4";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260706-category-hero-v5";
+import { getTemplate } from "./template-registry.js?v=20260706-category-hero-v5";
+import { loadTheme } from "./theme-registry.js?v=20260706-category-hero-v5";
 
 let cleanupLandingEffects = () => {};
 

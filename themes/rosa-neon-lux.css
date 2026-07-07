@@ -560,9 +560,13 @@
 }
 
 .theme-rosa-neon-lux.template-dermatology .derma-category-intro-image {
-  border: 1px solid rgba(255, 177, 230, 0.28);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 14px 28px rgba(0, 0, 0, 0.34),
-    0 0 24px rgba(255, 104, 205, 0.12);
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category-intro-image-empty {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 177, 230, 0.08), transparent 36%),
+    #1A1A1D;
 }
