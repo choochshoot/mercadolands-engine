@@ -70,7 +70,9 @@ values ('vanessa-gonzalez', 'dermatology', 'rosa-neon-lux', 'dermatology', $$
   "catalogIntro": {
     "eyebrow": "Cat?logo interactivo",
     "title": "Encuentra tu siguiente cita por categor?a",
-    "description": "Abre una secci?n, elige una categor?a y revisa cada servicio con beneficios, precio y agenda directa."
+    "description": "Abre una secci?n, elige una categor?a y revisa cada servicio con beneficios, precio y agenda directa.",
+    "image": "../share/assets/vanessa-gonzalez/vanne-inicio.webp",
+    "imageAlt": "Dra. Vanessa Gonzalez con tratamiento estetico para el inicio del catalogo"
   },
   "promotions": [
     {
