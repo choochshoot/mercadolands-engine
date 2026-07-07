@@ -789,9 +789,14 @@ function getFieldLabel(key, path = "") {
     "experience.photo": "Foto atm&oacute;sfera",
     "hero.photo": "Foto principal",
     "brand.logo": "Logo marca",
-    "share.image": "Imagen para compartir"
+    "share.image": "Imagen para compartir",
+    "catalogIntro.image": "WEBP/imagen del inicio del catalogo: columna derecha superior"
   };
   const normalizedPath = String(path || "").toLowerCase();
+
+  if (normalizedPath === "catalogintro.image") {
+    return "Sube aqui el WEBP/PNG de la mejora visual del inicio de la landing";
+  }
 
   if (normalizedPath.includes(".categories.") && normalizedPath.endsWith(".thumbimage")) {
     return "Thumb del boton de esta categoria";
@@ -880,6 +885,10 @@ function getAssetAccept(path = "") {
 function getAssetPlaceholder(path = "") {
   const normalizedPath = String(path || "").toLowerCase();
 
+  if (normalizedPath === "catalogintro.image") {
+    return "Sube aqui el WEBP/PNG de la mejora visual del inicio de la landing";
+  }
+
   if (normalizedPath.includes(".categories.") && normalizedPath.endsWith(".thumbimage")) {
     return "URL del WEBP/PNG que se vera en el boton de esta categoria";
   }
@@ -923,7 +932,7 @@ function normalizeLoadedData(template) {
 function isImageOnlyAssetPath(path = "") {
   const normalizedPath = String(path).toLowerCase();
 
-  return normalizedPath === "share.image" || isServiceImagePath(normalizedPath);
+  return normalizedPath === "share.image" || normalizedPath === "catalogintro.image" || isServiceImagePath(normalizedPath);
 }
 
 function isServiceImagePath(path = "") {
