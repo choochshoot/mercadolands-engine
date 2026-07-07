@@ -241,6 +241,7 @@ function renderPromoIcon(promo = {}) {
 
 function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
   const categories = collectServiceCategories(serviceSections);
+  const hasIntroMedia = Boolean(getCatalogIntroImage(intro));
 
   return `
     <div id="derma-funnel" class="derma-section-head derma-treatment-intro derma-category-first-intro${hasIntroMedia ? " derma-category-first-intro-with-media" : ""}">
@@ -258,12 +259,13 @@ function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
 }
 
 function renderCatalogIntroMedia(intro = {}) {
-  const image = safeUrl(intro.image || intro.photo || intro.thumbImage || intro.previewImage);
+  const image = getCatalogIntroImage(intro);
 
   if (!image) return "";
 
   return `<img class="derma-category-intro-image" src="${image}" alt="${escapeHtml(intro.imageAlt || intro.title || "Catalogo de servicios")}">`;
 }
+
 function getCatalogIntroImage(intro = {}) {
   return safeUrl(intro.image || intro.photo || intro.thumbImage || intro.previewImage);
 }

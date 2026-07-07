@@ -1,4 +1,4 @@
-const THEME_ASSET_VERSION = "20260706-category-hero-v2";
+const THEME_ASSET_VERSION = "20260706-category-hero-v3";
 
 const themes = {
   "green-gold": "green-gold.css",
