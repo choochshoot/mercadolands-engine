@@ -1904,13 +1904,17 @@ img {
 
 .derma-category-first-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(104px, 34%);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: 14px;
 }
 
 .derma-category-intro-copy {
   min-width: 0;
+}
+
+.derma-category-first-intro-with-media {
+  grid-template-columns: minmax(0, 1fr) minmax(104px, 34%);
 }
 
 .derma-category-intro-image {
