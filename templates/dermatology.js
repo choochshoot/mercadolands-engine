@@ -241,10 +241,9 @@ function renderPromoIcon(promo = {}) {
 
 function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
   const categories = collectServiceCategories(serviceSections);
-  const hasIntroMedia = Boolean(getCatalogIntroImage(intro));
 
   return `
-    <div id="derma-funnel" class="derma-section-head derma-treatment-intro derma-category-first-intro${hasIntroMedia ? " derma-category-first-intro-with-media" : ""}">
+    <div id="derma-funnel" class="derma-section-head derma-treatment-intro derma-category-first-intro derma-category-first-intro-with-media">
       <div class="derma-category-intro-copy">
         <span>${escapeCopy(intro.eyebrow || "Catalogo interactivo")}</span>
         <h2>${escapeCopy(intro.title || "Explora por categoria")}</h2>
@@ -261,7 +260,7 @@ function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
 function renderCatalogIntroMedia(intro = {}) {
   const image = getCatalogIntroImage(intro);
 
-  if (!image) return "";
+  if (!image) return `<div class="derma-category-intro-image derma-category-intro-image-empty" aria-hidden="true"></div>`;
 
   return `<img class="derma-category-intro-image" src="${image}" alt="${escapeHtml(intro.imageAlt || intro.title || "Catalogo de servicios")}">`;
 }

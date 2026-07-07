@@ -1904,7 +1904,7 @@ img {
 
 .derma-category-first-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(104px, 34%);
   align-items: start;
   gap: 14px;
 }
@@ -1913,18 +1913,20 @@ img {
   min-width: 0;
 }
 
-.derma-category-first-intro-with-media {
-  grid-template-columns: minmax(0, 1fr) minmax(104px, 34%);
-}
-
 .derma-category-intro-image {
   width: 100%;
-  max-height: 148px;
+  height: clamp(126px, 30vw, 156px);
   display: block;
   border-radius: 0;
   object-fit: cover;
   object-position: center;
   background: #1A1A1D;
+}
+
+.derma-category-intro-image-empty {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 177, 230, 0.08), transparent 36%),
+    #1A1A1D;
 }
 
 .derma-category-first-grid {
