@@ -1,4 +1,4 @@
-const THEME_ASSET_VERSION = "20260706-category-black-v1";
+const THEME_ASSET_VERSION = "20260706-category-hero-v1";
 
 const themes = {
   "green-gold": "green-gold.css",

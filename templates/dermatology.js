@@ -244,9 +244,12 @@ function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
 
   return `
     <div id="derma-funnel" class="derma-section-head derma-treatment-intro derma-category-first-intro">
-      <span>${escapeCopy(intro.eyebrow || "Catalogo interactivo")}</span>
-      <h2>${escapeCopy(intro.title || "Explora por categoria")}</h2>
-      <p>${escapeCopy(intro.description || "Elige una categoria, revisa sus tratamientos y abre la ficha informativa antes de reservar.")}</p>
+      <div class="derma-category-intro-copy">
+        <span>${escapeCopy(intro.eyebrow || "Catalogo interactivo")}</span>
+        <h2>${escapeCopy(intro.title || "Explora por categoria")}</h2>
+        <p>${escapeCopy(intro.description || "Elige una categoria, revisa sus tratamientos y abre la ficha informativa antes de reservar.")}</p>
+      </div>
+      ${renderCatalogIntroMedia(intro)}
     </div>
     <div class="derma-funnel derma-category-first-grid">
       ${categories.map((category, index) => renderServiceCategory(category, index, context)).join("")}
@@ -254,6 +257,13 @@ function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
   `;
 }
 
+function renderCatalogIntroMedia(intro = {}) {
+  const image = safeUrl(intro.image || intro.photo || intro.thumbImage || intro.previewImage);
+
+  if (!image) return "";
+
+  return `<img class="derma-category-intro-image" src="${image}" alt="${escapeHtml(intro.imageAlt || intro.title || "Catalogo de servicios")}">`;
+}
 function collectServiceCategories(serviceSections = []) {
   return serviceSections.flatMap((section) => {
     const categories = Array.isArray(section.categories) ? section.categories : [];

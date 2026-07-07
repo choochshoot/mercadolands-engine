@@ -274,8 +274,8 @@
   border-radius: 18px;
   background:
     radial-gradient(circle at 88% 10%, rgba(255, 177, 230, 0.08), transparent 34%),
-    linear-gradient(145deg, rgba(20, 17, 20, 0.96), rgba(5, 5, 7, 0.94)),
-    #070707;
+    linear-gradient(145deg, rgba(32, 26, 31, 0.96), rgba(26, 26, 29, 0.98)),
+    #1A1A1D;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 12px 26px rgba(0, 0, 0, 0.3);
@@ -341,15 +341,16 @@
   border-color: rgba(255, 177, 230, 0.18);
   background:
     radial-gradient(circle at 50% 0%, rgba(255, 104, 205, 0.12), transparent 34%),
-    rgba(8, 7, 10, 0.72);
+    linear-gradient(180deg, rgba(40, 29, 38, 0.58), rgba(26, 26, 29, 0.98)),
+    #1A1A1D;
 }
 
 .theme-rosa-neon-lux.template-dermatology .derma-category-button > summary {
   background:
     radial-gradient(circle at 18% 14%, rgba(255, 177, 230, 0.09), transparent 34%),
     radial-gradient(circle at 92% 8%, rgba(255, 104, 205, 0.07), transparent 36%),
-    linear-gradient(145deg, rgba(18, 17, 18, 0.96), rgba(4, 4, 6, 0.96)),
-    #050505;
+    linear-gradient(145deg, rgba(26, 26, 29, 0.98), rgba(12, 10, 14, 0.98)),
+    #1A1A1D;
 }
 
 .theme-rosa-neon-lux.template-dermatology .derma-category-thumb {
@@ -365,8 +366,8 @@
   background:
     radial-gradient(circle at 16% 18%, rgba(255, 177, 230, 0.08), transparent 34%),
     radial-gradient(circle at 90% 12%, rgba(255, 104, 205, 0.07), transparent 38%),
-    linear-gradient(145deg, rgba(18, 17, 18, 0.98), rgba(4, 4, 6, 0.98)),
-    #050505;
+    linear-gradient(145deg, rgba(26, 26, 29, 0.99), rgba(12, 10, 14, 0.99)),
+    #1A1A1D;
 }
 
 .theme-rosa-neon-lux.template-dermatology .derma-category > summary span {
@@ -549,4 +550,15 @@
   font-size: 12px;
   letter-spacing: 1px;
   text-shadow: 0 0 10px rgba(255, 104, 205, 0.34);
+}
+.theme-rosa-neon-lux.template-dermatology .derma-category-first-intro {
+  margin-bottom: 4px;
+}
+
+.theme-rosa-neon-lux.template-dermatology .derma-category-intro-image {
+  border: 1px solid rgba(255, 177, 230, 0.28);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 14px 28px rgba(0, 0, 0, 0.34),
+    0 0 24px rgba(255, 104, 205, 0.12);
 }

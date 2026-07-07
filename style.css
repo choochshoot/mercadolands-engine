@@ -1902,6 +1902,27 @@ img {
   margin-top: 16px;
 }
 
+.derma-category-first-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(104px, 34%);
+  align-items: start;
+  gap: 14px;
+}
+
+.derma-category-intro-copy {
+  min-width: 0;
+}
+
+.derma-category-intro-image {
+  width: 100%;
+  max-height: 148px;
+  display: block;
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center;
+  background: #1A1A1D;
+}
+
 .derma-category-first-grid {
   grid-template-columns: 1fr;
 }
