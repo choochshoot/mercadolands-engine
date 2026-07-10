@@ -19,7 +19,7 @@ export function render(data = {}, context = {}) {
   return `
     <main class="derma-page">
       <section id="derma-services" class="derma-card derma-services-card derma-services-first">
-        ${serviceSections.length ? renderServiceFunnel(serviceSections, catalogIntro, context) : renderLegacyServices(services, context)}
+        ${serviceSections.length ? renderServiceFunnel(serviceSections, catalogIntro, context, brand) : renderLegacyServices(services, context)}
         ${promotions.length ? renderPromotions(promotions) : ""}
       </section>
 
@@ -239,10 +239,11 @@ function renderPromoIcon(promo = {}) {
   return `<span class="derma-promo-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="${path}"/></svg></span>`;
 }
 
-function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
+function renderServiceFunnel(serviceSections = [], intro = {}, context = {}, brand = {}) {
   const categories = collectServiceCategories(serviceSections);
 
   return `
+    ${renderCatalogStickyLogo(brand, intro)}
     <div id="derma-funnel" class="derma-section-head derma-treatment-intro derma-category-first-intro derma-category-first-intro-with-media">
       <div class="derma-category-intro-copy">
         <span>${escapeCopy(intro.eyebrow || "Catalogo interactivo")}</span>
@@ -257,6 +258,18 @@ function renderServiceFunnel(serviceSections = [], intro = {}, context = {}) {
   `;
 }
 
+function renderCatalogStickyLogo(brand = {}, intro = {}) {
+  const logo = safeUrl(brand.logo || intro.stickyLogo || intro.logo || intro.logoImage);
+  const label = brand.name || intro.title || "Logo";
+
+  if (!logo) return "";
+
+  return `
+    <div class="derma-catalog-sticky-logo" aria-label="${escapeHtml(label)}">
+      <img src="${logo}" alt="${escapeHtml(label)}">
+    </div>
+  `;
+}
 function renderCatalogIntroMedia(intro = {}) {
   const image = getCatalogIntroImage(intro);
 

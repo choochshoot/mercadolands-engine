@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260710-keratina-length-prices-v1";
-import { getTemplate } from "./template-registry.js?v=20260710-keratina-length-prices-v1";
-import { loadTheme } from "./theme-registry.js?v=20260710-keratina-length-prices-v1";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260710-scroll-premium-polish-v1";
+import { getTemplate } from "./template-registry.js?v=20260710-scroll-premium-polish-v1";
+import { loadTheme } from "./theme-registry.js?v=20260710-scroll-premium-polish-v1";
 
 let cleanupLandingEffects = () => {};
 
@@ -84,11 +84,16 @@ function initLandingEffects(mount, templateKey) {
 
   if (templateKey !== "dermatology") return cleanupHashNavigation;
 
+  const cleanupScrollPolish = initDermaScrollPolish(mount);
   const hero = mount.querySelector(".derma-hero");
   const video = mount.querySelector(".derma-hero-video");
   const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const cleanupBase = () => {
+    cleanupHashNavigation();
+    cleanupScrollPolish();
+  };
 
-  if (!hero || !video || motionQuery.matches) return cleanupHashNavigation;
+  if (!hero || !video || motionQuery.matches) return cleanupBase;
 
   let ticking = false;
 
@@ -129,7 +134,7 @@ function initLandingEffects(mount, templateKey) {
   updateParallax();
 
   return () => {
-    cleanupHashNavigation();
+    cleanupBase();
     window.removeEventListener("scroll", requestUpdate);
     window.removeEventListener("resize", requestUpdate);
     motionQuery.removeEventListener("change", handleMotionChange);
@@ -137,6 +142,72 @@ function initLandingEffects(mount, templateKey) {
   };
 }
 
+function initDermaScrollPolish(mount) {
+  const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const revealItems = [
+    ...mount.querySelectorAll(".derma-category-first-intro, .derma-category, .derma-service-detail, .derma-promo")
+  ];
+  const stickyLogo = mount.querySelector(".derma-catalog-sticky-logo");
+  const servicesCard = mount.querySelector(".derma-services-card");
+  let ticking = false;
+  let observer = null;
+
+  const showAll = () => {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+    stickyLogo?.style.setProperty("--derma-logo-scroll", "0");
+  };
+
+  if (motionQuery.matches || !revealItems.length) {
+    showAll();
+    return () => {};
+  }
+
+  if ("IntersectionObserver" in window) {
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, {
+      rootMargin: "0px 0px -12%",
+      threshold: 0.16
+    });
+
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    showAll();
+  }
+
+  const updateLogoProgress = () => {
+    ticking = false;
+    if (!stickyLogo || !servicesCard) return;
+
+    const rect = servicesCard.getBoundingClientRect();
+    const travel = Math.max(rect.height - window.innerHeight * 0.45, 1);
+    const progress = clamp((window.innerHeight * 0.16 - rect.top) / travel, 0, 1);
+
+    stickyLogo.style.setProperty("--derma-logo-scroll", progress.toFixed(3));
+  };
+
+  const requestLogoUpdate = () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(updateLogoProgress);
+  };
+
+  window.addEventListener("scroll", requestLogoUpdate, { passive: true });
+  window.addEventListener("resize", requestLogoUpdate);
+  updateLogoProgress();
+
+  return () => {
+    observer?.disconnect();
+    window.removeEventListener("scroll", requestLogoUpdate);
+    window.removeEventListener("resize", requestLogoUpdate);
+    stickyLogo?.style.removeProperty("--derma-logo-scroll");
+    revealItems.forEach((item) => item.classList.remove("is-visible"));
+  };
+}
 function initHashNavigation(mount) {
   const scrollToHash = (hash, behavior = "smooth") => {
     if (!hash || hash === "#") return false;

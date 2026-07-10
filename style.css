@@ -1150,7 +1150,7 @@ img {
 
 .derma-services-card {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background:
     linear-gradient(180deg, rgba(234, 200, 175, 0.08), transparent 34%),
     rgba(24, 28, 29, 0.72);
@@ -1902,6 +1902,66 @@ img {
   margin-top: 16px;
 }
 
+.derma-catalog-sticky-logo {
+  position: sticky;
+  top: 8px;
+  z-index: 24;
+  width: min(206px, 60vw);
+  min-height: 64px;
+  display: grid;
+  place-items: center;
+  margin: -6px auto 10px;
+  padding: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.derma-catalog-sticky-logo img {
+  width: 100%;
+  max-width: 178px;
+  max-height: 62px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.38));
+  opacity: calc(1 - (var(--derma-logo-scroll, 0) * 0.18));
+  transform: translateY(calc(var(--derma-logo-scroll, 0) * -5px)) scale(calc(1 - (var(--derma-logo-scroll, 0) * 0.06)));
+  transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+
+.template-dermatology .derma-category-first-intro,
+.template-dermatology .derma-category,
+.template-dermatology .derma-service-detail,
+.template-dermatology .derma-promo {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  transition:
+    opacity 0.62s ease,
+    transform 0.62s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.32s ease,
+    border-color 0.32s ease;
+  will-change: opacity, transform;
+}
+
+.template-dermatology .derma-category-first-intro.is-visible,
+.template-dermatology .derma-category.is-visible,
+.template-dermatology .derma-service-detail.is-visible,
+.template-dermatology .derma-promo.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .template-dermatology .derma-category-first-intro,
+  .template-dermatology .derma-category,
+  .template-dermatology .derma-service-detail,
+  .template-dermatology .derma-promo,
+  .derma-catalog-sticky-logo img {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 .derma-category-first-intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(104px, 34%);
