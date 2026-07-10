@@ -480,6 +480,81 @@ textarea {
   border-color: #ead7e4;
 }
 
+.vanessa-price-dashboard {
+  border-color: #d7e5df;
+  background: #f8fcfa;
+}
+
+.vanessa-price-title {
+  align-items: flex-start;
+}
+
+.vanessa-save-prices {
+  color: #fff;
+  background: var(--admin-accent);
+}
+
+.vanessa-price-tools {
+  display: grid;
+  grid-template-columns: minmax(220px, 360px) minmax(0, 1fr);
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+
+.vanessa-price-tools p {
+  margin: 0 0 10px;
+  color: var(--admin-muted);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.vanessa-price-list {
+  display: grid;
+  gap: 8px;
+}
+
+.vanessa-price-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #d7e5df;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.vanessa-price-row > div,
+.vanessa-price-row label {
+  min-width: 0;
+}
+
+.vanessa-price-row span,
+.vanessa-price-row small,
+.vanessa-price-row label span {
+  display: block;
+  color: var(--admin-muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.vanessa-price-row strong {
+  display: block;
+  margin: 3px 0;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+}
+
+.vanessa-price-row label {
+  display: grid;
+  gap: 6px;
+}
+
+.vanessa-price-row input {
+  width: 100%;
+}
 .vanessa-section-list,
 .vanessa-category-list,
 .vanessa-service-list,
@@ -661,6 +736,8 @@ textarea {
 
 @media (max-width: 860px) {
   .vanessa-admin-hero,
+  .vanessa-price-tools,
+  .vanessa-price-row,
   .vanessa-service-grid,
   .vanessa-list-grid {
     grid-template-columns: 1fr;

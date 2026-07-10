@@ -28,7 +28,7 @@ async function unlockAdmin() {
   document.body.classList.add("admin-unlocked");
   await loadScript("https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2");
   await loadScript("./config.js");
-  await import("./panel.js?v=20260706-admin-catalog-image-label-v1");
+  await import("./panel.js?v=20260710-vanessa-price-dashboard-v1");
 }
 
 function loadScript(src) {
@@ -47,3 +47,4 @@ function loadScript(src) {
     document.body.appendChild(script);
   });
 }
+

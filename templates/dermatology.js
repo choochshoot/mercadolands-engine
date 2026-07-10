@@ -272,7 +272,46 @@ function getCatalogIntroImage(intro = {}) {
 function collectServiceCategories(serviceSections = []) {
   return serviceSections.flatMap((section) => {
     const categories = Array.isArray(section.categories) ? section.categories : [];
-    return categories.map((category) => ({ ...category, sectionName: section.name }));
+
+    return categories.map((category) => ({
+      ...category,
+      sectionName: section.name,
+      services: expandKeratinaLengthPrices(category.services)
+    }));
+  });
+}
+
+function expandKeratinaLengthPrices(services = []) {
+  if (!Array.isArray(services)) return [];
+
+  return services.flatMap((service) => {
+    if (service.slug !== "keratina" || service.variant) return service;
+    return createKeratinaLengthServices(service);
+  });
+}
+
+function createKeratinaLengthServices(base = {}) {
+  return [
+    ["SV011A", 110, "Cabello corto", "keratina-cabello-corto", "$499"],
+    ["SV011B", 111, "Cabello mediano", "keratina-cabello-mediano", "$799"],
+    ["SV011C", 112, "Cabello largo", "keratina-cabello-largo", "$999"],
+    ["SV011D", 113, "Cabello extra largo", "keratina-cabello-extra-largo", "$1,199"]
+  ].map(([id, order, variant, slug, price]) => {
+    const whatsappMessage = `Hola, quiero informacion y disponibilidad sobre Keratina - ${variant}.`;
+
+    return {
+      ...base,
+      id,
+      order,
+      variant,
+      slug,
+      shareSlug: "keratina",
+      route: `/servicios/${slug}`,
+      price,
+      whatsappMessage,
+      whatsappUrl: `https://wa.me/525542460371?text=${encodeURIComponent(whatsappMessage)}`,
+      notes: "Precio por largo de cabello."
+    };
   });
 }
 
@@ -545,7 +584,7 @@ function renderServiceShare(service = {}, context = {}) {
 function getServiceShareUrl(service = {}, context = {}) {
   const title = getServiceDisplayName(service) || "este servicio";
   const hasWindow = typeof window !== "undefined";
-  const serviceSlug = slugifyFilename(service.slug || service.name);
+  const serviceSlug = slugifyFilename(service.shareSlug || service.slug || service.name);
   const sharePageUrl = hasWindow
     ? new URL(`../share/vanessa-gonzalez/${serviceSlug}.html?v=4`, window.location.href).href
     : "";

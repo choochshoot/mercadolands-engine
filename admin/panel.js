@@ -72,7 +72,7 @@ function bindEvents() {
 
   els.theme.addEventListener("change", updatePreview);
   els.slug.addEventListener("input", updateViewLink);
-  els.fields.addEventListener("input", updatePreview);
+  els.fields.addEventListener("input", handleFieldsInput);
   els.fields.addEventListener("change", handleFieldChange);
   els.fields.addEventListener("click", handleDynamicClick);
   els.form.addEventListener("submit", saveLanding);
@@ -141,6 +141,7 @@ function shouldUseVanessaCatalogEditor() {
 function renderVanessaCatalogEditor(editableData) {
   const serviceSections = Array.isArray(state.data.serviceSections) ? state.data.serviceSections : [];
   const promotions = Array.isArray(state.data.promotions) ? state.data.promotions : [];
+  const priceItems = collectVanessaPriceItems(serviceSections);
   const serviceCount = serviceSections.reduce((total, section) => total + getSectionServiceCount(section), 0);
   const categoryCount = serviceSections.reduce((total, section) => total + (Array.isArray(section.categories) ? section.categories.length : 0), 0);
   const otherGroups = Object.entries(editableData)
@@ -162,6 +163,8 @@ function renderVanessaCatalogEditor(editableData) {
         ${renderVanessaStat(promotions.length, "promos")}
       </div>
     </section>
+
+    ${renderVanessaPriceDashboard(priceItems)}
 
     <section class="field-group vanessa-catalog" data-path="serviceSections">
       <div class="group-title vanessa-catalog-title">
@@ -188,6 +191,71 @@ function renderVanessaCatalogEditor(editableData) {
   `;
 }
 
+function collectVanessaPriceItems(serviceSections = []) {
+  return serviceSections.flatMap((section, sectionIndex) => {
+    const categories = Array.isArray(section.categories) ? section.categories : [];
+
+    return categories.flatMap((category, categoryIndex) => {
+      const services = Array.isArray(category.services) ? category.services : [];
+
+      return services.map((service, serviceIndex) => {
+        const servicePath = `serviceSections.${sectionIndex}.categories.${categoryIndex}.services.${serviceIndex}`;
+        const title = service.variant ? `${service.name || "Servicio"} - ${service.variant}` : service.name || `Servicio ${serviceIndex + 1}`;
+
+        return {
+          title,
+          section: section.name || "Sin seccion",
+          category: category.name || "Sin categoria",
+          slug: service.slug || "",
+          price: service.price || "",
+          pricePath: `${servicePath}.price`
+        };
+      });
+    });
+  });
+}
+
+function renderVanessaPriceDashboard(items = []) {
+  return `
+    <section class="field-group vanessa-price-dashboard">
+      <div class="group-title vanessa-price-title">
+        <div>
+          <span>Dashboard de precios</span>
+          <h2>Control diario de servicios</h2>
+        </div>
+        <button type="button" class="mini-btn vanessa-save-prices" data-action="save-prices">Guardar precios</button>
+      </div>
+      <div class="vanessa-price-tools">
+        <div class="field-row">
+          <label>Buscar servicio</label>
+          <input type="search" data-price-search placeholder="Nombre, categoria o slug" spellcheck="false">
+        </div>
+        <p>${escapeHtml(items.length)} precios editables. Los cambios se guardan en el mismo JSON de la landing.</p>
+      </div>
+      <div class="vanessa-price-list">
+        ${items.map(renderVanessaPriceRow).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderVanessaPriceRow(item = {}) {
+  const searchText = [item.title, item.section, item.category, item.slug, item.price].join(" ").toLowerCase();
+
+  return `
+    <article class="vanessa-price-row" data-price-row data-search="${escapeHtml(searchText)}">
+      <div>
+        <span>${escapeHtml(item.section)} / ${escapeHtml(item.category)}</span>
+        <strong>${escapeHtml(item.title)}</strong>
+        <small>${item.slug ? `/${escapeHtml(item.slug)}` : "sin slug"}</small>
+      </div>
+      <label>
+        <span>Precio</span>
+        <input data-path="${item.pricePath}" value="${escapeHtml(item.price)}" spellcheck="false">
+      </label>
+    </article>
+  `;
+}
 function renderVanessaStat(value, label) {
   return `
     <div>
@@ -452,8 +520,29 @@ function handleDynamicClick(event) {
     removeArrayItem(path);
   }
 
+  if (button.dataset.action === "save-prices") {
+    saveLanding(event);
+    return;
+  }
+
   renderDynamicFields();
   updatePreview();
+}
+
+function handleFieldsInput(event) {
+  updatePreview();
+
+  if (event.target.matches("[data-price-search]")) {
+    applyVanessaPriceFilter(event.target.value);
+  }
+}
+
+function applyVanessaPriceFilter(value = "") {
+  const query = String(value || "").trim().toLowerCase();
+
+  els.fields.querySelectorAll("[data-price-row]").forEach((row) => {
+    row.hidden = query ? !String(row.dataset.search || "").includes(query) : false;
+  });
 }
 
 async function handleFieldChange(event) {
@@ -630,7 +719,7 @@ async function uploadAssetForField(input) {
 
   if (!slug) {
     input.value = "";
-    setStatus("Escribe un slug antes de subir imágenes.", "error");
+    setStatus("Escribe un slug antes de subir imagenes.", "error");
     return;
   }
 
@@ -917,6 +1006,10 @@ function isVideoUrl(value) {
 }
 
 function normalizeLoadedData(template) {
+  if (cleanSlug(els.slug.value) === "vanessa-gonzalez") {
+    normalizeVanessaCatalogData();
+  }
+
   if (template !== "dermatology") return;
   if (!Array.isArray(state.data.services)) return;
 
@@ -927,6 +1020,59 @@ function normalizeLoadedData(template) {
     thumbLink: "",
     ...service
   }));
+}
+
+function normalizeVanessaCatalogData() {
+  const sections = Array.isArray(state.data.serviceSections) ? state.data.serviceSections : [];
+
+  sections.forEach((section) => {
+    const categories = Array.isArray(section.categories) ? section.categories : [];
+
+    categories.forEach((category) => {
+      const services = Array.isArray(category.services) ? category.services : [];
+      const keratinaIndex = services.findIndex((service) => service.slug === "keratina" && !service.variant);
+
+      if (keratinaIndex === -1) return;
+
+      const base = services[keratinaIndex];
+      services.splice(keratinaIndex, 1, ...createKeratinaVariantServices(base));
+    });
+  });
+
+  updateVanessaServiceStat(sections);
+}
+
+function createKeratinaVariantServices(base = {}) {
+  return [
+    ["SV011A", 110, "Cabello corto", "keratina-cabello-corto", "$499"],
+    ["SV011B", 111, "Cabello mediano", "keratina-cabello-mediano", "$799"],
+    ["SV011C", 112, "Cabello largo", "keratina-cabello-largo", "$999"],
+    ["SV011D", 113, "Cabello extra largo", "keratina-cabello-extra-largo", "$1,199"]
+  ].map(([id, order, variant, slug, price]) => {
+    const whatsappMessage = `Hola, quiero informacion y disponibilidad sobre Keratina - ${variant}.`;
+
+    return {
+      ...base,
+      id,
+      order,
+      variant,
+      slug,
+      route: `/servicios/${slug}`,
+      price,
+      whatsappMessage,
+      whatsappUrl: `https://wa.me/525542460371?text=${encodeURIComponent(whatsappMessage)}`,
+      notes: "Precio por largo de cabello."
+    };
+  });
+}
+
+function updateVanessaServiceStat(sections = []) {
+  const stats = state.data.doctor && Array.isArray(state.data.doctor.stats) ? state.data.doctor.stats : [];
+  const serviceStat = stats.find((stat) => String(stat.label || "").includes("servicios"));
+
+  if (serviceStat) {
+    serviceStat.value = String(sections.reduce((total, section) => total + getSectionServiceCount(section), 0));
+  }
 }
 
 function isImageOnlyAssetPath(path = "") {
@@ -1001,4 +1147,6 @@ function cssEscape(value) {
 
   return String(value).replace(/"/g, '\\"');
 }
+
+
 

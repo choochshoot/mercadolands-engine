@@ -1,10 +1,10 @@
 const templateLoaders = {
-  creator: () => import("../templates/creator.js?v=20260706-category-hero-v5"),
-  wedding: () => import("../templates/wedding.js?v=20260706-category-hero-v5"),
-  pizza: () => import("../templates/pizza.js?v=20260706-category-hero-v5"),
-  business: () => import("../templates/business.js?v=20260706-category-hero-v5"),
-  realestate: () => import("../templates/realestate.js?v=20260706-category-hero-v5"),
-  dermatology: () => import("../templates/dermatology.js?v=20260706-category-hero-v5")
+  creator: () => import("../templates/creator.js?v=20260710-keratina-length-prices-v1"),
+  wedding: () => import("../templates/wedding.js?v=20260710-keratina-length-prices-v1"),
+  pizza: () => import("../templates/pizza.js?v=20260710-keratina-length-prices-v1"),
+  business: () => import("../templates/business.js?v=20260710-keratina-length-prices-v1"),
+  realestate: () => import("../templates/realestate.js?v=20260710-keratina-length-prices-v1"),
+  dermatology: () => import("../templates/dermatology.js?v=20260710-keratina-length-prices-v1")
 };
 
 export async function getTemplate(templateName) {

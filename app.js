@@ -1,4 +1,4 @@
-import { bootLanding } from "./core/render.js?v=20260706-category-hero-v5";
+import { bootLanding } from "./core/render.js?v=20260710-keratina-length-prices-v1";
 
 bootLanding({
   mountSelector: "#app",
