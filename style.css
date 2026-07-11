@@ -2792,3 +2792,43 @@ img {
     margin: 2px auto 0;
   }
 }
+
+
+.landing-preloader {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  padding: 28px;
+  background: #000;
+  color: #f8eef7;
+  text-align: center;
+  font-family: Manrope, Arial, sans-serif;
+}
+
+.landing-preloader-logo {
+  width: min(70vw, 260px);
+  max-height: 42vh;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 28px rgba(255, 91, 196, 0.38));
+}
+
+.landing-preloader p {
+  margin: 2px 0 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(20px, 5vw, 32px);
+  font-weight: 700;
+}
+
+.landing-preloader span {
+  color: rgba(248, 238, 247, 0.72);
+  font-size: 13px;
+}
+
+@media (min-width: 720px) {
+  .landing-preloader-logo {
+    width: min(34vw, 320px);
+  }
+}

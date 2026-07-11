@@ -1,4 +1,4 @@
-import { bootLanding } from "./core/render.js?v=20260711-no-call-button-v1";
+import { bootLanding } from "./core/render.js?v=20260711-logo-preloader-v1";
 
 bootLanding({
   mountSelector: "#app",
