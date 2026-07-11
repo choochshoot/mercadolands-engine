@@ -1,10 +1,10 @@
 const templateLoaders = {
-  creator: () => import("../templates/creator.js?v=20260710-footer-privacy-v1"),
-  wedding: () => import("../templates/wedding.js?v=20260710-footer-privacy-v1"),
-  pizza: () => import("../templates/pizza.js?v=20260710-footer-privacy-v1"),
-  business: () => import("../templates/business.js?v=20260710-footer-privacy-v1"),
-  realestate: () => import("../templates/realestate.js?v=20260710-footer-privacy-v1"),
-  dermatology: () => import("../templates/dermatology.js?v=20260710-footer-privacy-v1")
+  creator: () => import("../templates/creator.js?v=20260710-promo-sticky-banner-v1"),
+  wedding: () => import("../templates/wedding.js?v=20260710-promo-sticky-banner-v1"),
+  pizza: () => import("../templates/pizza.js?v=20260710-promo-sticky-banner-v1"),
+  business: () => import("../templates/business.js?v=20260710-promo-sticky-banner-v1"),
+  realestate: () => import("../templates/realestate.js?v=20260710-promo-sticky-banner-v1"),
+  dermatology: () => import("../templates/dermatology.js?v=20260710-promo-sticky-banner-v1")
 };
 
 export async function getTemplate(templateName) {

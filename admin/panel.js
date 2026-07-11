@@ -145,7 +145,7 @@ function renderVanessaCatalogEditor(editableData) {
   const serviceCount = serviceSections.reduce((total, section) => total + getSectionServiceCount(section), 0);
   const categoryCount = serviceSections.reduce((total, section) => total + (Array.isArray(section.categories) ? section.categories.length : 0), 0);
   const otherGroups = Object.entries(editableData)
-    .filter(([key]) => key !== "serviceSections")
+    .filter(([key]) => !["serviceSections", "promoStickyBanner"].includes(key))
     .map(([key, value]) => renderGroup(key, value, key))
     .join("");
 
@@ -163,6 +163,8 @@ function renderVanessaCatalogEditor(editableData) {
         ${renderVanessaStat(promotions.length, "promos")}
       </div>
     </section>
+
+    ${renderVanessaPromoBannerEditor(state.data.promoStickyBanner || {})}
 
     ${renderVanessaPriceDashboard(priceItems)}
 
@@ -191,6 +193,39 @@ function renderVanessaCatalogEditor(editableData) {
   `;
 }
 
+function renderVanessaPromoBannerEditor(banner = {}) {
+  const path = "promoStickyBanner";
+  const normalized = {
+    enabled: banner.enabled !== false,
+    image: banner.image || "",
+    imageAlt: banner.imageAlt || "Solicitar promociones especiales de la semana",
+    link: banner.link || "#derma-promos",
+    showAfterMs: banner.showAfterMs || "3000",
+    visibleMs: banner.visibleMs || "5000",
+    hiddenMs: banner.hiddenMs || "3000"
+  };
+
+  return `
+    <section class="field-group vanessa-promo-banner-editor" data-path="${path}">
+      <div class="group-title vanessa-promo-banner-title">
+        <div>
+          <span>Banner sticky</span>
+          <h2>Promos semanales</h2>
+        </div>
+      </div>
+      <p class="vanessa-admin-hint">Aparece abajo de la pantalla despues de 3 segundos, permanece 5 segundos y se repite mientras la persona esta en el sitio.</p>
+      ${renderBooleanInput("enabled", normalized.enabled, `${path}.enabled`)}
+      ${renderAssetInput("image", normalized.image, `${path}.image`)}
+      <div class="vanessa-service-grid">
+        ${renderInput("imageAlt", normalized.imageAlt, `${path}.imageAlt`)}
+        ${renderInput("link", normalized.link, `${path}.link`)}
+        ${renderInput("showAfterMs", normalized.showAfterMs, `${path}.showAfterMs`)}
+        ${renderInput("visibleMs", normalized.visibleMs, `${path}.visibleMs`)}
+        ${renderInput("hiddenMs", normalized.hiddenMs, `${path}.hiddenMs`)}
+      </div>
+    </section>
+  `;
+}
 function collectVanessaPriceItems(serviceSections = []) {
   return serviceSections.flatMap((section, sectionIndex) => {
     const categories = Array.isArray(section.categories) ? section.categories : [];
@@ -879,7 +914,8 @@ function getFieldLabel(key, path = "") {
     "hero.photo": "Foto principal",
     "brand.logo": "Logo marca",
     "share.image": "Imagen para compartir",
-    "catalogIntro.image": "WEBP/imagen del inicio del catalogo: columna derecha superior"
+    "catalogIntro.image": "WEBP/imagen del inicio del catalogo: columna derecha superior",
+    "promoStickyBanner.image": "Banner sticky de promos semanales"
   };
   const normalizedPath = String(path || "").toLowerCase();
 
@@ -1023,6 +1059,10 @@ function normalizeLoadedData(template) {
 }
 
 function normalizeVanessaCatalogData() {
+  if (!isObject(state.data.promoStickyBanner)) {
+    state.data.promoStickyBanner = createDefaultVanessaPromoBanner();
+  }
+
   const sections = Array.isArray(state.data.serviceSections) ? state.data.serviceSections : [];
 
   sections.forEach((section) => {
@@ -1042,6 +1082,17 @@ function normalizeVanessaCatalogData() {
   updateVanessaServiceStat(sections);
 }
 
+function createDefaultVanessaPromoBanner() {
+  return {
+    enabled: true,
+    image: "../share/assets/vanessa-gonzalez/banner-promos-semanales.webp",
+    imageAlt: "Solicitar promociones especiales de la semana",
+    link: "#derma-promos",
+    showAfterMs: "3000",
+    visibleMs: "5000",
+    hiddenMs: "3000"
+  };
+}
 function createKeratinaVariantServices(base = {}) {
   return [
     ["SV011A", 110, "Cabello corto", "keratina-cabello-corto", "$499"],
@@ -1078,7 +1129,7 @@ function updateVanessaServiceStat(sections = []) {
 function isImageOnlyAssetPath(path = "") {
   const normalizedPath = String(path).toLowerCase();
 
-  return normalizedPath === "share.image" || normalizedPath === "catalogintro.image" || isServiceImagePath(normalizedPath);
+  return normalizedPath === "share.image" || normalizedPath === "catalogintro.image" || normalizedPath === "promostickybanner.image" || isServiceImagePath(normalizedPath);
 }
 
 function isServiceImagePath(path = "") {

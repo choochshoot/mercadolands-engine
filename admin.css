@@ -723,6 +723,36 @@ textarea {
   min-height: 118px;
 }
 
+
+.vanessa-promo-banner-editor {
+  border-color: #ead7e4;
+  background:
+    radial-gradient(circle at 96% 0%, rgba(166, 77, 121, 0.12), transparent 34%),
+    #fff9fd;
+}
+
+.vanessa-promo-banner-title {
+  align-items: flex-start;
+}
+
+.vanessa-admin-hint {
+  margin: -4px 0 16px;
+  color: var(--admin-muted);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.vanessa-promo-banner-editor .asset-preview {
+  width: min(100%, 360px);
+  height: auto;
+  aspect-ratio: 5 / 1;
+  border-radius: 16px;
+}
+
+.vanessa-promo-banner-editor .asset-preview img {
+  object-fit: cover;
+}
 .vanessa-secondary-groups {
   padding: 0;
   border: 1px solid var(--admin-line);

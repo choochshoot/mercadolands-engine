@@ -102,10 +102,50 @@ export function render(data = {}, context = {}) {
         <p>${escapeCopy(brand.name)} - Dermatolog&iacute;a est&eacute;tica de precisi&oacute;n</p>
         ${privacyNotice ? `<small>${escapeCopy(privacyNotice)}</small>` : ""}
       </footer>
+      ${renderPromoStickyBanner(getPromoStickyBanner(data, context), contact)}
     </main>
   `;
 }
 
+function getPromoStickyBanner(data = {}, context = {}) {
+  if (data.promoStickyBanner) return data.promoStickyBanner;
+
+  if (context.slug === "vanessa-gonzalez") {
+    return {
+      enabled: true,
+      image: "../share/assets/vanessa-gonzalez/banner-promos-semanales.webp",
+      imageAlt: "Solicitar promociones especiales de la semana",
+      link: "#derma-promos",
+      showAfterMs: "3000",
+      visibleMs: "5000",
+      hiddenMs: "3000"
+    };
+  }
+
+  return {};
+}
+function renderPromoStickyBanner(banner = {}, contact = {}) {
+  if (banner.enabled === false) return "";
+
+  const image = safeUrl(banner.image);
+  if (!image) return "";
+
+  const link = safeUrl(banner.link || contact.whatsapp || "#derma-promos") || "#derma-promos";
+  const showAfter = parseTiming(banner.showAfterMs, 3000);
+  const visible = parseTiming(banner.visibleMs, 5000);
+  const hidden = parseTiming(banner.hiddenMs, 3000);
+
+  return `
+    <a class="derma-promo-sticky-banner" href="${link}" data-promo-sticky-banner data-show-after="${showAfter}" data-visible-ms="${visible}" data-hidden-ms="${hidden}" aria-label="${escapeHtml(banner.imageAlt || "Solicitar promociones especiales")}">
+      <img src="${image}" alt="${escapeHtml(banner.imageAlt || "Promociones especiales de la semana")}">
+    </a>
+  `;
+}
+
+function parseTiming(value, fallback) {
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? Math.round(number) : fallback;
+}
 function getPrivacyNotice(data = {}, context = {}) {
   if (data.privacyNotice) return data.privacyNotice;
 

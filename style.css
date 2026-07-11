@@ -2618,6 +2618,55 @@ img {
     line-height: 1.18;
   }
 }
+
+.derma-promo-sticky-banner {
+  position: fixed;
+  left: 50%;
+  bottom: max(14px, env(safe-area-inset-bottom));
+  z-index: 80;
+  width: min(92vw, 560px);
+  display: block;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(10, 10, 12, 0.92);
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.42),
+    0 0 36px rgba(255, 104, 205, 0.22);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 18px) scale(0.96);
+  transition: opacity 0.42s ease, transform 0.42s ease, filter 0.42s ease;
+}
+
+.derma-promo-sticky-banner.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.derma-promo-sticky-banner:hover {
+  filter: brightness(1.06);
+  transform: translate(-50%, -2px) scale(1.01);
+}
+
+.derma-promo-sticky-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .derma-promo-sticky-banner {
+    width: min(94vw, 420px);
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .derma-promo-sticky-banner {
+    transition: none;
+  }
+}
 /* Vanessa Gonzalez funnel polish: alternating category tones + stronger glass depth. */
 .template-dermatology .derma-promo,
 .template-dermatology .derma-funnel-section,

@@ -1,6 +1,6 @@
-import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260710-footer-privacy-v1";
-import { getTemplate } from "./template-registry.js?v=20260710-footer-privacy-v1";
-import { loadTheme } from "./theme-registry.js?v=20260710-footer-privacy-v1";
+import { getSlug, escapeHtml, toRegistryKey } from "./helpers.js?v=20260710-promo-sticky-banner-v1";
+import { getTemplate } from "./template-registry.js?v=20260710-promo-sticky-banner-v1";
+import { loadTheme } from "./theme-registry.js?v=20260710-promo-sticky-banner-v1";
 
 let cleanupLandingEffects = () => {};
 
@@ -85,12 +85,14 @@ function initLandingEffects(mount, templateKey) {
   if (templateKey !== "dermatology") return cleanupHashNavigation;
 
   const cleanupScrollPolish = initDermaScrollPolish(mount);
+  const cleanupPromoStickyBanner = initPromoStickyBanner(mount);
   const hero = mount.querySelector(".derma-hero");
   const video = mount.querySelector(".derma-hero-video");
   const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   const cleanupBase = () => {
     cleanupHashNavigation();
     cleanupScrollPolish();
+    cleanupPromoStickyBanner();
   };
 
   if (!hero || !video || motionQuery.matches) return cleanupBase;
@@ -207,6 +209,50 @@ function initDermaScrollPolish(mount) {
     stickyLogo?.style.removeProperty("--derma-logo-scroll");
     revealItems.forEach((item) => item.classList.remove("is-visible"));
   };
+}
+function initPromoStickyBanner(mount) {
+  const banner = mount.querySelector("[data-promo-sticky-banner]");
+
+  if (!banner) return () => {};
+
+  const showAfter = readPositiveDelay(banner.dataset.showAfter, 3000);
+  const visibleMs = readPositiveDelay(banner.dataset.visibleMs, 5000);
+  const hiddenMs = readPositiveDelay(banner.dataset.hiddenMs, 3000);
+  const timers = new Set();
+  let stopped = false;
+
+  const schedule = (callback, delay) => {
+    const id = window.setTimeout(() => {
+      timers.delete(id);
+      if (!stopped) callback();
+    }, delay);
+
+    timers.add(id);
+  };
+
+  const show = () => {
+    banner.classList.add("is-visible");
+    schedule(hide, visibleMs);
+  };
+
+  const hide = () => {
+    banner.classList.remove("is-visible");
+    schedule(show, hiddenMs);
+  };
+
+  schedule(show, showAfter);
+
+  return () => {
+    stopped = true;
+    timers.forEach((id) => window.clearTimeout(id));
+    timers.clear();
+    banner.classList.remove("is-visible");
+  };
+}
+
+function readPositiveDelay(value, fallback) {
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? Math.round(number) : fallback;
 }
 function initHashNavigation(mount) {
   const scrollToHash = (hash, behavior = "smooth") => {

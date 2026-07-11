@@ -18,6 +18,15 @@
     "imageHeight": "630"
   },
   "privacyNotice": "Aviso de privacidad: los datos recolectados son para uso de poder compartir informacion de los tratamientos a quien lo solicite.",
+  "promoStickyBanner": {
+    "enabled": true,
+    "image": "../share/assets/vanessa-gonzalez/banner-promos-semanales.webp",
+    "imageAlt": "Solicitar promociones especiales de la semana",
+    "link": "#derma-promos",
+    "showAfterMs": "3000",
+    "visibleMs": "5000",
+    "hiddenMs": "3000"
+  },
   "hero": {
     "eyebrow": "Rosa neon lux beauty funnel",
     "title": "Explora promos, elige tu servicio y agenda por WhatsApp.",
