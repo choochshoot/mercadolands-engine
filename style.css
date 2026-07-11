@@ -2799,8 +2799,8 @@ img {
   display: grid;
   place-items: center;
   align-content: center;
-  gap: 12px;
-  padding: 28px;
+  gap: 6px;
+  padding: 20px 18px 28px;
   background: #000;
   color: #f8eef7;
   text-align: center;
@@ -2808,11 +2808,18 @@ img {
 }
 
 .landing-preloader-logo {
-  width: min(70vw, 260px);
-  max-height: 42vh;
+  width: min(92vw, 390px);
+  max-height: 58vh;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 0 28px rgba(255, 91, 196, 0.38));
+  transform: translateY(-7vh);
+  border-radius: 28px;
+  background: #000;
+  box-shadow:
+    0 0 0 18px #000,
+    0 0 54px rgba(255, 91, 196, 0.34),
+    0 0 120px rgba(255, 91, 196, 0.18);
+  filter: saturate(1.08);
 }
 
 .landing-preloader p {
@@ -2829,6 +2836,8 @@ img {
 
 @media (min-width: 720px) {
   .landing-preloader-logo {
-    width: min(34vw, 320px);
+    width: min(44vw, 460px);
+    max-height: 56vh;
+    transform: translateY(-5vh);
   }
 }
