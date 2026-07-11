@@ -15,6 +15,7 @@ export function render(data = {}, context = {}) {
   const cases = Array.isArray(data.cases) ? data.cases : [];
   const contact = data.contact || {};
   const social = data.social || {};
+  const privacyNotice = getPrivacyNotice(data, context);
 
   return `
     <main class="derma-page">
@@ -98,13 +99,22 @@ export function render(data = {}, context = {}) {
       </section>
 
       <footer class="derma-footer">
-        ${escapeCopy(brand.name)} - Dermatolog&iacute;a est&eacute;tica de precisi&oacute;n
+        <p>${escapeCopy(brand.name)} - Dermatolog&iacute;a est&eacute;tica de precisi&oacute;n</p>
+        ${privacyNotice ? `<small>${escapeCopy(privacyNotice)}</small>` : ""}
       </footer>
     </main>
   `;
 }
 
+function getPrivacyNotice(data = {}, context = {}) {
+  if (data.privacyNotice) return data.privacyNotice;
 
+  if (context.slug === "vanessa-gonzalez") {
+    return "Aviso de privacidad: los datos recolectados son para uso de poder compartir informacion de los tratamientos a quien lo solicite.";
+  }
+
+  return "";
+}
 function renderDetailImage(item = {}, className = "derma-detail-image") {
   const thumb = safeUrl(item.thumbImage || item.previewImage || item.detailImage);
   const target = safeUrl(item.thumbLink || item.detailImage || item.previewImage || item.thumbImage);
