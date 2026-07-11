@@ -91,7 +91,6 @@ export function render(data = {}, context = {}) {
           <p>${escapeCopy(contact.address)}</p>
           <div class="derma-actions">
             ${renderDermaActionButton({ label: "WhatsApp", link: contact.whatsapp, type: "whatsapp", subtitle: "AGENDAR" })}
-            ${renderDermaActionButton({ label: "Llamar", link: contact.phone, type: "phone", subtitle: "CONTACTO" })}
             ${renderDermaActionButton({ label: "C\u00f3mo llegar", link: contact.mapUrl, type: "map", subtitle: "MAPS" })}
             ${social.instagram ? renderDermaActionButton({ label: social.label || "Instagram", link: social.instagram, type: "instagram", subtitle: "REDES" }) : ""}
           </div>

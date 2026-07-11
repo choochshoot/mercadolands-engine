@@ -7,25 +7,25 @@ values ('vanessa-gonzalez', 'dermatology', 'rosa-neon-lux', 'dermatology', $$
   "template": "dermatology",
   "theme": "rosa-neon-lux",
   "brand": {
-    "name": "Vanessa Gonz?lez Studio",
-    "tagline": "Medicina est?tica, beauty studio y glow boutique",
-    "specialty": "Servicios est?ticos, u?as, pesta?as, cabello y eventos",
+    "name": "Vanessa González Studio",
+    "tagline": "Medicina estética, beauty studio y glow boutique",
+    "specialty": "Servicios estéticos, uñas, pestañas, cabello y eventos",
     "logo": "",
     "showHeroLogo": false,
     "showBrandCardLogo": true
   },
   "share": {
-    "title": "Vanessa Gonz?lez Studio | Cat?logo de servicios",
-    "description": "Promociones y servicios de medicina est?tica, u?as, pesta?as, cabello, pies y eventos con CTA directo a WhatsApp.",
+    "title": "Vanessa González Studio | Catálogo de servicios",
+    "description": "Promociones y servicios de medicina estética, uñas, pestañas, cabello, pies y eventos con CTA directo a WhatsApp.",
     "image": "https://choochshoot.github.io/mercadolands-engine/share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg",
-    "imageAlt": "Vanessa Gonz?lez Studio cat?logo de servicios",
+    "imageAlt": "Vanessa González Studio catálogo de servicios",
     "imageWidth": "1200",
     "imageHeight": "630"
   },
   "hero": {
     "eyebrow": "Rosa neon lux beauty funnel",
     "title": "Explora promos, elige tu servicio y agenda por WhatsApp.",
-    "subtitle": "Un cat?logo claro y persuasivo para descubrir tratamientos, precios publicados, restricciones y detalles antes de reservar.",
+    "subtitle": "Un catálogo claro y persuasivo para descubrir tratamientos, precios publicados, restricciones y detalles antes de reservar.",
     "photo": "../share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg",
     "video": "",
     "ctaPrimaryLabel": "Ver promociones",
@@ -34,10 +34,10 @@ values ('vanessa-gonzalez', 'dermatology', 'rosa-neon-lux', 'dermatology', $$
     "ctaSecondaryLink": "#derma-funnel"
   },
   "doctor": {
-    "name": "Vanessa Gonz?lez Studio",
+    "name": "Vanessa González Studio",
     "title": "Beauty & aesthetic studio",
     "photo": "",
-    "description": "Cat?logo de servicios organizado para navegar desde promociones hasta categor?as, tipos de servicio y ficha detallada con agenda directa.",
+    "description": "Catálogo de servicios organizado para navegar desde promociones hasta categorías, tipos de servicio y ficha detallada con agenda directa.",
     "quote": "Elige el servicio ideal y agenda con un mensaje listo para WhatsApp.",
     "stats": [
       {
@@ -57,22 +57,22 @@ values ('vanessa-gonzalez', 'dermatology', 'rosa-neon-lux', 'dermatology', $$
   },
   "experience": {
     "eyebrow": "Embudo guiado",
-    "title": "Promos primero, detalle despu?s, WhatsApp siempre visible.",
-    "description": "Cada servicio conserva precio UI, alcance, notas y mensaje de agenda espec?fico para reducir fricci?n al momento de reservar.",
+    "title": "Promos primero, detalle después, WhatsApp siempre visible.",
+    "description": "Cada servicio conserva precio UI, alcance, notas y mensaje de agenda específico para reducir fricción al momento de reservar.",
     "photo": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
     "materials": [
       "promociones",
-      "categor?as",
+      "categorías",
       "detalle",
       "CTA WhatsApp"
     ]
   },
   "catalogIntro": {
-    "eyebrow": "Cat?logo interactivo",
-    "title": "Encuentra tu siguiente cita por categor?a",
-    "description": "Abre una secci?n, elige una categor?a y revisa cada servicio con beneficios, precio y agenda directa.",
+    "eyebrow": "Catálogo interactivo",
+    "title": "Encuentra tu siguiente cita por categoría",
+    "description": "Abre una sección, elige una categoría y revisa cada servicio con beneficios, precio y agenda directa.",
     "image": "../share/assets/vanessa-gonzalez/vanne-inicio.webp",
-    "imageAlt": "Dra. Vanessa Gonzalez con tratamiento estetico para el inicio del catalogo"
+    "imageAlt": "Dra. Vanessa González con tratamiento estético para el inicio del catálogo"
   },
   "promotions": [
     {

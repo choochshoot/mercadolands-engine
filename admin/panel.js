@@ -14,7 +14,7 @@ const FALLBACK_CONTRACTS = {
       photo: ""
     },
     hero: {
-      message: "Conectemos y hagamos cosas increibles juntos"
+      message: "Conectemos y hagamos cosas increíbles juntos"
     },
     about: {
       text: "Me encanta conectar personas y marcas.",
@@ -25,7 +25,7 @@ const FALLBACK_CONTRACTS = {
         label: "WhatsApp",
         link: "https://wa.me/5210000000000",
         type: "whatsapp",
-        subtitle: "ESCRIBEME POR"
+        subtitle: "ESCRÍBEME POR"
       }
     ]
   }
@@ -153,12 +153,12 @@ function renderVanessaCatalogEditor(editableData) {
     <section class="vanessa-admin-hero">
       <div>
         <span>Editor especial</span>
-        <h2>Vanessa Gonzalez Studio</h2>
-        <p>Gestiona el catalogo por secciones, categorias, servicios y variantes sin modificar el admin de otros slugs.</p>
+        <h2>Vanessa González Studio</h2>
+        <p>Gestiona el catálogo por secciones, categorías, servicios y variantes sin modificar el admin de otros slugs.</p>
       </div>
       <div class="vanessa-admin-stats">
         ${renderVanessaStat(serviceSections.length, "secciones")}
-        ${renderVanessaStat(categoryCount, "categorias")}
+        ${renderVanessaStat(categoryCount, "categorías")}
         ${renderVanessaStat(serviceCount, "servicios")}
         ${renderVanessaStat(promotions.length, "promos")}
       </div>
@@ -171,10 +171,10 @@ function renderVanessaCatalogEditor(editableData) {
     <section class="field-group vanessa-catalog" data-path="serviceSections">
       <div class="group-title vanessa-catalog-title">
         <div>
-          <span>Catalogo operativo</span>
-          <h2>Categorias y servicios actuales</h2>
+          <span>Catálogo operativo</span>
+          <h2>Categorías y servicios actuales</h2>
         </div>
-        <button type="button" class="mini-btn" data-action="add" data-path="serviceSections">Agregar seccion</button>
+        <button type="button" class="mini-btn" data-action="add" data-path="serviceSections">Agregar sección</button>
       </div>
       <div class="vanessa-section-list">
         ${serviceSections.map((section, sectionIndex) => renderVanessaSection(section, sectionIndex)).join("")}
@@ -213,7 +213,7 @@ function renderVanessaPromoBannerEditor(banner = {}) {
           <h2>Promos semanales</h2>
         </div>
       </div>
-      <p class="vanessa-admin-hint">Aparece abajo de la pantalla despues de 3 segundos, permanece 5 segundos y se repite mientras la persona esta en el sitio.</p>
+      <p class="vanessa-admin-hint">Aparece abajo de la pantalla después de 3 segundos, permanece 5 segundos y se repite mientras la persona está en el sitio.</p>
       ${renderBooleanInput("enabled", normalized.enabled, `${path}.enabled`)}
       ${renderAssetInput("image", normalized.image, `${path}.image`)}
       <div class="vanessa-service-grid">
@@ -239,8 +239,8 @@ function collectVanessaPriceItems(serviceSections = []) {
 
         return {
           title,
-          section: section.name || "Sin seccion",
-          category: category.name || "Sin categoria",
+          section: section.name || "Sin sección",
+          category: category.name || "Sin categoría",
           slug: service.slug || "",
           price: service.price || "",
           pricePath: `${servicePath}.price`
@@ -263,7 +263,7 @@ function renderVanessaPriceDashboard(items = []) {
       <div class="vanessa-price-tools">
         <div class="field-row">
           <label>Buscar servicio</label>
-          <input type="search" data-price-search placeholder="Nombre, categoria o slug" spellcheck="false">
+          <input type="search" data-price-search placeholder="Nombre, categoría o slug" spellcheck="false">
         </div>
         <p>${escapeHtml(items.length)} precios editables. Los cambios se guardan en el mismo JSON de la landing.</p>
       </div>
@@ -309,14 +309,14 @@ function renderVanessaSection(section = {}, sectionIndex = 0) {
       <summary>
         <div>
           <span>${escapeHtml(getSectionServiceCount(section))} servicios</span>
-          <strong>${escapeHtml(section.name || `Seccion ${sectionIndex + 1}`)}</strong>
+          <strong>${escapeHtml(section.name || `Sección ${sectionIndex + 1}`)}</strong>
         </div>
         <button type="button" class="mini-btn" data-action="remove" data-path="${sectionPath}">Quitar</button>
       </summary>
       <div class="vanessa-section-fields">
         ${renderInput("name", section.name || "", `${sectionPath}.name`)}
         <div class="vanessa-add-row">
-          <button type="button" class="mini-btn" data-action="add" data-path="${sectionPath}.categories">Agregar categoria</button>
+          <button type="button" class="mini-btn" data-action="add" data-path="${sectionPath}.categories">Agregar categoría</button>
         </div>
       </div>
       <div class="vanessa-category-list">
@@ -335,7 +335,7 @@ function renderVanessaCategory(category = {}, sectionPath = "", categoryIndex = 
       <summary>
         <div>
           <span>${escapeHtml(services.length)} opciones</span>
-          <strong>${escapeHtml(category.name || `Categoria ${categoryIndex + 1}`)}</strong>
+          <strong>${escapeHtml(category.name || `Categoría ${categoryIndex + 1}`)}</strong>
         </div>
         <button type="button" class="mini-btn" data-action="remove" data-path="${categoryPath}">Quitar</button>
       </summary>
@@ -407,7 +407,7 @@ function renderListTextarea(key, value = [], path) {
   return `
     <div class="field-row vanessa-list-field">
       <label>${getFieldLabel(key, path)}</label>
-      <textarea data-list-path="${path}" placeholder="Una linea por item" ${TEXT_SPELLCHECK_ATTRS}>${escapeHtml(lines)}</textarea>
+      <textarea data-list-path="${path}" placeholder="Una línea por item" ${TEXT_SPELLCHECK_ATTRS}>${escapeHtml(lines)}</textarea>
     </div>
   `;
 }
@@ -496,7 +496,7 @@ function renderInput(key, value, path) {
 
   return `
     <div class="field-row">
-      <label>${toTitle(key)}</label>
+      <label>${getFieldLabel(key, path)}</label>
       <input data-path="${path}" value="${inputValue}"${spellcheckAttrs}>
     </div>
   `;
@@ -914,17 +914,17 @@ function getFieldLabel(key, path = "") {
     "hero.photo": "Foto principal",
     "brand.logo": "Logo marca",
     "share.image": "Imagen para compartir",
-    "catalogIntro.image": "WEBP/imagen del inicio del catalogo: columna derecha superior",
+    "catalogIntro.image": "WEBP/imagen del inicio del catálogo: columna derecha superior",
     "promoStickyBanner.image": "Banner sticky de promos semanales"
   };
   const normalizedPath = String(path || "").toLowerCase();
 
   if (normalizedPath === "catalogintro.image") {
-    return "Sube aqui el WEBP/PNG de la mejora visual del inicio de la landing";
+    return "Sube aquí el WEBP/PNG de la mejora visual del inicio de la landing";
   }
 
   if (normalizedPath.includes(".categories.") && normalizedPath.endsWith(".thumbimage")) {
-    return "Thumb del boton de esta categoria";
+    return "Thumb del botón de esta categoría";
   }
 
   if (normalizedPath.includes(".services.") && normalizedPath.endsWith(".thumbimage")) {
@@ -966,11 +966,9 @@ function shouldUseTextarea(key, value) {
 
 function shouldSpellcheckField(key, path = "") {
   const fieldName = String(key || "").toLowerCase();
-  const fullPath = String(path || "").toLowerCase();
-
   if (isAssetField(key, path)) return false;
-  if (fullPath.startsWith("share.")) return false;
-  if (["url", "link", "email", "phone", "whatsappurl", "thumblink", "slug"].some((token) => fieldName.includes(token))) return false;
+  if (["url", "link", "email", "phone", "whatsappurl", "thumblink", "slug", "route"].some((token) => fieldName.includes(token))) return false;
+  if (["id", "order"].includes(fieldName)) return false;
   if (["price", "amount", "duration", "rating", "year", "count"].some((token) => fieldName.includes(token))) return false;
 
   return true;
@@ -1011,15 +1009,15 @@ function getAssetPlaceholder(path = "") {
   const normalizedPath = String(path || "").toLowerCase();
 
   if (normalizedPath === "catalogintro.image") {
-    return "Sube aqui el WEBP/PNG de la mejora visual del inicio de la landing";
+    return "Sube aquí el WEBP/PNG de la mejora visual del inicio de la landing";
   }
 
   if (normalizedPath.includes(".categories.") && normalizedPath.endsWith(".thumbimage")) {
-    return "URL del WEBP/PNG que se vera en el boton de esta categoria";
+    return "URL del WEBP/PNG que se verá en el botón de esta categoría";
   }
 
   if (normalizedPath.includes(".services.") && normalizedPath.endsWith(".thumbimage")) {
-    return "URL del thumb visual que se vera en la ficha del tratamiento";
+    return "URL del thumb visual que se verá en la ficha del tratamiento";
   }
 
   if (isServicePreviewImagePath(path)) {
@@ -1100,7 +1098,7 @@ function createKeratinaVariantServices(base = {}) {
     ["SV011C", 112, "Cabello largo", "keratina-cabello-largo", "$999"],
     ["SV011D", 113, "Cabello extra largo", "keratina-cabello-extra-largo", "$1,199"]
   ].map(([id, order, variant, slug, price]) => {
-    const whatsappMessage = `Hola, quiero informacion y disponibilidad sobre Keratina - ${variant}.`;
+    const whatsappMessage = `Hola, quiero información y disponibilidad sobre Keratina - ${variant}.`;
 
     return {
       ...base,

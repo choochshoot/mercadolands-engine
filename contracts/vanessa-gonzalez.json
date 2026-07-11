@@ -2,22 +2,22 @@
   "template": "dermatology",
   "theme": "rosa-neon-lux",
   "brand": {
-    "name": "Vanessa Gonz?lez Studio",
-    "tagline": "Medicina est?tica, beauty studio y glow boutique",
-    "specialty": "Servicios est?ticos, u?as, pesta?as, cabello y eventos",
+    "name": "Vanessa González Studio",
+    "tagline": "Medicina estética, beauty studio y glow boutique",
+    "specialty": "Servicios estéticos, uñas, pestañas, cabello y eventos",
     "logo": "",
     "showHeroLogo": false,
     "showBrandCardLogo": true
   },
   "share": {
-    "title": "Dra. Vanessa Gonzalez | Catalogo de servicios",
+    "title": "Dra. Vanessa González | Catálogo de servicios",
     "description": "Luxury treatments, belleza y cuidado personal con agenda directa por WhatsApp.",
     "image": "https://choochshoot.github.io/mercadolands-engine/share/assets/dravanessa-og.png?v=3",
-    "imageAlt": "Dra. Vanessa Gonzalez catalogo de servicios",
+    "imageAlt": "Dra. Vanessa González catálogo de servicios",
     "imageWidth": "1200",
     "imageHeight": "630"
   },
-  "privacyNotice": "Aviso de privacidad: los datos recolectados son para uso de poder compartir informacion de los tratamientos a quien lo solicite.",
+  "privacyNotice": "Aviso de privacidad: los datos recolectados son para uso de poder compartir información de los tratamientos a quien lo solicite.",
   "promoStickyBanner": {
     "enabled": true,
     "image": "../share/assets/vanessa-gonzalez/banner-promos-semanales.webp",
@@ -30,7 +30,7 @@
   "hero": {
     "eyebrow": "Rosa neon lux beauty funnel",
     "title": "Explora promos, elige tu servicio y agenda por WhatsApp.",
-    "subtitle": "Un cat?logo claro y persuasivo para descubrir tratamientos, precios publicados, restricciones y detalles antes de reservar.",
+    "subtitle": "Un catálogo claro y persuasivo para descubrir tratamientos, precios publicados, restricciones y detalles antes de reservar.",
     "photo": "../share/assets/vanessa-gonzalez/p01-bioestimuladores.jpeg",
     "video": "",
     "ctaPrimaryLabel": "Ver promociones",
@@ -39,10 +39,10 @@
     "ctaSecondaryLink": "#derma-funnel"
   },
   "doctor": {
-    "name": "Vanessa Gonz?lez Studio",
+    "name": "Vanessa González Studio",
     "title": "Beauty & aesthetic studio",
     "photo": "",
-    "description": "Cat?logo de servicios organizado para navegar desde promociones hasta categor?as, tipos de servicio y ficha detallada con agenda directa.",
+    "description": "Catálogo de servicios organizado para navegar desde promociones hasta categorías, tipos de servicio y ficha detallada con agenda directa.",
     "quote": "Elige el servicio ideal y agenda con un mensaje listo para WhatsApp.",
     "stats": [
       {
@@ -62,22 +62,22 @@
   },
   "experience": {
     "eyebrow": "Embudo guiado",
-    "title": "Promos primero, detalle despu?s, WhatsApp siempre visible.",
-    "description": "Cada servicio conserva precio UI, alcance, notas y mensaje de agenda espec?fico para reducir fricci?n al momento de reservar.",
+    "title": "Promos primero, detalle después, WhatsApp siempre visible.",
+    "description": "Cada servicio conserva precio UI, alcance, notas y mensaje de agenda específico para reducir fricción al momento de reservar.",
     "photo": "../share/assets/vanessa-gonzalez/p20-pestanas-cejas.jpeg",
     "materials": [
       "promociones",
-      "categor?as",
+      "categorías",
       "detalle",
       "CTA WhatsApp"
     ]
   },
   "catalogIntro": {
-    "eyebrow": "Cat?logo interactivo",
-    "title": "Encuentra tu siguiente cita por categor?a",
-    "description": "Abre una secci?n, elige una categor?a y revisa cada servicio con beneficios, precio y agenda directa.",
+    "eyebrow": "Catálogo interactivo",
+    "title": "Encuentra tu siguiente cita por categoría",
+    "description": "Abre una sección, elige una categoría y revisa cada servicio con beneficios, precio y agenda directa.",
     "image": "../share/assets/vanessa-gonzalez/vanne-inicio.webp",
-    "imageAlt": "Dra. Vanessa Gonzalez con tratamiento estetico para el inicio del catalogo"
+    "imageAlt": "Dra. Vanessa González con tratamiento estético para el inicio del catálogo"
   },
   "promotions": [
     {
@@ -1917,7 +1917,7 @@
     "title": "Agenda por WhatsApp",
     "text": "Todos los servicios llegan con un mensaje sugerido para consultar disponibilidad y resolver dudas antes de reservar.",
     "whatsapp": "https://wa.me/525542460371?text=Hola%2C%20quiero%20informaci%C3%B3n%20y%20disponibilidad%20de%20los%20servicios%20de%20Vanessa%20Gonz%C3%A1lez%20Studio.",
-    "phone": "tel:+525542460371",
+    "phone": "",
     "address": "WhatsApp de agenda: 55 42 46 03 71",
     "mapUrl": "https://maps.google.com"
   },
